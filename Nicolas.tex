@@ -76,12 +76,79 @@ environments, and these environments' properties evolve with the redshift. In
 this Letter, we try to determine whether a stretch evolution with the redshift
 allows for a better description of the collected data.
 
-\section{Sample}
+\section{Sample}\label{sec:sam}
+
 We use data from 5 different surveys: Hubble Space Telescope (HST, REF),
-Supernova Nearby Factory (SNf, REF), Supernova Legacy Survey (SNLS, REF), Sloan
-DSS (SDSS, REF) and Panstarr-1 (PS1, REF). 3 of which had selection effects that
-we tried to remove with a statistical approach in lack of precise data
-concerning the instruments' capacity to acquire fluxes. Here it is:
+Supernova Nearby Factory (SNf, REF), Supernova Legacy Survey (SNLS, Aster 2006,
+Betoule 2014), Sloan DSS (SDSS, REF) and Panstarr-1 (PS1, REF). The last 3 had
+selection effects that come from the "brighter-slower" and "brighter-bluer"
+relations: the first SNe Ia that are missed by the instruments are the redder
+and faster ones. That implies that taking all of these surveys' data would not
+represent the stretch distribution that Nature could give us.
+
+As such, we determined the maximum redshift at which we would cut these samples
+to get complete ones. We used a statistical approach in lack of precise data
+concerning the instruments' capacity to acquire fluxes. We proceeded by making
+histograms of the surveys, and defining a function of the expected SNe Ia rate:
+\begin{center}
+    $ \displaystyle N\St{SNe Ia} = a \times V\z$
+\end{center}
+with $a$ the density of SNe Ia and $V\z$ the volume of Universe in each bin.
+Before selection effects, the histograms are supposed to grow proportionnaly to
+$V\z$ assuming an homogeneous repartition of SNe Ia. When we start to miss some
+supernovae, this growth is not followed anymore.
+
+To determine this limit, we first took the observed counts in each bin of the
+histograms. We then fitted $a$ on these counts for different numbers of bins
+used to fit: the quality of the fit diminishes when we use bins that include
+selection effects. To quantize this, we computed the expected counts from the
+fitted $a$ in the same bins we used for the observed counts. That allowed us to
+compute the poissonian probability in each bin, given by
+\begin{center}
+    $ \displaystyle p(k) = \frac{\lambda^k}{k!}e^{-\lambda}$
+\end{center}
+with $k$ the expected counts, $\lambda$ the observed counts. This work is done 100
+times with a random number of total bins, $a$ being fitted 4 times on a
+different and random number of bins used to fit each time. We interpolate these
+400 poissonian evolutions to get one final result that is as close as possible
+to accurately represent how the probability to follow the expected rate evolves.
+
+To get the maximum redshift after which we stop following the expected rate, we
+took the redshift for which we are at a 0.3 on the interpolated cumulative
+distribution function. We chose that value to have a systematic analytical
+result that matches what we expect from the histograms; its impact on the work
+after is to be studied.
+
+\begin{table}[htbp!]
+    \centering
+    \caption{Number of SNe Ia effectively used for each survey.}
+    \label{tab:sample}
+    \begin{tabularx}{\linewidth}{|Y*{1}{|Y}|}\hline
+        \rowcolor{gray!15} Survey & Number of SNe Ia \\\hline\hline
+        SNf & 141 \\\hline
+        PS1 & 178 \\\hline
+        SDSS & 206 \\\hline
+        SNLS & 138 \\\hline
+        HST & 26 \\\hline
+    \end{tabularx}
+\end{table}
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\linewidth]{Article_figures/zmax_determination.pdf}
+    \caption{$z\St{max}$ determination from the interpolated poissonian
+    evolutions.}
+    \label{fig:zdet}
+\end{figure}
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\linewidth]{Article_figures/surveys_cuts_x.pdf}
+    \caption{SDSS, SNLS and PS1 samples cut at $z\St{max}$ as explained in
+    section \ref{sec:sam}. The data we use is in plain markers.}
+    \label{fig:surveys_cuts}
+\end{figure}
+
 
 \section{Method}
 We used LsSFR measurments which evolution with the redshift is analytically
