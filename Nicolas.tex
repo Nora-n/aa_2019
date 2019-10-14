@@ -1,0 +1,98 @@
+\documentclass{aa}
+\usepackage{preambule}
+\usepackage[varg]{txfonts}
+
+\begin{document}
+\title{Redshift evolution of the SN stretch distribution}
+
+%\subtitle{II. An example text with infinitesimal scientific value whose title
+%and subtitle may also be split}
+
+\author{N. Nicolas\inst{1}
+    \and M. Rigault\inst{2}
+}
+
+%\offprints{R. Plemmons, \email{plemmons@...}}
+
+\institute{Université de Lyon, F-69622, Lyon, France; Université de Lyon
+    1, Villeurbanne; CNRS/IN2P3, Institut de Physique des Deux Infinis, Lyon
+    \and Université Clermont Auvergne, CNRS/IN2P3, Laboratoire de
+    Physique de Clermont, F-63000 Clermont-Ferrand, France.
+}
+
+\date{Received 2 November 1992 / Accepted 7 January 1993}
+
+\abstract{Type Ia supernovae (SNe Ia) allow for the construction of the Hubble
+    diagram, giving us information about the Universe's expansion and its
+    fondamental components, one of which is dark energy. But systematic
+    uncertainties are now starting to be limiting in our ability to measure
+    those parameters. In particular, the physics of SNe Ia is still mostly
+    unknown, and is thought not to change in time/with the redshift.}
+    {In an attempt to reduce those uncertainties, we try to find an empirical
+    law describing SNe Ia's length of explosion (stretch) evolution with the
+redshift.}
+    {We started by getting a complete sample representing all of the stretch
+        distribution that Nature can give us, before using LsSFR measurments, an
+        age tracer which evolution with redshift is known, that has been shown
+        to have a strong correlation with the stretch. We compare their AICc, an
+    estimator of the relative quality of statistical models that includes the
+number of free parameters, to determine which ones describe besto the data.}
+    {Models with an evolution of the stretch with the redshift have a better
+    AICc than the ones without.}
+    {We find that implementing these models allows us to fit the data better
+    than models without stretch evolution.}
+
+\keywords{Cosmology -- Type Ia Supernova -- Systematic uncertainties}
+\maketitle
+
+\section{Introduction}
+
+Type Ia supernovae (SNe Ia) are now well-known for their capacity to determine
+cosmological parameters: their study led to the discovery of the accelerated
+expansion of the Universe (Riess 98, Perlmutter 99) through the name of "dark
+energy", and they have been used continuously for better measurments since then
+(Betoule 2014). They are acquired through their lightcurves, giving the
+evolution of their luminosity from the time of explosion, in different
+wavelength. 3 parameters are used to describe those: an amplitude, a width
+(named "stretch") and a color (magnitude difference in the B and V bands).
+
+The simple use of those is not enough for our aim, as SNe Ia have an intrinsec
+dispersion of their luminosity of $\approx \SI{0.4}{mag}$ that gives a huge
+uncertainty on the determination of their distance modulus. Henceforth they are
+standardized using the "brigther-slower" and "brighter-bluer" relations
+(Philipps 93, Riess 96, Tripp 98) in the SALT2 algorithm (Guy 2007, 2010) that
+fits the distance modulus which is expressed as
+\begin{center}
+    $ \displaystyle \m = m_b + \a x_1 - \b c - M$
+\end{center}
+with $m_B$ the logarithm of their flux, $x_1$ their stretch, $c$ their color and
+$M$ their intrinsec magnitude. This relation lowered their magnitude dispersion
+to $\approx \SI{0.15}{mag}$, allowing for previously mentioned accelerated
+expansion to be discovered.
+
+This Tripp estimator lies on the idea that this standardization doesn't change
+with the redshift. However, Rigault 2015 showed that SNe Ia depend on their
+environments, and these environments' properties evolve with the redshift. In
+this Letter, we try to determine whether a stretch evolution with the redshift
+allows for a better description of the collected data.
+
+\section{Sample}
+We use data from 5 different surveys, 3 of which had selection effects that we
+tried to remove with a statistical approach in lack of precise data concerning
+the instruments' capacity to acquire fluxes. Here it is:
+
+\section{Method}
+We used LsSFR measurments which evolution with the redshift is analytically
+known (references) and stretch measurments made by SNf to try an correlate these
+to parameters. We fit different model, and compare their AICc.
+
+\section{Results}
+We find that every model lacking an evolution of the stretch with the redshift
+is systematically worse than those that implement it.
+
+\section{Conclusion}
+Stretch evolution with the redshift is a thing. Need to see if it has an impact
+on the cosmology though.
+
+
+\end{document}
