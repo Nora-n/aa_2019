@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{preambule}
 
-%\RequirePackage{subfigure}
+\RequirePackage{subfigure}
 %\RequirePackage{wrapfig}
 %\RequirePackage{float}
 %\RequirePackage{graphicx}
@@ -331,6 +331,7 @@ title=#2, #1}
 \def\VC{\mathcal{V}}
 \def\Pc{\mathcal{P}}
 \def\Gc{\mathcal{G}}
+\def\Nc{\mathcal{N}}
 \def\Sr{\mathrm{S}}
 \def\d{\,\mathrm{d}}
 \def\dt{\,\d t}
@@ -475,8 +476,8 @@ title=#2, #1}
 \pagestyle{fancy}
 
 %\renewcommand{\sectionmark}[1]{\markright{#1}}
-\fancyhead[L]{\scriptsize \textsc{\@title}}
-\fancyhead[R]{\scriptsize \textsc{\rightmark}}
+%\fancyhead[L]{\scriptsize \textsc{\@title}}
+%\fancyhead[R]{\scriptsize \textsc{\rightmark}}
 
 %%% Fin du package
 \endinput

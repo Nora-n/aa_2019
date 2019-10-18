@@ -2,6 +2,8 @@
 \usepackage{preambule}
 \usepackage[varg]{txfonts}
 
+\def\l{\lambda}\def\L{\Lambda}
+
 \begin{document}
 \title{Redshift evolution of the SN stretch distribution}
 
@@ -105,12 +107,12 @@ selection effects. To quantize this, we computed the expected counts from the
 fitted $a$ in the same bins we used for the observed counts. That allowed us to
 compute the poissonian probability in each bin, given by
 \begin{center}
-    $ \displaystyle p(k) = \frac{\lambda^k}{k!}e^{-\lambda}$
+    $ \displaystyle p(k) = \frac{\l^k}{k!}e^{-\l}$
 \end{center}
-with $k$ the expected counts, $\lambda$ the observed counts. This work is done 100
-times with a random number of total bins, $a$ being fitted 4 times on a
+with $k$ the expected counts, $\l$ the observed counts. This work is done 100
+times with a random number of total bins, $a$ being fitted 10 times on a
 different and random number of bins used to fit each time. We interpolate these
-400 poissonian evolutions to get one final result that is as close as possible
+1000 poissonian evolutions to get one final result that is as close as possible
 to accurately represent how the probability to follow the expected rate evolves.
 
 To get the maximum redshift after which we stop following the expected rate, we
@@ -121,7 +123,8 @@ after is to be studied.
 
 \begin{table}[htbp!]
     \centering
-    \caption{Number of SNe Ia effectively used for each survey.}
+    \caption{Number of SNe Ia effectively used for each survey, totalling 689
+    Sne Ia. TO CORRECT FOR NEW ZMAX}
     \label{tab:sample}
     \begin{tabularx}{\linewidth}{|Y*{1}{|Y}|}\hline
         \rowcolor{gray!15} Survey & Number of SNe Ia \\\hline\hline
@@ -135,25 +138,67 @@ after is to be studied.
 
 \begin{figure}[htbp!]
     \centering
-    \includegraphics[width=\linewidth]{Article_figures/zmax_determination.pdf}
-    \caption{$z\St{max}$ determination from the interpolated poissonian
-    evolutions.}
-    \label{fig:zdet}
+    \subfigure[Method]{\label{fig:zdet}
+        \includegraphics[width=\linewidth]{Article_figures/zmax_determination.pdf}}
+    \subfigure[Result]{\label{fig:surveys_cuts}
+    \includegraphics[width=\linewidth]{Article_figures/surveys_cuts_x.pdf}}
+    \caption{(a) $z\St{max}$ determination from the interpolated poissonian
+    evolutions; (b) SDSS, SNLS and PS1 samples cut at $z\St{max}$ as explained in
+    section \ref{sec:sam}. The data we use is in plain markers.}
 \end{figure}
+
+\section{Method}
+
+We used the LsSFR and stretch measurments from the SNf sample. The LsSFR has an
+evolution with the redshift that is analytically known: calling $\de\z$ the
+fraction of young stars and $\p\z$ the fraction of old ones, Rigault 2018 et +
+find
+\begin{equation}
+    \frac{\de\z}{\p\z} \equiv LsSFR\z = K\times \LF{1+z}^\f
+\end{equation}
+with $\f = 2.8$, and knowing $\de\z + \p\z = 1$:
+\begin{align}
+    \de\z & = \LF{K^{-1}\times \LF{1+z}^{-\f} +1}^{-1}\\
+    \p\z & = \LF{K\times \LF{1+z}^{+\f} + 1}\um
+\end{align}
+
+The goal is to find how the stretch depends on the LsSFR, distinguishing old and
+young SNe which fractions evolve with the redshift, in order to have an
+analytical law for the mean redshift evolution of the stretch. The measured data
+on which we based our first model is plotted in figure \ref{fig:mod_first};
+based of the shape of the $x_1$ vs LsSFR cloud, we implemented the following
+model:
+\begin{itemize}
+    \item \textbf{young}: a gaussian of mean $\m_1$ and standard deviation
+        $\s_1$, namely $\Nc_1 \equiv \Nc \LF{\m_1,\s_1}$;
+    \item \textbf{old}: a linear combination between $\Nc_1$ and another
+        gaussian $\Nc_2 \equiv \Nc \LF{\m_2,\s_2}$
+\end{itemize}
+As such, the probability to observe a young SNe Ia labeled "i" with a stretch
+$x_1^i$ and error $\d x_1^i$ is
+\begin{equation}
+    p \LF{x_1^i, \d x_1{}^i|\m_1,\s_1} = \Nc \LF{\m_1, \Sq{\s_1{}^2 + \d
+    x_1^i{}^2}}(x_1^i)
+\end{equation}
+and for an old one:
+\begin{align}
+    p(x_1^i, \d x_1^i | \m_{1,2}, \s_{1,2}, a) = a & \times \Nc \LF{\m_1,
+    \sqrt{\s_1{}^2 + \d x_1^i{}^{2}}} (x_1^i) \ + \\ (1-a) & \times \Nc
+    \LF{\m_2, \sqrt{ \s_2{}^2 + \d x_1^i{}^{2}}} (x_1^i), \nonumber 
+\end{align}
+We fit different model, and compare their AICc.
 
 \begin{figure}[htbp!]
     \centering
-    \includegraphics[width=\linewidth]{Article_figures/surveys_cuts_x.pdf}
-    \caption{SDSS, SNLS and PS1 samples cut at $z\St{max}$ as explained in
-    section \ref{sec:sam}. The data we use is in plain markers.}
-    \label{fig:surveys_cuts}
+    \subfigure[Raw data]{\label{fig:snf_data}
+        \includegraphics[width=\linewidth]{Article_figures/BiGaussian_onlydata.pdf}}
+    \subfigure[First implemented model]{\label{fig:3G2M2SSNF}
+        \includegraphics[width=\linewidth]{Article_figures/BiGaussian.pdf}}
+    \caption{Stretch des supernovae étudiées par la collaboration SNF en
+    fonction de log(LsSFR). La couleur représente la probabilité pour une
+supernova d'être issue d'un jeune progéniteur.}
+    \label{fig:mod_first}
 \end{figure}
-
-
-\section{Method}
-We used LsSFR measurments which evolution with the redshift is analytically
-known (references) and stretch measurments made by SNf to try an correlate these
-to parameters. We fit different model, and compare their AICc.
 
 \section{Results}
 We find that every model lacking an evolution of the stretch with the redshift
