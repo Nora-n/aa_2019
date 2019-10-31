@@ -8,3 +8,7 @@
 *.aux
 
 *.fls
+
+ztest.pdf
+
+ztest.tex
