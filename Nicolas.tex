@@ -76,7 +76,7 @@ uncertainty on the determination of their distance modulus. Henceforth they are
 standardized using the "brigther-slower" and "brighter-bluer" relations
 (Philipps 93, Riess 96, Tripp 98) in the SALT2 algorithm (Guy 2007, 2010) that
 fits the distance modulus which is expressed as
-\begin{equation}
+\begin{equation}\label{eq:tripp}
     \m = m_b + \a x_1 - \b c - M
 \end{equation}
 with $m_B$ the logarithm of their flux, $x_1$ their stretch, $c$ their color and
@@ -97,8 +97,18 @@ Supernova Nearby Factory (SNf, REF), Supernova Legacy Survey (SNLS, Aster 2006,
 Betoule 2014), Sloan DSS (SDSS, REF) and Panstarr-1 (PS1, REF). The last 3 had
 selection effects that come from the "brighter-slower" and "brighter-bluer"
 relations: the first SNe Ia that are missed by the instruments are the redder
-and faster ones. That implies that taking all of these surveys' data would not
-represent the stretch distribution that Nature could give us.
+and faster-declining ones. That implies that taking all of these surveys' data
+would not represent the stretch distribution that Nature could give us.
+
+We used the 5$\sigma$ depth of each survey to know what was the smallest
+apparent magnitude they could acquire. We want to find the maximum redshift
+(or equivalently distance modulus assuming Planck15 cosmology) for which all
+combination of stretch and color are visible. We computed the absolute magnitude
+5 days prior peak (taken at $-19.3\,$mag) for each value of
+$(x_1, c)$ in an $([-3, 3], [-0.3, 0.3])$ ellipse, finding which combination had
+the smallest one, using a SALT2 model in SNCosmo. Using $\a$ and $\b$ given in
+Scolnic 2018a, we can then compute the distance modulus corresponding to that
+minimum absolute magnitude and verifying \eqref{eq:tripp}.
 
 As such, we determined the maximum redshift at which we would cut these samples
 to get complete ones. We used a statistical approach in lack of precise data
