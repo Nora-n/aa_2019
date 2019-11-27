@@ -1,7 +1,10 @@
-\documentclass{aa}
-\usepackage{preambule}
-\usepackage{graphicx}
-\usepackage[varg]{txfonts}
+\documentclass[bibnumber]{aa}
+
+\usepackage{hyperref}
+
+\usepackage{color}
+\newcommand{\mr}[1]{{\textcolor[rgb]{0.60,0.10,0.6}{#1}}}
+\newcommand{\mri}[1]{{\textcolor{red}{#1}}}
 
 \def\l{\lambda}\def\L{\Lambda}
 
@@ -13,6 +16,10 @@
 
 \author{N. Nicolas\inst{1}
     \and M. Rigault\inst{2}
+    \and R. Graziani\inst{2}     
+    \and M. Briday\inst{1}
+    \and Y. Copin\inst{1}    
+    \and Y. Kim\inst{1}
 }
 
 %\offprints{R. Plemmons, \email{plemmons@...}}
@@ -50,113 +57,220 @@ number of free parameters, to determine which ones describe besto the data.}
 
 \section{Introduction}
 
-\begin{figure*}[htbp!]
-    \centering
-    \subfigure[Method]{\label{fig:zdet}
-        \includegraphics[width=8.5cm]{Article_figures/zmax_determination.pdf}}
-    \subfigure[Result]{\label{fig:surveys_cuts}
-    \includegraphics[width=8.5cm]{Article_figures/surveys_cuts_x.pdf}}
-    \caption{(a) $z\St{max}$ determination from the interpolated poissonian
-    evolutions; (b) SDSS, SNLS and PS1 samples cut at $z\St{max}$ as explained in
-    section \ref{sec:sam}. The data we use is in plain markers.}
-\end{figure*}
+%\begin{figure*}
+%    \centering
+%    \subfigure[Method]{\label{fig:zdet}
+%        \includegraphics[width=8.5cm]{Article_figures/zmax_maglim_all.pdf}}
+%    \subfigure[Result]{\label{fig:surveys_cuts}
+%    \includegraphics[width=8.5cm]{A    \subfigure[Method]{\label{fig:zdet}
+%rticle_figures/surveys_cuts_x.pdf}}
+%    \subfigure[Method]{\label{fig:zdet}
 
-Type Ia supernovae (SNe Ia) are now well-known for their capacity to determine
-cosmological parameters: their study led to the discovery of the accelerated
-expansion of the Universe (Riess 98, Perlmutter 99) through the name of "dark
-energy", and they have been used continuously for better measurments since then
-(Betoule 2014). They are acquired through their lightcurves, giving the
-evolution of their luminosity from the time of explosion, in different
-wavelength. 3 parameters are used to describe those: an amplitude, a width
-(named "stretch") and a color (magnitude difference in the B and V bands).
+%    \caption{(a) $z\St{max}$ determination from the magnitude limited data; (b) SDSS, %SNLS and PS1 samples cut at $z\St{max}$ as explained in
+%    section \ref{sec:sam}. The data we use is in plain markers.}
+%\end{figure*}
 
-The simple use of those is not enough for our aim, as SNe Ia have an intrinsec
-dispersion of their luminosity of $\approx 0.4~mag$ that gives a huge
-uncertainty on the determination of their distance modulus. Henceforth they are
-standardized using the "brigther-slower" and "brighter-bluer" relations
-(Philipps 93, Riess 96, Tripp 98) in the SALT2 algorithm (Guy 2007, 2010) that
-fits the distance modulus which is expressed as
-\begin{equation}\label{eq:tripp}
-    \m = m_b + \a x_1 - \b c - M
-\end{equation}
-with $m_B$ the logarithm of their flux, $x_1$ their stretch, $c$ their color and
-$M$ their intrinsec magnitude. This relation lowered their magnitude dispersion
-to $\approx 0.15~mag$, allowing for previously mentioned accelerated
-expansion to be discovered.
+Type Ia supernovae (SNe Ia) are powerful cosmological distance indicators that
+have enabled the discovery of the acceleration of the Universe's expansion
+\citep{riess1998, permutter1999}. They remain today a key comological probe to
+understand the properties of dark energy (DE) as it is the only tool able to
+precisely map the recent expansion rate $z<0.5$, when DE is driving it
+\citep[e.g.][]{scolnicastro2020}. They also are key to directly measure the
+Hubble Constant (H$_0$) provided one can calibrate their absolute magnitude
+\citep{riess2016, freedman2019}. Interestingly, the value of H$_0$ derived when
+the SNeIa are anchored on Cepheids \citep[the SH0ES
+project][]{riess2009,riess2016} is $\sim5~\sigma$ higher than what is predicted
+by cosmic microwave background (CMB) data measured by Planck assuming the
+standard $\L$CDM or when the SN luminosity is anchored at intermediate redshift
+by the baryon accoustic oscillation (BAO) scale \citep{riess2019, ried2019,
+planck, feeney}. While using the tip of the red giant branch technique in place
+of the Cepheids seem to favor lower values of H$_0$ \citep{freedman,
+recalibrationpaper} time delay measurements from strong lensing seem to also
+favor high H$_0$ values \citep{wong2019}.
 
-This Tripp estimator lies on the idea that this standardization doesn't change
-with the redshift. However, Rigault 2015 showed that SNe Ia depend on their
-environments, and these environments' properties evolve with the redshift. In
-this Letter, we try to determine whether a stretch evolution with the redshift
-allows for a better description of the collected data.
+The H$_0$ tension has received a lot of attention as it could be a sign of new
+fundamental physics. Yet, no simple solution is able to accomodate this H$_0$
+tension when accounting for all other probes and the current most promising
+scenario appears to be a burst of expansion at the matter-radiation decoupling
+moment caused by a (fine tuned) early dark energy \citep{poulin}.
+
+Alternatively, systematic effects affecting one or several of the aforementioned
+analysis could also explain the tension. In \cite{rigault2015} we suggested that
+SNe Ia from the cepheid calibrator sample differ significantly to the one from
+the Hubble flow sample that enables to derive H$_0$. Indeed, Cepheid are very
+young stars and the existence of Cepheids in a galaxy implies that the host is
+star forming. In \citep{Rigault2015} we claimed that a more than 90\% of the
+calibrator SNe Ia arise from a young-progenitor propulation while this
+population only accounts for about half of the Hubble flow sample. Following
+\cite{sullivan2010} and \citep{rigault2013}, we further showed that young and
+old progenitor SNe Ia have a different magnitude of about 0.15 mag. This has
+been confirmed for modern standardization technique
+\citep[SALT2.4][]{guy2010,betoule2014} with high significance ($\sim 6\sigma$)
+in \citep{rigault2018} as well as independently by \cite{roman2019} at $\sim
+7\sigma$. As detailed in \citep{Rigault2015}, if the magnitude difference
+between young and old SNe Ia is indeed of $0.15$ mag and if SNe Ia from the
+calibrator sample is fully dominated by young SNeIa, the effect on H$_0$ of the
+existance of these two SNe Ia populations is of 3.5\%. Accounting for the fact
+that another environmental effect (the mass-step) is already included in the
+SH0ES analysis, the net bias in the SH0ES analysis is expected closer to 3\%
+\citep[see table 6 of ][]{rigault2015}. 
+
+SHOULD BE SHORTENED A LOT: However, the importance of this astrophysical bias in
+the direct measurement of H$_0$ is still highly debated. We also highlight that
+it could not explain the high value of H$_0$ derived by strong lensing. First,
+\cite{jones2015} did not find any environmental bias when extending the
+\citep{rigault2015} study. It was more recently reported in \citep{jones2019}
+that indeed local host analysis has significant influence on the SN magnitude
+but much more importantly than claimed in \citep{rigault2018} and with a
+connection with the progenitor physics and/or a line of sight effect that is
+unclear. More importantly, \cite{riess2016} attended to mimic the cepheid sample
+selection function on the Hubble flow sample by removing SNe Ia from the latter
+if they classificed their host as early-type or non-star forming. They measured
+that doing so has no effect on the measurement of H$_0$.
+
+% SERIES OF PAPER
+This paper is part of a series of papers where we test the validity of the two
+SNe Ia population models developped in \citep{rigault2018}.Briday et al. in prep
+will present how using different environmental tracer is affecting our ability
+to distinguish the two populations, and Rigault et al. in prep will further
+study the connection with H$_0$. Here we analyze predictions concerning the
+SNe Ia redshift drifts: (1) that the distribution of the SNIa stretch, a purely
+intrinsic SNIa property, is evolving as a function of redshift and (2) that this
+population-drift follows the relation that \citep{rigault2018} derived assuming
+that one population is “young“ with a rate proportional to the star formation
+rate in the Universe and the second is "old" with a rate proportional to the
+stellar mass.
+
+The concept of the SNeIa age dichotomy arised when the SNIa rate has first been
+studied. \cite{Mannucci et al. 2005; Scannapieco & Bildsten 2005; Sullivan et
+al. 2006; Aubourg et al. 2008} have shown that the relative SNe Ia rate in
+galaxies could only be explained if two populations existed, one young,
+following the host star formation activity, and one old following the host
+stellar mass (the so called “prompt and delayed“ or “A+B“ model). In
+\cite{rigault2018} we used the specific star formation rate at the SN location
+(Local sSFR or LsSFR) to classify which are the prompts (those with a high
+LsSFR) and which are the delayed (those with low LsSFR). Since the first SNe Ia
+host analysis, the SN strech has been known to be strongly correlated with the
+SN host properties \citep{Hamuy1996, Hamuy2000} and it has been extensively
+confirmed since \citep[e.g.][]{Neill2009,Sullivan2010; Lampeitl2010; Kelly2010;
+Gupta2011,D’Andrea2011; Childress2013,Rigault2013,Pan2014}. Following the “A+B“
+model and the connection between SN stretch and host properties,
+\citep{Howell20XX} first discussed the potential redshift drift of the SN strech
+distribution. In this paper we revisit this analysis with the most recent SNe Ia
+dataset and we test the validity of the two SNIa age populations model
+developped by \citep{rigault2018}.
+
+We present in section~\ref{sec:data} the sample we are using for this analysis,
+which is based on the pantheon dataset \citep{scolnic2018a}. We discuss the
+importance of obtaining a "complete" sample, i.e. reprensentative of the true
+underlying SNe Ia distribution, and how we build one from the Pantheon sample.
+We then present in section~\ref{sec:model} our modeling of the distribution of
+stretch as a function of redshift based on the relative stretch distrubtion of
+young and old SNeIa. Our results are presented in section~\ref{sec:result} where
+we test if the distribution of stretch does evolve as a function of redshift and
+if the age-model is in good agreement with this evolution. We discuss our
+results and conclude in section~\ref{sec:conclusion}.
+
+Throughout the paper we use the Planck 2015 cosmology from the astropy library.
 
 \section{Sample}\label{sec:sam}
 
-We use data from 5 different surveys: Hubble Space Telescope (HST, REF),
-Supernova Nearby Factory (SNf, REF), Supernova Legacy Survey (SNLS, Aster 2006,
-Betoule 2014), Sloan DSS (SDSS, REF) and Panstarr-1 (PS1, REF). The last 3 had
-selection effects that come from the "brighter-slower" and "brighter-bluer"
-relations: the first SNe Ia that are missed by the instruments are the redder
-and faster-declining ones. That implies that taking all of these surveys' data
-would not represent the stretch distribution that Nature could give us.
+We base our analysis on the latest SNe Ia compilation: the Pantheon catalog from
+\cite{scolnic2018a}. Using this dataset, we aim at probing the evolution of the
+distribution of SNe Ia stretch in nature as a function of redshift. Because the
+observed magnitude of a SN Ia is correlated with its stretch and its color, in a
+magnitude limited survey such as those consituing most of the Pantheon sample,
+the distribution of these lightcurve parameters is not representative of the
+true underlying distribution above a certain limiting redshift. The first SNe Ia
+that such a survey will miss because they will be too faint are indeed the
+reddest and the lowest-stretch SNe Ia. If such a selection effect is not
+accounted for, we might confuse true population drift we selection function or
+conversally.
 
-We used the 5$\sigma$ depth of each survey to know what was the smallest
-apparent magnitude they could acquire. We want to find the maximum redshift
-(or equivalently distance modulus assuming Planck15 cosmology) for which all
-combination of stretch and color are visible. We computed the absolute magnitude
-5 days prior peak (taken at $-19.3\,$mag) for each value of
-$(x_1, c)$ in an $([-3, 3], [-0.3, 0.3])$ ellipse, finding which combination had
-the smallest one, using a SALT2 model in SNCosmo. Using $\a$ and $\b$ given in
-Scolnic 2018a, we can then compute the distance modulus corresponding to that
-minimum absolute magnitude and verifying \eqref{eq:tripp}.
+The figure~\ref{fig:maglim} shows the distribution of stretch for the magnitude
+limited samples of the Pantheon data, i.e. PanStarrs \citep[PS1][]{ref}, the
+Sloan Digital Sky Survey \citep[SDSS][]{ref} and the SuperNovae Legacy Survey
+\citep[SNLS][]{astier2006}. An ellipse in the salt2.4 $(x_1, c)$ plan with major
+axis $x_1=3$ and manor axis $c=0.3$ incapsulate the full distribution \citep[see
+also][for a similar contour but using a less conservative
+$c=0.2$]{campbell2013}. Assuming the average SN absolute magnitude ($x_1=0$,
+$c=0$) is $M=-19.36$ \citep{kessler2009,scolnic2014} we can derive the absolute magnitude of
+SNeIa along this ellipse given the standardisation coefficient from
+\citep{scolnic2018a}: $\alpha=0.16$ and $\beta=3.14$.
 
-As such, we determined the maximum redshift at which we would cut these samples
-to get complete ones. We used a statistical approach in lack of precise data
-concerning the instruments' capacity to acquire fluxes. We proceeded by making
-histograms of the surveys, and defining a function of the expected SNe Ia rate:
-\begin{equation}
-    N\St{SNe Ia} = a \times V\z
-\end{equation}
-with $a$ the density of SNe Ia and $V\z$ the volume of Universe in each bin.
-Before selection effects, the histograms are supposed to grow proportionnaly to
-$V\z$ assuming an homogeneous repartition of SNe Ia. When we start to miss some
-supernovae, this growth is not followed anymore.
-
-To determine this limit, we first took the observed counts in each bin of the
-histograms. We then fitted $a$ on these counts for different numbers of bins
-used to fit: the quality of the fit diminishes when we use bins that include
-selection effects. To quantize this, we computed the expected counts from the
-fitted $a$ in the same bins we used for the observed counts. That allowed us to
-compute the poissonian probability in each bin, given by
-\begin{equation}
-    p(k) = \frac{\l^k}{k!}e^{-\l}
-\end{equation}
-with $k$ the expected counts, $\l$ the observed counts. This work is done 100
-times with a random number of total bins, $a$ being fitted 10 times on a
-different and random number of bins used to fit each time. We interpolate these
-1000 poissonian evolutions to get one final result that is as close as possible
-to accurately represent how the probability to follow the expected rate evolves.
-
-To get the maximum redshift after which we stop following the expected rate, we
-took the redshift for which we are at a 0.3 on the interpolated cumulative
-distribution function. We chose that value to have a systematic analytical
-result that matches what we expect from the histograms; its impact on the work
-after is to be studied.
-
-\begin{table}[htbp!]
+\begin{figure}
     \centering
-    \caption{Number of SNe Ia effectively used for each survey, totalling 689
-    Sne Ia. TO CORRECT FOR NEW ZMAX}
+    \includegraphics[width=\linewidth]{Article_figures/zmax_maglim_all.pdf}
+    \caption{SALT2.4 stretch and color lightcurve parameters of SNeIa from the
+        SDSS, PS1 and SNLS samples from the pantheon catalog. The individual SN
+        data are shown as blue dots and a 2D histogram is shown in grey to
+        highlight point density. The ellipse encapsulating all the SN data is
+        displayed colored by the effective standardized absolute magnitude using
+    the $\alpha$ and $\beta$ standardisation coefficents from
+\citep{scolnic2018}.}
+    \label{fig:maglim}
+\end{figure}
+
+
+The faintest SNIa is that with $x_1=-1.66$ and $c=0.25$ and has an absolute \mr{standardized} magnitude at peak \mr{in Bessel-b band} of $-18.31$ mag, which leads to limiting asbolute magnitude of
+$-18.00$ if we want to be able to observe it typically a week before and 10 days after peak.  
+Therefore, given the $5\sigma$ point source detection magnitude
+limit of a magnitude limited survey, one can derive the maximum redshift above which the faintest SNeIa will start to be missed. 
+
+\mr{SNLS typically acquires SNeIa in the redshift range $0.4<z<0.8$. At these redshifts the rest-frame Bessel-b band roughly corresponds to the SNLS-$i$ filter, that has a 24.8 mag $5\sigma$ depth \footnote{\href{https://www.cfht.hawaii.edu/Science/CFHTLS/cfhtlsfinalreleaseexecsummary.html}{CFHT final release website.}}. This converts to a $z_{lim}=0.60$, in perfect agreement with \citep{neill2006} and \citep{perrett2010}.
+Similarly, PS1 observing SNeIa in the range $0.2<z<0.4$, their $g$-band $5\sigma$ depth is 23.1 mag \citep{rest2014}, corresponding $z_{lim}=0.30$.
+The fig.~6 of \citep{scolnic2018} suggests a more conservative $z_{lim}$ of 0.27 for the PS1 catalog. In similar redshift range, SDSS has a limiting magnitude of 22.5 \citep{dilday2008,sake2008,sako2014}, which would lead to a $z_max=0.24$. However, the SDSS survey were more sensitive to limited spectroscopic ressources. \cite{kessler2009} presents that during year-1 of SDSS, SNeIa with $r-mag<20.5$ where favored for spectroscopic follow up, corresponding to the redshift cut at $0.15$. For the rest of the SDSS survey, additional spectroscopic ressources where used, such that \cite{kessler2009} and  \cite{dilday2008} of show a relative completness up to $z_{lim}=0.2$. For the rest of the analysis, we will use $z_{lim}=0.2$ as baseline magnitude.}
+
+\mr{In Section~\ref{sec:testzmax}, we test the impact on using more conservative redshift limits ($z_{lim}=0.15$ for SDSS, $z_{lim}=0.27$ for PS and $z_{lim}=0.55$ for SNLS, following Fig.~14 of \citealt{perrett2010}). 
+}
+
+In addition, we use the SNe Ia sample of from the nearby supernovae factory
+\citep[SNfactory][]{aldering2004} published in \citep{rigault2018}. As the SNe
+search were much deeper than the spectrophotometric follow-up, SNfactory SNe Ia
+within a redshift range of $0.02<z<0.09$ should also be a random sampling of the
+underlying SN population. The HST sample from
+Pantheon follows the same logic and we therefore kept it entirely \citep{FIND BACK THE REF}.
+
+Our "complete sample" is therefore made of 656 SNeIa whose composition is
+detailed in table~\ref{tab:sample}.
+
+
+\begin{table}
+    \centering
+    \caption{Origin of the SNeIa in our sample and redshift limit (if
+    applicable) of each surveys.}
     \label{tab:sample}
-    \begin{tabular}{c c}\hline
-        \rowcolor{gray!15} Survey & Number of SNe Ia \\\hline
-        SNf & 141 \\
-        PS1 & 178 \\
-        SDSS & 206 \\
-        SNLS & 138 \\
-        HST & 26 \\\hline
+    \begin{tabular}{l c c}
+    \hline\hline\\[-0.8em]
+        Survey & N$_{\mathrm{SN}}$  & z$_{lim}$ \\[0.15em]
+        \hline\\[-0.8em]
+        SNf & 141 & --\\[0.30em]
+        SDSS & 167 & 0.20\\[0.30em]
+        PS1 & 160 & 0.30 \\[0.30em]        
+        SNLS & 102 & 0.60\\[0.30em]
+        HST & 26 & --\\[0.30em]
+        \hline
     \end{tabular}
 \end{table}
+
+%\mri{COMPARE HERE WITH LITERATURE. E.G. FIG. 6 OF SCOLNIC 2018, PS zmax AROUND0.27}
+
+%\mri{Perrett et al. 2010 | SNLS | zmax ="z $\sim$ 0.6"}
+
+%\mri{Dilday et al. 2008 | SDSS | sure good at z<0.12, fig. 10 suggest still okat z=0.2}
+
+%\mri{Kessler 2009 "For the SDSS-II, the image-subtraction
+%pipeline efficiency (	subtr) is complete up to a redshift of z ∼ 0.2"}
+
+%\mri{Kesslet 2009 | "For the SDSS-II and SNLS samples, the cutoff redshifts are
+%estimated to be 0.15 and 0.65, respectively."}
+% ADDIND: PS cut from pantheon close to 0.27 see Fig. 6 of Scolnic 2018
+
+
+
+\mri{CHECK LITERATURE CAN WE USE THE CfA SAMPLES ???}
+
+
 
 
 \section{Method}
@@ -166,25 +280,25 @@ evolution with the redshift that is analytically known: calling $\de\z$ the
 fraction of young stars and $\p\z$ the fraction of old ones, Rigault 2018 et +
 find
 \begin{equation}
-    \frac{\de\z}{\p\z} \equiv \mathrm{LsSFR}\z = K\times \LF{1+z}^\f
+    \frac{\delta\z}{\psi\z} \equiv \mathrm{LsSFR}\z = K\times \LF{1+z}^\varphi
 \end{equation}
 with $\f = 2.8$, and knowing $\de\z + \p\z = 1$:
 \begin{align}
-    \de\z & = \LF{K^{-1}\times \LF{1+z}^{-\f} +1}^{-1}\\
-    \p\z & = \LF{K\times \LF{1+z}^{+\f} + 1}\um
+    \delta\z & = \left{K^{-1}\times \LF{1+z}^{-\f} +1\right}^{-1}\\
+    \psi\z & = \LF{K\times \LF{1+z}^{+\f} + 1}\um
 \end{align}
 
-\begin{figure*}[htbp!]
-    \centering
-    \subfigure[Raw data]{\label{fig:snf_data}
-        \includegraphics[width=8.5cm]{Article_figures/BiGaussian_onlydata.pdf}}
-    \subfigure[First implemented model]{\label{fig:3G2M2SSNF}
-        \includegraphics[width=8.5cm]{Article_figures/BiGaussian.pdf}}
-    \caption{Stretch des supernovae étudiées par la collaboration SNF en
-    fonction de log(LsSFR). La couleur représente la probabilité pour une
-supernova d'être issue d'un jeune progéniteur.}
-    \label{fig:mod_first}
-\end{figure*}
+%\begin{figure*}
+%    \centering
+%    \subfigure[Raw data]{\label{fig:snf_data}
+%        \includegraphics[width=8.5cm]{Article_figures/BiGaussian_onlydata.pdf}}
+%    \subfigure[First implemented model]{\label{fig:3G2M2SSNF}
+%        \includegraphics[width=8.5cm]{Article_figures/BiGaussian.pdf}}
+%    \caption{Stretch des supernovae étudiées par la collaboration SNF en
+%    fonction de log(LsSFR). La couleur représente la probabilité pour une
+%supernova d'être issue d'un jeune progéniteur.}
+%    \label{fig:mod_first}
+%\end{figure*}
 
 The goal is to find how the stretch depends on the LsSFR, distinguishing old and
 young SNe which fractions evolve with the redshift, in order to have an
@@ -260,7 +374,7 @@ The fitted parameters are showed table \ref{tab:val}.
     \label{tab:val}
     \begin{tabular}{c c c c c c c}\hline\hline
 
-        \rowcolor{gray!15} Modèle & $a$ & $f$ & $\m_1$ & $\s_1$ & $\m_2$ &
+        Model & $a$ & $f$ & $\m_1$ & $\s_1$ & $\m_2$ &
         $\s_2$ \\\hline
 
         3G2M2S$_{\mathrm{SNf}}$ & $0.48 \pm 0.07$ & none & $0.39 \pm 0.07$ &
@@ -289,7 +403,7 @@ The fitted parameters are showed table \ref{tab:val}.
 
 \begin{tabular}{c c c}\hline\hline
 
-    \rowcolor{gray!15} Modèle & $\m$ & $\s$ \\\hline
+    Model & $\m$ & $\s$ \\\hline
 
     1G1M1S & $0.01 \pm 0.04$ & $0.90 \pm 0.03$ \\\hline
 
@@ -297,7 +411,7 @@ The fitted parameters are showed table \ref{tab:val}.
 
 \begin{tabular}{c c c c c}\hline\hline
 
-    \rowcolor{gray!15} Modèle & $\m$ & $\s_-$ & $\s_+$ \\\hline
+    Model & $\m$ & $\s_-$ & $\s_+$ \\\hline
 
     1G1M2S & $0.16617 \pm 0.00004$ & $1.07 \pm 0.04$ & $0.69 \pm 0.03$ \\\hline
 
@@ -305,7 +419,7 @@ The fitted parameters are showed table \ref{tab:val}.
 
 \begin{tabular}{c c c c c c c c c}\hline\hline
 
-    \rowcolor{gray!15} Modèle & $a$ & $f$ & $\m_1$ & $\s_1$ & $\m_2$ & $\s_2$ &
+    Model & $a$ & $f$ & $\m_1$ & $\s_1$ & $\m_2$ & $\s_2$ &
     $m_3$ & $\s_3$ \\\hline
 
     3G3M3S & $0.14 \pm 0.08$ & none & $0.51 \pm 0.06$ & $0.54 \pm 0.04$ & $-1.9
@@ -318,8 +432,6 @@ The fitted parameters are showed table \ref{tab:val}.
 \end{tabular} \bigbreak
 
 \end{table*}
-
-
 
 \section{Results}
 To compare all these models, we use the Akaike Information Criterion corrected
@@ -347,7 +459,7 @@ that implement it.
     \label{tab:comp}
     \begin{tabular}{c c c c c c c}\hline\hline
 
-        \rowcolor{gray!15} Name & Description & Free param &
+        Name & Description & Free param &
         $\ln\mathcal{L}$ & $AICc$ & $\D AICc$ & Proba \\\hline
 
         3G2M1S & NR 1S & 4 & 1815 & 1823 & 0.0 & $1.0$ \\
