@@ -1,6 +1,11 @@
-\documentclass[bibnumber]{aa}
+\documentclass[]{aa} %bibnumber
 
-\usepackage{hyperref}
+%\usepackage{hyperref}
+\usepackage{txfonts}
+\usepackage{amsmath}
+\usepackage[colorlinks,breaklinks]{hyperref}
+\hypersetup{linkcolor=blue,citecolor=blue,filecolor=black,urlcolor=blue}
+
 
 \usepackage{color}
 \newcommand{\mr}[1]{{\textcolor[rgb]{0.60,0.10,0.6}{#1}}}
@@ -68,6 +73,8 @@ number of free parameters, to determine which ones describe besto the data.}
 
 %    \caption{(a) $z\St{max}$ determination from the magnitude limited data; (b) SDSS, %SNLS and PS1 samples cut at $z\St{max}$ as explained in
 %    section \ref{sec:sam}. The data we use is in plain markers.}
+%\subfigure[Method]{\label{fig:zdet}
+
 %\end{figure*}
 
 Type Ia supernovae (SNe Ia) are powerful cosmological distance indicators that
@@ -176,8 +183,11 @@ Throughout the paper we use the Planck 2015 cosmology from the astropy library.
 \section{Sample}\label{sec:sam}
 
 We base our analysis on the latest SNe Ia compilation: the Pantheon catalog from
-\cite{scolnic2018a}. Using this dataset, we aim at probing the evolution of the
-distribution of SNe Ia stretch in nature as a function of redshift. Because the
+\cite{scolnic2018}. Using this dataset, we aim at probing the evolution of the
+distribution of SNe Ia stretch in nature as a function of redshift. \mr{We thus have to }
+
+
+Because the
 observed magnitude of a SN Ia is correlated with its stretch and its color, in a
 magnitude limited survey such as those consituing most of the Pantheon sample,
 the distribution of these lightcurve parameters is not representative of the
@@ -221,8 +231,14 @@ limit of a magnitude limited survey, one can derive the maximum redshift above w
 Similarly, PS1 observing SNeIa in the range $0.2<z<0.4$, their $g$-band $5\sigma$ depth is 23.1 mag \citep{rest2014}, corresponding $z_{lim}=0.30$.
 The fig.~6 of \citep{scolnic2018} suggests a more conservative $z_{lim}$ of 0.27 for the PS1 catalog. In similar redshift range, SDSS has a limiting magnitude of 22.5 \citep{dilday2008,sake2008,sako2014}, which would lead to a $z_max=0.24$. However, the SDSS survey were more sensitive to limited spectroscopic ressources. \cite{kessler2009} presents that during year-1 of SDSS, SNeIa with $r-mag<20.5$ where favored for spectroscopic follow up, corresponding to the redshift cut at $0.15$. For the rest of the SDSS survey, additional spectroscopic ressources where used, such that \cite{kessler2009} and  \cite{dilday2008} of show a relative completness up to $z_{lim}=0.2$. For the rest of the analysis, we will use $z_{lim}=0.2$ as baseline magnitude.}
 
-\mr{In Section~\ref{sec:testzmax}, we test the impact on using more conservative redshift limits ($z_{lim}=0.15$ for SDSS, $z_{lim}=0.27$ for PS and $z_{lim}=0.55$ for SNLS, following Fig.~14 of \citealt{perrett2010}). 
-}
+\mr{In Section~\ref{sec:testzmax}, we test the impact on using more conservative redshift limits ($z_{lim}=0.15$ for SDSS, $z_{lim}=0.27$ for PS and $z_{lim}=0.55$ for SNLS, following Fig.~14 of \citealt{perrett2010}).} The cuts on the raw data of those three samples are shown figure \red{fig:cuts}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{Article_figures/hist_surveys_cuts.pdf}
+    \caption{Histograms of the 3 surveys on which we applied cuts to get rid of selection effects, as discussed in section \ref{sec:sam}.}
+    \label{fig:cuts}
+\end{figure}
 
 In addition, we use the SNe Ia sample of from the nearby supernovae factory
 \citep[SNfactory][]{aldering2004} published in \citep{rigault2018}. As the SNe
@@ -233,7 +249,6 @@ Pantheon follows the same logic and we therefore kept it entirely \citep{FIND BA
 
 Our "complete sample" is therefore made of 656 SNeIa whose composition is
 detailed in table~\ref{tab:sample}.
-
 
 \begin{table}
     \centering
@@ -334,10 +349,17 @@ relative fraction $\de\z$:
     \LF{1-\de\z} \times \LF{a\Nc_1 + (1-a)\Nc_2}
 \end{equation}
 
-We fitted it on SNf data, giving the results table \ref{tab:val}. For clarity
+We fitted it on SNf data, giving the results table \ref{tab:val}, with a graphical representation shown figure \ref{fig:snf_model}. For clarity
 with the next models, we named it 3G2M2S$\St{SNf}$ for it has a total of 3
 gaussians but with only 2 means and 2 standard deviations, and has been fitted
 on SNf data only. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{Article_figures/stretchevol_model_maglim-cuts.pdf}
+    \caption{Result of the model fitted on SNF data and mean of stretch and redshift of the other surveys used for this analysis. Conservative data is shown in transparent markers.}
+    \label{fig:snf_model}
+\end{figure}
 
 We implemented and compared 10 models in total, 4 of which have an
 evolution with the redshift from $\de\z$, and 6 don't ($\de\z = f =
@@ -433,6 +455,23 @@ The fitted parameters are showed table \ref{tab:val}.
 
 \end{table*}
 
+To test the coherence of this model, we also fitted it using all the data from the surveys indistinctly. These results are shown figures \ref{fig:model_all} and \ref{fig:model_all_cons}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{Article_figures/stretchevol_all_vs_snf_maglim_sup.pdf}
+    \caption{Result of the model fitted on all surveys data cut at the non-conservative $z_{\mathrm{max}}$. We chose the bins to compute the means of stretch and redshift by making them equal in number of SNe Ia.}
+    \label{fig:model_all}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{Article_figures/stretchevol_all_vs_snf_maglim_inf.pdf}
+    \caption{Result of the model fitted on all surveys data cut at the conservative $z_{\mathrm{max}}$. We chose the bins to compute the means of stretch and redshift by making them equal in number of SNe Ia.}
+    \label{fig:model_all}
+\end{figure}
+
 \section{Results}
 To compare all these models, we use the Akaike Information Criterion corrected
 for sample size (BURNHAM 2002), that penalises the increase of free parameters
@@ -494,5 +533,86 @@ that implement it.
 \section{Conclusion}
 Stretch evolution with the redshift is a thing. Need to see if it has an impact
 on the cosmology though.
+
+
+\begin{acknowledgements}
+    This project has received funding from the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation programme (grant agreement n 759194 - USNAC). Support has been provided by the Institut Universitaire de France, the CNES, and the region Auvergne-Rhone-Alpes.
+\end{acknowledgements}
+
+\bibliographystyle{aa} % style aa.bst
+\begin{thebibliography}{} 
+% A
+\bibitem[Abbott et al.(2018)]{abbott2018} Abbott, T.~M.~C., Abdalla, F.~B., Alarcon, A., et al.\ 2018, \prd, 98, 043526
+
+\bibitem[Ata et al.(2017)]{ata2017} Ata, M., Kitaura, F.-S., Chuang, C.-H., et al.\ 2017, \mnras, 467, 3993
+
+
+% B
+% C
+\bibitem[Chabanier et al.(2019)]{chabanier2019} Chabanier, S., Millea, M., \& Palanque-Delabrouille, N.\ 2019, \mnras, 489, 2247
+\bibitem[Coles, \& Jones(1991)]{coles1991} Coles, P., \& Jones, B.\ 1991, \mnras, 248, 1
+
+
+% D
+% E
+% F
+\bibitem[Freedman et al.(2019)]{freedman2019} Freedman, W.~L., Madore, B.~F., Hatt, D., et al.\ 2019, \apj, 882, 34
+
+% G
+
+%\bibitem[Graziani et al.(2019)]{graziani2019} Graziani, R., Courtois, H.~M., Lavaux, G., et al.\ 2019, \mnras, 488, 5438
+
+% H
+% I 
+% J
+\bibitem[Jones et al.(2018)]{jones2018} Jones, D.~O., Riess, A.~G., Scolnic, D.~M., et al.\ 2018, \apj, 867, 108
+
+% K
+
+\bibitem[Knox, \& Millea(2019)]{knox2019} Knox, L., \& Millea, M.\ 2019, arXiv e-prints, arXiv:1908.03663
+
+% L
+
+% M
+% N
+% O
+% P
+\bibitem[Poulin et al.(2019)]{poulin2019} Poulin, V., Smith, T.~L., Karwal, T., et al.\ 2019, \prl, 122, 221301
+
+\bibitem[Planck Collaboration et al.(2018)]{planck2018} Planck Collaboration, Aghanim, N., Akrami, Y., et al.\ 2018, arXiv e-prints, arXiv:1807.06209
+
+% Q
+% R
+\bibitem[Reid et al.(2019)]{reid2019} Reid, M.~J., Pesce, D.~W., \& Riess, A.~G.\ 2019, arXiv e-prints, arXiv:1908.05625
+
+
+\bibitem[Riess et al.(2016)]{riess2016} Riess, A.~G., Macri, L.~M., Hoffmann, S.~L., et al.\ 2016, \apj, 826, 56
+
+\bibitem[Riess et al.(2019)]{riess2019} Riess, A.~G., Casertano, S., Yuan, W., et al.\ 2019, \apj, 876, 85
+
+
+
+\bibitem[{Rigault {et~al.}(2013)}]{rigault2013}
+Rigault, M., Copin, Y., Aldering, G., {et~al.} 2013, \aap, 560, A66
+
+\bibitem[Rigault et al.(2015)]{rigault2015} Rigault, M., Aldering, G., Kowalski, M., et al.\ 2015, \apj, 802, 20
+
+
+\bibitem[Rigault et al.(2018)]{rigault2018} Rigault, M.,
+  Brinnel, V., Aldering, G., et al.\ 2018, arXiv:1806.03849
+% S
+\bibitem[Scolnic et al.(2018)]{scolnic2018} Scolnic, D.~M., Jones, D.~O., Rest, A., et al.\ 2018, \apj, 859, 101
+
+% T
+% U 
+% V
+% W
+\bibitem[Wong et al.(2019)]{wong2019} Wong, K.~C., Suyu, S.~H., Chen, G.~C.-F., et al.\ 2019, arXiv e-prints, arXiv:1907.04869
+
+% X
+% Y
+ Z
+\end{thebibliography}
+
 
 \end{document}
