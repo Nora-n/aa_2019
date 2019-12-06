@@ -328,29 +328,31 @@ model:
         gaussian $\Nc_2 \equiv \Nc \LF{\m_2,\s_2}$
 \end{itemize}
 As such, the probability to observe a young SNe Ia labeled "i" with a stretch
-$x_1^i$ and error $\d x_1^i$ is
+$x_1^i$ and error $\mathrm{d} x_1^i$ is
 \begin{equation}
-    p \LF{x_1^i, \d x_1{}^i|\m_1,\s_1} = \Nc \LF{\m_1, \Sq{\s_1{}^2 + \d
-    x_1^i{}^2}}(x_1^i)
+    p \LF{x_1^i, \mathrm{d} x_1{}^i|\mu_1,\sigma_1} = \mathcal{N} \left(\mu_1,
+    \sqrt{\sigma_1{}^2 + \mathrm{d} x_1^i{}^2}\right)(x_1^i)
 \end{equation}
 and for an old one:
 \begin{align}
-    p(x_1^i, \d x_1^i | \m_{1,2}, \s_{1,2}, a) = a & \times \Nc \LF{\m_1,
-    \sqrt{\s_1{}^2 + \d x_1^i{}^{2}}} (x_1^i) \ + \\ (1-a) & \times \Nc
-    \LF{\m_2, \sqrt{ \s_2{}^2 + \d x_1^i{}^{2}}} (x_1^i), \nonumber 
+    p(x_1^i, \mathrm{d} x_1^i | \mu_{1,2}, \sigma_{1,2}, a) = a & \times
+    \mathcal{N} \left(\mu_1, \sqrt{\sigma_1{}^2 + \mathrm{d} x_1^i{}^{2}}\right) (x_1^i) \ + \\ (1-a) & \times \mathcal{N}
+    \left(\mu_2, \sqrt{ \sigma_2{}^2 + \mathrm{d} x_1^i{}^{2}}\right) (x_1^i), \nonumber 
 \end{align}
 
 \noindent where $a$ is the relative amplitude between the two gaussians.
-Finally, the normalized stretch distribution at a given $z$ $\D\LF{x_1|z}$ is
+Finally, the normalized stretch distribution at a given $z$
+$\Delta\left(x_1|z\right)$ is
 the weigthed sum of both young and old stretch distributions given their
-relative fraction $\de\z$:
+relative fraction $\delta(z)$:
 \begin{equation}
-    \D\LF{x_1|z} = \de\z\times\Nc_1 +
-    \LF{1-\de\z} \times \LF{a\Nc_1 + (1-a)\Nc_2}
+    \Delta\left(x_1|z\right) = \delta(z)\times\mathcal{N}_1 +
+    \left(1-\delta(z)\right) \times \left(a\mathcal{N}_1 +
+    (1-a)\mathcal{N}_2\right)
 \end{equation}
 
 We fitted it on SNf data, giving the results table \ref{tab:val}, with a graphical representation shown figure \ref{fig:snf_model}. For clarity
-with the next models, we named it 3G2M2S$\St{SNf}$ for it has a total of 3
+with the next models, we named it 3G2M2S$_{\text{SNf}}$ for it has a total of 3
 gaussians but with only 2 means and 2 standard deviations, and has been fitted
 on SNf data only. 
 
@@ -362,27 +364,27 @@ on SNf data only.
 \end{figure}
 
 We implemented and compared 10 models in total, 4 of which have an
-evolution with the redshift from $\de\z$, and 6 don't ($\de\z = f =
+evolution with the redshift from $\delta(z)$, and 6 don't ($\delta(z) = f =
 \mathrm{cst}$). The ones with and evolution are:
 \begin{itemize}
     \item 3G2M2S, the one we described (but fitted on all the data);
-    \item 3G2M1S, where this time $\s_1 \equiv \s_2$;
-    \item 2G2M2S, model taken from HOWELL 2009 where we added $\de\z$;
+    \item 3G2M1S, where this time $\sigma_1 \equiv \sigma_2$;
+    \item 2G2M2S, model taken from HOWELL 2009 where we added $\delta(z)$;
     \item 3G3M3S, with three independent gaussians.
 \end{itemize}
 The ones without a stretch evolution are the same ones but with an "F" implying
-we set $\de\z = f = \mathrm{cst}$, and two others:
+we set $\delta(z) = f = \mathrm{cst}$, and two others:
 \begin{itemize}
     \item 1G1M1S, where there is no distinction between old and young SNe;
     \item 1G1M2S, taken from KESLLER 2017 and used in recent cosmological
         analysis SCOLNIC 2018. It's an asymetric model where
 \end{itemize}
 \begin{align}
- p(x_1^i, \d x_1^i | \m, \s_-, \s_+) = 
+ p(x_1^i, \mathrm{d} x_1^i | \mu, \sigma_-, \sigma_+) = 
     \begin{cases}
-        \mathcal{N} \LF{\m, \sqrt{\s_-{}^2 + \d x_1^i{}^{2}}} (x_1^i) & \text{if
-        } x_1^i\geq \m\\
-        \mathcal{N} \LF{\m, \sqrt{\s_+{}^2 + \d x_1^i{}^{2}}} (x_1^i), &
+        \mathcal{N} \left(\mu, \sqrt{\sigma_-{}^2 + \mathrm{d} x_1^i{}^{2}}\right) (x_1^i) & \text{if
+        } x_1^i\geq \mu\\
+        \mathcal{N} \left(\mu, \sqrt{\sigma_+{}^2 + \mathrm{d} x_1^i{}^{2}}\right) (x_1^i), &
         \text{else}
     \end{cases}
 \end{align} 
@@ -396,8 +398,8 @@ The fitted parameters are showed table \ref{tab:val}.
     \label{tab:val}
     \begin{tabular}{c c c c c c c}\hline\hline
 
-        Model & $a$ & $f$ & $\m_1$ & $\s_1$ & $\m_2$ &
-        $\s_2$ \\\hline
+        Model & $a$ & $f$ & $\mu_1$ & $\sigma_1$ & $\mu_2$ &
+        $\sigma_2$ \\\hline
 
         3G2M2S$_{\mathrm{SNf}}$ & $0.48 \pm 0.07$ & none & $0.39 \pm 0.07$ &
         $0.56 \pm 0.05$ & $-1.5 \pm 0.1$ & $0.52 \pm 0.09$ \\
@@ -410,10 +412,10 @@ The fitted parameters are showed table \ref{tab:val}.
         \\
 
         3G2M1S & $0.47 \pm 0.07$ & none & $0.35 \pm 0.04$ & $0.61 \pm 0.03$ &
-        $-1.25 \pm 0.10$ & $\s_1$ \\
+        $-1.25 \pm 0.10$ & $\sigma_1$ \\
 
         3G2M1SF & \textcolor{red}{$0.2 \pm 0.9$} & $0.7 \pm 0.3$ & $0.36 \pm
-        0.04$ & $0.60 \pm 0.03$ & $-1.23 \pm 0.10$ & $\s_1$ \\
+        0.04$ & $0.60 \pm 0.03$ & $-1.23 \pm 0.10$ & $\sigma_1$ \\
 
         2G2M2S & none & none & $0.49 \pm 0.04$ & $0.54 \pm 0.03$ & $-0.72 \pm
         0.08$ & $0.83 \pm 0.07$ \\
@@ -425,7 +427,7 @@ The fitted parameters are showed table \ref{tab:val}.
 
 \begin{tabular}{c c c}\hline\hline
 
-    Model & $\m$ & $\s$ \\\hline
+    Model & $\mu$ & $\sigma$ \\\hline
 
     1G1M1S & $0.01 \pm 0.04$ & $0.90 \pm 0.03$ \\\hline
 
@@ -433,7 +435,7 @@ The fitted parameters are showed table \ref{tab:val}.
 
 \begin{tabular}{c c c c c}\hline\hline
 
-    Model & $\m$ & $\s_-$ & $\s_+$ \\\hline
+    Model & $\mu$ & $\sigma_-$ & $\sigma_+$ \\\hline
 
     1G1M2S & $0.16617 \pm 0.00004$ & $1.07 \pm 0.04$ & $0.69 \pm 0.03$ \\\hline
 
@@ -441,8 +443,8 @@ The fitted parameters are showed table \ref{tab:val}.
 
 \begin{tabular}{c c c c c c c c c}\hline\hline
 
-    Model & $a$ & $f$ & $\m_1$ & $\s_1$ & $\m_2$ & $\s_2$ &
-    $m_3$ & $\s_3$ \\\hline
+    Model & $a$ & $f$ & $\mu_1$ & $\sigma_1$ & $\mu_2$ & $\sigma_2$ &
+    $\mu_3$ & $\sigma_3$ \\\hline
 
     3G3M3S & $0.14 \pm 0.08$ & none & $0.51 \pm 0.06$ & $0.54 \pm 0.04$ & $-1.9
     \pm 0.2$ & $0.29 \pm 0.11$ & $-0.55 \pm 0.12$ & $0.67 \pm 0.15$ \\
