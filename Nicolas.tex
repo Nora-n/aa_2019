@@ -29,7 +29,7 @@ Distribution}
     \and R. Graziani\inst{2}
     \and M. Briday\inst{1}
     \and Y. Copin\inst{1}
-    \and Y. Kim\inst{1}
+    \and Y.-L. Kim\inst{1}
 }
 
 \institute{Université de Lyon, F-69622, Lyon, France; Université de Lyon
@@ -102,23 +102,23 @@ For the last decades, numerous analysis have studied the relation between SNe~Ia
 and host properties\nn{,} finding first that the standardized SNe~Ia magnitude
 significantly depends on the host stellar-mass, SNe~Ia from high-mass host
 \nn{being brighter on average}
-\cite[e.g.][]{kelly2010,sullivan2010,childress2013,betoule2014,rigault2018}.
+\cite[e.g.][]{kelly2010, sullivan2010, childress2013, betoule2014, rigault2018, kim19}.
 This mass-step correction is currently used in cosmological analyses
-\citep[e.g.][]{betoule2014,scolnic2018a}, including for deriving H$_0$
-\citep{riess2016,riess2019}. Yet, the underlying connection between the SN and
+\citep[e.g.][]{betoule2014, scolnic2018a}, including for deriving H$_0$
+\citep{riess2016, riess2019}. Yet, the underlying connection between the SN and
 the host remains unclear when using global properties such as the host stellar
 mass, which raises the question of the accuracy of the correction. More
 recently, studies have used the local SN environment to probe more direct
 connections between the SN and its environments \citep{rigault2013}\nn{,}
 showing that local age-tracers such as the local specific star formation rate or
 the local color are more strongly correlated with the standardized SN magnitude
-\citep{rigault2018,roman2018}, suggesting the age to be the driving parameter
+\citep{rigault2018, roman2018, kim18}, suggesting the age to be the driving parameter
 underlying the mass-step. If true, this would have a significant impact for
 cosmology because the redshift drift magnitude correction to apply might
 strongly vary \citep{rigault2013,childress2014,scolnic2018a}.  Yet, the
 importance of local SN environmental study remains highly debated
 \cite[e.g.][]{jones2015,jones2019} and especially the impact it has on the
-derivation of H$_0$ \cite{jones2015,riess2016,riess2018,rose2019}. 
+derivation of H$_0$ \citep{jones2015,riess2016,riess2018,rose2019}. 
 
 In this paper, we take a step aside to probe the validity of our modeling of the
 SN population that we claim to be constituted of two age-populations
@@ -159,7 +159,7 @@ Furthermore, since the first SNe~Ia host analysis, the SN stretch has been known
 to be strongly correlated with the SN host properties \citep{hamuy1996,
 hamuy2000}, which has been extensively confirmed since \citep[e.g.][]{neill2009,
 sullivan2010, lampeitl2010, kelly2010, gupta2011, dandrea2011, childress2013,
-rigault2013, pan2014}. Following the “A+B“ model and the connection between SN
+rigault2013, pan2014, kim19}. Following the “A+B“ model and the connection between SN
 stretch and host properties, \cite{howell2007} first discussed the potential
 redshift drift of the SN stretch distribution. In this paper we revisit this
 analysis with the most recent SNe~Ia dataset..
@@ -182,14 +182,14 @@ section~\ref{sec:ccl}.
 \label{sec:sample}
 
 We base our analysis on the latest SNe~Ia compilation: the Pantheon catalog from
-\cite{scolnic2018a}.  A naive approach to test the SN stretch redshift drift
+\cite{scolnic2018a}. A naive approach to test the SN stretch redshift drift
 would be to simply compare the observed SN stretch distributions in a few bins
 of redshift.  In practice, selection effects are affecting the observed SN
 stretch distributions. Indeed, because the observed SN~Ia magnitude correlates
 with the lightcurve stretch (and color), the first SN~Ia that a
 magnitude-limited survey will miss are the reddest and the lowest-stretch ones.
 Consequently, if selection effects are not accounted for, one might confuse true
-population drift with selection effects, and conversely.
+population drift with selection effects, and conversely \nn{\citep[e.g.,][]{kim19}}.
 
 \nn{Assuming} sufficient (and random) spectroscopic follow-up for acquiring
 typing and host redshift, the selection effects of magnitude-limited survey
@@ -198,6 +198,23 @@ could be observed. In contrast, targeted surveys have highly complex selection
 functions and will be discarded from our analysis. Fortunately, modern SN
 cosmology samples such as the pantheon dataset are now dominated by magnitude
 limited surveys.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.95\linewidth]{Article_figures/zmax_maglim_snls.pdf}
+    \caption{\textsc{\texttt{SALT2.4}} stretch and color lightcurve parameters
+        of SNe~Ia from the SDSS, PS1 and SNLS samples from the pantheon catalog.
+        The individual SN data are shown as blue dots and a 2D histogram is
+        shown in gray to highlight point density. The ellipse
+        ($x_1=\pm3\,\mathrm{;}\,c=\pm0.3$) is displayed, colored by the
+        corresponding standardized absolute magnitude using the $\alpha$ and
+        $\beta$ coefficients from \cite{scolnic2018a}. \nn{The lines represent
+        the $(x_1, c)$ evolution for $m = m_{lim}$ in eq.~\ref{eq:m_lim},
+    for $z$ between $0.60$ and $z=1.00$ using SNLS's $m_{lim}$ of $24.8\,$mag. The data
+    above these lines are those for which $m > m_{lim}$, meaning they can't be
+    observed.}}
+    \label{fig:maglim}
+\end{figure}
 
 We present in Fig.~\ref{fig:maglim} the lightcurve stretch and color
 distributions of SNe~Ia from these surveys, namely: PanStarrs
@@ -224,23 +241,6 @@ relation between apparent magnitude, redshift and absolute magnitude given by:}
     \nn{m = \mu(z) + \underbrace{M_{min}^{t_0-10}(x_1, c)}_{=-18.00\,\text{mag}}
     < m_{lim}}
 \end{equation}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.95\linewidth]{Article_figures/zmax_maglim_snls.pdf}
-    \caption{\textsc{\texttt{SALT2.4}} stretch and color lightcurve parameters
-        of SNe~Ia from the SDSS, PS1 and SNLS samples from the pantheon catalog.
-        The individual SN data are shown as blue dots and a 2D histogram is
-        shown in gray to highlight point density. The ellipse
-        ($x_1=\pm3\,\mathrm{;}\,c=\pm0.3$) is displayed, colored by the
-        corresponding standardized absolute magnitude using the $\alpha$ and
-        $\beta$ coefficients from \citep{scolnic2018a}. \nn{The lines represent
-        the $(x_1, c)$ evolution for $m = m_{lim}$ in eq.~\ref{eq:m_lim},
-    for $z=0.60$ and $z=0.70$ using SNLS's $m_{lim}$ of $24.8\,$mag. The data
-    above these lines are those for which $m > m_{lim}$, meaning they can't be
-    observed.}}
-    \label{fig:maglim}
-\end{figure}
 
 SNLS typically acquires SNe~Ia in the redshift range $0.4<z<0.8$. At these
 redshifts the rest-frame Bessel-B band roughly corresponds to the SNLS-$i$
@@ -275,9 +275,9 @@ cuts fall near said peaks.}
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.9\linewidth]{Article_figures/hist_surveys_cuts.pdf}
+    \includegraphics[width=0.95\linewidth]{Article_figures/hist_surveys_cuts_55.pdf}
     \caption{From top to bottom: histogram of SN~Ia redshifts for SDSS, PS1 and
-    SNLS from the pantheon dataset, respectively. The colored part of the
+    SNLS from the pantheon dataset. The colored part of the
 distribution shows which SNe~Ia has been kept in our analysis for they are
 supposedly free from selection bias (see section~\ref{sec:sample}). The
 full(light) color responds to the conservative(nominal) cut.}
@@ -293,8 +293,9 @@ deeper. As such, these SNe~Ia} should also be a random sampling of the underlyin
 SN population. The SNf data is particularly useful for studying SN property
 drift as it enable us to have a large SN~Ia sample at $z<0.1$.  The HST sample
 from Pantheon follows the same logic of having a search deeper than the
-follow-up and we therefore kept it entirely \citep{FIND BACK THE REF}, see
-table~\ref{tab:sample}.
+follow-up and we therefore kept it entirely \citep{strolger04}, see
+table~\ref{tab:sample}. \nn{We present the stretch distribution, redshift histogram
+and stretch cdf of these five surveys Fig.~\ref{fig:sample}}.
 
 \begin{table}
     \centering
@@ -314,6 +315,17 @@ table~\ref{tab:sample}.
         \hline
     \end{tabular}
 \end{table}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.95\linewidth]{Article_figures/stretchs-cut_btw_hist_cumu_75.pdf}
+    \caption{\nn{\textit{Main}: Stretches of each survey in full and empty markers for the
+    conservative and nominal cuts, respectively, as a function of redshift. \textit{Right}:
+    normed CDF of each survey's stretch distribution. \textit{Top}: combined redshift 
+    histogram of all the data, in dark gray for the conservative cuts;
+    in light gray for the nominal cuts.}}
+    \label{fig:sample}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %   LITERATURE        %
@@ -377,8 +389,8 @@ time as a function of their stellar mass.
     \caption{\textit{Main}: \textsc{\texttt{SALT2.4}} lightcurve stretch ($x_1$) as a function of
         the local specific star formation rate (LsSFR) for SNf data used in this
         analysis. The color corresponds to the probability for the SNe~Ia to be
-        above $\log(\mathrm{LsSFR}=-10.82)$, which defines $p(y)$; see
-        \cite{rigault2018}. \textit{Right}: histogram of $p(y)$-weighted
+        above $\log(\mathrm{LsSFR}=-10.82)$, which defines $p_y$; see
+        \cite{rigault2018}. \textit{Right}: histogram of $p_y$-weighted
         marginalization of the SN stretch. On both panel, we illustrate the
         Base model fitted on the SNf data. The young and old population
         contributions are shown in purple and yellow, respectively.}
@@ -419,7 +431,6 @@ minimizing a pseudo-$\chi^2$ $\mathcal{L}$ such that:
     \mathcal{L} = -2 \sum_i \ln\left( \prob{x^{i}_{1}}{ \theta;
     \mathrm{d}x^{i}_{1}, \nn{y^i}}\right),
 \end{equation}
-
 \nn{where $i$ is the index of the SN~Ia, $x^{i}_{1}$, $\mathrm{d}x^{i}_{1}$ and
     $y^i$ are the \textsc{\texttt{SALT2.4}} stretch, error of the
     \textsc{\texttt{SALT2.4}} stretch and the probability that the SN is young,
@@ -713,15 +724,15 @@ this modeling is presented section \ref{sec:bbc}.}}
     stress here that, as measurements of modern surveys cover larger redshift
     ranges to reduce calibration systematic  uncertainties, this is becoming
     less true, notably for PS1, DES and, soon, LSST. Already with the current
-    surveys, the BBC sample-based technique is excluded to be an as good
+    surveys, the BBC sample-based technique is \nn{ruled out} to be an as good
     representation of the data as our best model ($p=4\times 10^{-8}$). A more
     detailed discussion of the consequence of this results for cosmology follows
 in section~\ref{sec:bbc}}
 
 \mr{We report in table~\ref{tab:bbc} the samples' $\sigma^-$, $\sigma^+$ and
     $\mu^0$ that we find in close agreement with \cite{scolnic2016} for SNLS and
-    SDSS and with \cite{scolnic2018a} for PS1. This validates \nn{the} somewhat
-    simple construction of our selection-bias free sample, see
+    SDSS and with \cite{scolnic2018a} for PS1. This validates \nn{our} construction
+    of \nn{a} selection-bias free sample, see
     section~\ref{sec:sample}. If we were to use the \cite{scolnic2016} and
     \cite{scolnic2018a} best fit values for SNLS, SDSS and PS1, respectively,
     the $\Delta\mathrm{AIC}$ between our Base drifting model and the BBC
@@ -733,15 +744,15 @@ in section~\ref{sec:bbc}}
     $\Delta\mathrm{AIC}=-31.7$. Removing the SNf data reduces this difference to
     $\Delta\mathrm{AIC}=-5$. Such a reduction is expected for two reasons.
     First, it removes the nearby SNe~Ia, and thereby significantly reduces the
-    redshift level arm to probe the impact of potential redshift drifts.
+    redshift \nn{lever} arm to probe the impact of redshift drifts.
     Second, the SNf data are better at discriminating the individual stretch
     distributions by age since the probability for a SN to be young $p_y{}^i$ is
-    known while other samples rely on $\delta(z^i)$ which only is the fraction
+    known while other samples rely on $\delta(z^i)$ which is the fraction
     of young SNe~Ia at the SN redshift, i.e. a probabilistic proxy for
     $p_y{}^i$. While in any case the Base-model is favored, the relative weight
-    of a SNf sample highlights the importance of adding non-targeted nearby
+    of the SNf sample highlights the importance of adding non-targeted nearby
 surveys, such as the Zwicky Transient Facility \cite[ZTF,][]{bellm2019,
-graham2019} to unambiguously confirm our result.}
+graham2019} to unambiguously confirm our \nn{model}.}
 
 %Using S18/SK16 values of \sigma_-, \sigma_+ and \mu_0, we find that SDSS, PS1 and SNLS's $\mathcal{L}$ to be 457.9, 397.6 and 254.5 respectively, and their AIC to be 464.0, 403.7 and 260.8 respectively, systematically higher than those we find in this study (see table \ref{tab:bbc_comp}).
 
@@ -774,7 +785,7 @@ stretch model estimated at each PS SN redshift; bluer for lower redshifts.}
 
 \mr{We illustrate Fig.~\ref{fig:bbc_pdf_ps1} the prediction difference in the
 underlying stretch distribution between the BBC modeling and our Base drifting
-model for the PS1 sample. By definition, our model is bimodal and the relative
+model for the PS1 sample. Our model is bimodal and the relative
 amplitude of each mode depends on the fraction of old SNe~Ia in the sample
 --~the highest the fraction of old SNe~Ia, the highest the amplitude of the
 low-stretch mode~-- and is therefore redshift dependent. As expected the two
@@ -835,45 +846,45 @@ distribution. This corresponds to 569 SNe~Ia (422 when considering more
 conservative cuts).
 
 Following observations made in \cite{rigault2018} we introduced a redshift drift
-modeling that depends on the expected fraction of young and old SNe~Ia as a
+modeling \nn{which} depends on the expected fraction of young and old SNe~Ia as a
 function of redshift, each age-population having its own underlying stretch
-distribution. We studied various suites of distribution as well as non-drifting
-modeling. We also closely studied the stretch distribution modeling made in
-current version of the BCC algorithm used for Malmquist bias correction by all
+distribution. We have studied various suites of distribution\nn{, including} non-drifting
+modeling. We also studied the stretch distribution modeling \nn{of the}
+current version of the BBC algorithm used for Malmquist bias correction by all
 recent Dark energy or Hubble constant cosmological analyses. 
 
 Our conclusions are the following:
 \begin{enumerate}
 
     \item Non-drifting models are excluded to be as good descriptions of the
-        data \nn{as} our Base modeling. This model assumes that: (1) the young
+        data \nn{as} our Base model. This model assumes that: (1) the young
         population has an unimodal Gaussian stretch distribution while the old
         population stretch one is bimodal, one mode being the young one; (2) the
         evolution of the relative fraction of young and old SNe~Ia follows the
         prediction made in \cite{rigault2018}. 
 
-    \item Given 1. we conclude that the SNe~Ia is indeed drifting, as already
-        suggested by \citep[e.g.][]{howell2007}. 
+    \item Given 1. we conclude that the SNe~Ia \nn{stretch} is indeed drifting, as
+        already suggested by \citep[e.g.][]{howell2007}. 
 
     \item The BBC approach, which assumes each survey to have its own asymmetric
         Gaussian distribution, is excluded to be an as good description of the
         data as our drifting model ($p=4\times10^{-8}$). Hence, the BBC
-        sample-based approach does not accurately account for redshift drift as
-        suggested by \cite{scolnic2016} and \cite{scolnic2018a}.
+        sample-based approach does not accurately account for redshift drift \nn{contrary
+        to the suggestion of} \cite{scolnic2016} and \cite{scolnic2018a}.
 
     \item An inaccurate underlying stretch distribution modeling is estimated to
-        bias the mean standardized SNe~Ia on the order of a few percent, which
+        bias the mean standardized SNe~Ia \nn{to} the order of a few percents, which
         is comparable in scale to the observational signature of exotic forms of
         dark energy.
 
     \item We suggest to use the following stretch population modeling:
-    \begin{align}
-    \label{eqconclusion:stretchz}
-        \Delta\left(x_1\,|\,z \right) =
-        &\,\delta(z)\times\mathcal{N}(\mu_1,\sigma_1)\,+\nonumber\\
-        (1-&\,\delta(z)) \times  \left[a\times\mathcal{N}(\mu_1,\sigma_1) +
-        (1-a)\times\mathcal{N}(\mu_2,\sigma_2)\right]\nonumber
-    \end{align}
+        \begin{align}
+            \label{eqconclusion:stretchz}
+            \nn{X_1\left(z \right) =
+            } &\,\delta(z)\times\mathcal{N}(\mu_1,\sigma_1^2)\,+\nonumber\\
+            (1-&\,\delta(z)) \times  \left[a\times\mathcal{N}(\mu_1,\sigma_1^2) +
+            (1-a)\times\mathcal{N}(\mu_2,\sigma_2^2)\right]
+        \end{align}
     with: $a=0.50$, $\mu_1=0.37$, $\mu_2=-1.22$, $\sigma_1=0.61$,
     $\sigma_2=0.56$, see table~\ref{tab:modelresults} and using the
     age-population drift modelization $\delta(z)$ defined in \cite{rigault2018}
@@ -990,6 +1001,10 @@ Our conclusions are the following:
 
 \bibitem[Kessler \& Scolnic(2017)]{kessler2017} Kessler, R., \& Scolnic, D.\ 2017, \apj, 836, 56
 
+\bibitem[Kim et al.(2018)]{kim18} Kim, Y.-L., Smith, M., Sullivan, M., et al.\ 2018, \apj, 854, 24
+
+\bibitem[Kim et al.(2019)]{kim19} Kim, Y.-L., Kang, Y., \& Lee, Y.-W.\ 2019, Journal of Korean Astronomical Society, 52, 181
+
 \bibitem[Knox \& Millea(2019)]{knox2019} Knox, L., \& Millea, M.\ 2019, arXiv e-prints, arXiv:1908.03663
 
 % L
@@ -1076,6 +1091,8 @@ Rigault, M., Copin, Y., Aldering, G., {et~al.} 2013, \aap, 560, A66
 \bibitem[Scolnic et al.(2018)]{scolnic2018b} Scolnic, D.~M., Lochner, M., Gris, P., et al.\ 2018, arXiv e-prints, arXiv:1812.00516
 
 \bibitem[Scolnic et al.(2019)]{scolnicastro2020} Scolnic, D., Perlmutter, S., Aldering, G., et al.\ 2019, Astro2020: Decadal Survey on Astronomy and Astrophysics, 2020, 270
+
+\bibitem[Strolger et al.(2004)]{strolger04} Strolger, L.-G., Riess, A.~G., Dahlen, T., et al.\ 2004, \apj, 613, 200
 
 \bibitem[Sullivan et al.(2006)]{sullivan2006} Sullivan, M., Le  Borgne, D., Pritchet, C.~J., et al.\ 2006, \apj, 648, 868 
 
