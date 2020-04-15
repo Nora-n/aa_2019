@@ -12,3 +12,5 @@
 ztest.pdf
 
 ztest.tex
+
+*.out
