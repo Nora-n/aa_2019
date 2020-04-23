@@ -25,8 +25,8 @@
 Distribution}
 
 \author{N. Nicolas
-\thanks{n.nicolas@ipnl.in2p3.fr, equal contribution}
-\inst{1}
+    \thanks{n.nicolas@ipnl.in2p3.fr, equal contribution}
+    \inst{1}
     \and M. Rigault
     \thanks{m.rigault@ipnl.in2p3.fr, equal contribution}
     \inst{2}\and\\
@@ -35,10 +35,10 @@ Distribution}
     %HERE ALPHABETIC ORDER
     \and G. Aldering\inst{3}
     \and M. Briday\inst{1}
-    \and J. Nordin
+    \and J. Nordin\inst{4}
     \and Y.-L. Kim\inst{1}
     \and Saul Perlmutter\inst{3}
-    \and G. Smadja\inst{1}   
+    % Gerard ne souhaite pas etre co-auteur.
 }
 
 \institute{Université de Lyon, F-69622, Lyon, France; Université de Lyon
@@ -49,6 +49,8 @@ Distribution}
     \and
     Physics Division, Lawrence Berkeley National Laboratory, 
     1 Cyclotron Road, Berkeley, CA, 94720 
+    \and
+    Institut fur Physik, Humboldt-Universität zu Berlin, Newtonstr. 15, 12489 Berlin
 }
 
 \date{Received 2 November 1992 / Accepted 7 January 1993}
@@ -164,7 +166,7 @@ of redshift. This modeling relies on three assumptions: (1) there are two
 distinct populations of SNe~Ia; (2) the relative fraction of each of these
 populations as a function of redshift follows the model presented in
 \cite{rigault2018} and (3) the underlying distribution of stretch for each age
-sample is constant. This paper aims at testing this specific model with datasets from the literature. We highlight 
+sample is constant. This paper aims at testing this specific model with datasets from the literature. \mr{Note that the progenitor age as traced by the LsSFR seems to capture physical feature intrinsic to the progenitor and/or explosion mechanism that the stretch alone is not capturing \citep{nordin2018}.}
 
 We present in section~\ref{sec:sample} the sample we are using for this
 analysis, derived from the Pantheon catalog \citep{scolnic2018a}. We discuss the
@@ -235,7 +237,7 @@ filter, that has a $5\sigma$ depth of
 24.8~mag\footnote{\href{https://www.cfht.hawaii.edu/Science/CFHTLS/cfhtlsfinalreleaseexecsummary.html}{CFHT
 final release website.}}. This converts to a $z_{lim}=0.60$, in agreement with
 \cite{neill2006}, \cite{perrett2010} and \cite{bazin2011}.  Fig.~14 of
-\cite{perrett2010} suggests a lower limit of $z_{lim}=0.55$; both limits will be
+\cite[][\mr{see their section~5}]{perrett2010} suggests a lower limit of $z_{lim}=0.55$; both limits will be
 considered, as discussed below.
 
 Similarly, PS1 observes SNe~Ia in the range $0.2<z<0.4$, their $g$-band
@@ -246,7 +248,7 @@ suggestive of a more conservative $z_{lim}=0.27$.
 In a similar redshift range, SDSS has a limiting magnitude of 22.5
 \citep{dilday2008,sako2008}, which would lead to a $z_{lim}=0.24$. However, the
 SDSS surveys were more sensitive to limited spectroscopic resources;
-\cite{kessler2009} pointed out that during the first year of SDSS, SNe~Ia with
+\cite[][\mr{see their section~2}]{kessler2009} pointed out that during the first year of SDSS, SNe~Ia with
 $r-mag<20.5$ were favored for spectroscopic follow-up, corresponding to a
 redshift cut at $0.15$. For the rest of the SDSS survey, additional
 spectroscopic resources were available, and \cite{kessler2009} and
@@ -256,7 +258,7 @@ baseline SDSS redshift limit.
 
 The sample selection is summarized in Table~\ref{tab:sample}, and the redshift distribution of these three surveys is shown in Fig.~\ref{fig:cuts}.
 As expected, the selected redshift limits roughly correspond to the peak of
-these histograms. 
+these histograms. \mr{We show in section~\ref{sec:results} that this sample selection indeed provide a subset of SNe~Ia with insignificant selection effects when compared to state-of-the-art Malmquist correction techniques.}
 
 \begin{table}
     \centering
@@ -686,7 +688,7 @@ significantly better, with a $\Delta$AIC of $-0.4$.
 this strengthens the fact
 that the young and old populations indeed appear to share the same underlying
 high-stretch mode. 
-\mr{Furthermore, one might wonder whether a low-stretch mode might also exist in the young-population, see Fig.~\ref{fig:stretchlssfr}. We tested that by allowing this population to also be bi-modal, finding the amplitude of this low-stretch mode to be compatible with~0 in this young population ($<2\%$). More generally, this rises the question of inaccurate tracing of age by a given environmental tracer (here the LsSFR). A dedicated analysis be presented in Briday et al. in prep.}
+\mr{Furthermore, one might wonder whether a low-stretch mode might also exist in the young-population, see Fig.~\ref{fig:stretchlssfr}. We tested that by allowing this population to also be bi-modal, finding the amplitude of this low-stretch mode to be compatible with~0 in this young population ($<2\%$). More generally, this raises the question of inaccurate tracing of age by a given environmental tracer (here the LsSFR). A dedicated analysis be presented in Briday et al. in prep.}
 
 \mr{Finally, considering the SNfactory dataset like any other
 (i.e., ignoring the LsSFR measurements, see section~\ref{sec:modeling}),
@@ -705,14 +707,11 @@ magnitudes used for cosmology are blind to the underlying stretch distribution f
 However, surveys usually do have
 significant Malmquist bias at least for the upper half of their SN redshift distribution. As a consequence, an ill-modeling of the underlying stretch distribution will bias the SN magnitude derived from such surveys. 
 
-\subsection{Issue of with the per Sample Asymmetric modeling}
-\label{sec:bbc}
-
 Commonly used Malmquist bias correction techniques, such as the BBC-formalism, assume per Sample Asymmetric Gaussian functions for modeling the underlying stretch and color distributions.
 Yet, as shown in Section~\ref{sec:results}, such a sample-based distribution is excluded as being as good as our drifting model.
 Then, unlike what \citet[][section~2]{scolnic2016} and
 \citet[][section~5.4]{scolnic2018a} suggested, i.e. that
-traditional surveys span limited redshift ranges and therefore that the per-sample approach accounts for implicit redshift drifts, might not be correct. We stress here that, as measurements of modern surveys try to cover increasingly larger redshift ranges in order to reduce calibration systematic uncertainties, this sample-based approach  is becoming less valid, notably for PS1, DES and, soon, LSST. 
+traditional surveys span limited redshift ranges and that therefore the per-sample approach accounts for implicit redshift drifts, \sout{might not be correct} \nn{a direct modeling of the redshift drift is more appropriate than a sample-based approach}. We stress here that, as measurements of modern surveys try to cover increasingly larger redshift ranges in order to reduce calibration systematic uncertainties, this sample-based approach is becoming less valid, notably for PS1, DES and, soon, LSST.
 
 We illustrate in Fig.~\ref{fig:bbc_pdf_ps1} the prediction difference in the
 underlying stretch distribution between the per-sample asymmetric modeling and our Base drifting
@@ -724,7 +723,7 @@ dependency is shown as blue to red underlying distributions in
 Fig.~\ref{fig:bbc_pdf_ps1} for redshift ranges covered by PS1. The observed
 $x_1$ histogram follows our modeling defined as the sum of individual underlying SN-redshift distributions. As expected, the two modeling approaches differ mostly in the negative part of the SN stretch distribution. The asymmetric Gaussian distribution goes through the middle of the
 bimodal distribution, over-estimating the number of SNe~Ia at $x_1\sim-0.7$ and
-under-estimating it at $x_1\sim-1.7$ in comparison to our Base drifting model for typical PS1 SN redshifts. \mr{This means that the SN bias-corrected standardized magnitude estimated at redshift affected by selection effect would be biased by ill-modeling of the true underlying stretch distribution.}
+under-estimating it at $x_1\sim-1.7$ in comparison to our Base drifting model for typical PS1 SN redshifts. \mr{This means that the SN bias-corrected standardized magnitude estimated at redshift affected by selection effect would be biased by an ill-modeling of the true underlying stretch distribution.}
 
 
 \begin{figure}
@@ -754,7 +753,7 @@ a function of redshift when considering that the underlying SN stretch
 distribution follows either the per-sample Asymmetric Gaussian modeling or our Base drifting model. This
 is shown Fig.~\ref{fig:magdrift}, where, for clarity we convert this difference
 in mean stretch $x_1$ to a difference in magnitude using $\alpha=0.156$
-\citep{scolnic2018a}. \mr{We strengthen here that this does not corresponds to the actual impact on cosmological distances derived from SNeIa depending on which underlying stretch distribution modeling as it does not account for the amplitude of the Malmquist bias correction as a function of redshift and surveys.}
+\citep{scolnic2018a}. \mr{We stress here that this does not correspond to the actual impact on cosmological distances derived from SNeIa as this simple stretch average comparison does not account for the amplitude of the Malmquist bias correction to be applied as a function of redshift and surveys.}
 
 \begin{figure}
     \centering
@@ -802,7 +801,7 @@ Our conclusions are the following:
 
     \item The underlying SN~Ia stretch distribution is         redshift dependent, as previously suggested by e.g.~\cite{howell2007}. This
         result is largely independent of details on each age-population
-        modeling. \yc{\textit{Indeed, and this should be stated first!}}
+        modeling.
 
     \item Non-drifting models are indeed excluded as \nn{suitable} descriptions of the
         data \nn{relative to} our Base model. This model assumes
@@ -814,8 +813,7 @@ Our conclusions are the following:
 
     
     \item 
-        \mr{Using} survey-based asymmetric Gaussian distributions, as  done, e.g., in the current implementation of the BBC, is excluded to be good descriptions of the data \nn{relative to} our drifting model. Hence, the sample-based approach does not accurately
-        account for redshift drift.
+        \mr{Using} survey-based asymmetric Gaussian distributions, as  done, e.g., in the current implementation of the BBC, is excluded to be good descriptions of the data \nn{relative to} our drifting model. Hence, the sample-based approach does not accurately account for redshift drift and even less so as survey span larger redshift ranges. \mr{We warn that, even if extra degrees of freedom might be acceptable SN cosmological studies, extrapolating the SN property distributions from the volume-limited part of a survey to the magnitude-limited one affected by sample selection would still be inaccurate since the distribution would drift.}
 
     \item An inaccurate underlying stretch distribution model is estimated to
         bias the mean standardized magnitude of SNe~Ia affected \nn{by}
@@ -834,7 +832,7 @@ Our conclusions are the following:
         \end{align}
         with: $a=0.51$, $\mu_1=0.37$, $\mu_2=-1.22$, $\sigma_1=0.61$,
         $\sigma_2=0.56$ (see Table~\ref{tab:modelresults}) and using the
-        age-population drift modelization $\delta(z)$ defined in with $K=0.87$:
+        age-population drift modelization $\delta(z)$ with $K=0.87$:
         \begin{align}
             \delta(z) & = \left( K^{-1} \times (1+z)^{-2.8} +1 \right)^{-1}.
         \end{align}
@@ -850,6 +848,7 @@ analysis; fortunately this will soon be provided by the Zwicky Transient Facilit
     This project has received funding from the European Research Council (ERC)
     under the European Union's Horizon 2020 research and innovation programme
     (grant agreement n 759194 - USNAC).
+    This work was supported in part by the Director, Office of Science, Office of High Energy Physics of the U.S. Department of Energy under Contract No. DE-AC025CH11231.
     % How has received that support for this project ? 
     %Support has been provided by the Institut Universitaire de France, the CNES, and the region Auvergne-Rhone-Alpes.
 \end{acknowledgements}
@@ -987,6 +986,9 @@ analysis; fortunately this will soon be provided by the Zwicky Transient Facilit
 
 \bibitem[Neill et al.(2009)]{neill2009} Neill, J.~D., Sullivan, M., Howell, D.~A., et al.\ 2009, \apj, 707, 1449
 
+\bibitem[Nordin et al.(2018)]{nordin2018} Nordin, J., Aldering, G., Antilogus, P., et al.\ 2018, \aap, 614, A71
+
+
 % O
 % P
 \bibitem[Pan et al.(2014)]{pan2014} Pan, Y.-C., Sullivan, M., Maguire, K., et al.\ 2014, \mnras, 438, 1391
@@ -1043,6 +1045,8 @@ Rigault, M., Copin, Y., Aldering, G., {et~al.} 2013, \aap, 560, A66
 
 % S
 \bibitem[Sako et al.(2008)]{sako2008} Sako, M., Bassett, B., Becker, A., et al.\ 2008, \aj, 135, 348
+
+\bibitem[Saunders et al.(2020)]{saunders2020} Saunders, C., Aldering, G., Antilogus, P., et al.\ 2020, VizieR Online Data Catalog, J/ApJ/869/167
 
 \bibitem[Scannapieco \& Bildsten(2005)]{scannapieco2005} Scannapieco, E., \& Bildsten, L.\ 2005, \apjl, 629, L85 
 
