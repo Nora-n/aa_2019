@@ -15,6 +15,7 @@
 \newcommand{\nn}[1]{{\textcolor[rgb]{0.25, 0.50, 0}{#1}}}
 \newcommand{\nnn}[1]{{\textcolor[rgb]{0.40, 0.0, 0.20}{#1}}}
 \newcommand{\yc}[1]{{\textcolor{BrickRed}{#1}}}
+\newcommand{\agk}[1]{\textcolor{purple}{AK: #1}}
 
 \def\l{\lambda}\def\L{\Lambda}
 
@@ -143,6 +144,9 @@ H$_0$ \citep{jones2015, riess2016, riess2018, rose2019}.
 %\nn{We point that there has been sample-based approach meant to account for an unmodeled variation of host-related parameters thanks to multiple redshift-span-limited surveys \citep{scolnic2016, kessler2017}, that we show aren't as effective as a direct modeling of such a drift}.
 
 The concept of the SNe~Ia age dichotomy arose with the study of the SN~Ia rate.
+\agk{This grammatical error appears a lot in this article.  In compound
+nouns the first noun is typically singular, so this should
+be SN~Ia age dichotomy.}
 \cite{mannucci2005, scannapieco2005, sullivan2006, aubourg2008} have shown that
 the relative SNe~Ia rate in galaxies could be explained if two populations
 existed, one young, following the host star formation activity, and one old
@@ -276,7 +280,8 @@ compared to state-of-the-art Malmquist correction techniques.
 \begin{table}
     \centering
     \caption{Composition of the SNe~Ia dataset used in this analysis.
-    Conservative cuts are indicated in brackets.}
+    Conservative cuts are indicated in brackets.
+    \agk{parentheses not brackets}}
     \label{tab:sample}
     \begin{tabular}{l c c}
         \hline\hline
@@ -312,7 +317,9 @@ and~4.2.2; SNe~Ia time series are published in \citealt{Saunders2020}
 \nn{\textit{Greg: for now you may need to cite SNEMO and SUGAR to remove this
 ``?''}}, see also Aldering in prep. and Ponder in prep.). The spectroscopic
 follow-up was done over a redshift range of $0.02 < z < 0.09$~\citep[as
-in][]{rigault2018}, while the search was much deeper. As such, these SNe~Ia are
+in][]{rigault2018}, while the search was much deeper. \mr{These 114 SNfactory SNeIa 
+thus are part of the volume limited part of the survey (Aldering in prep.).}
+As such, these SNe~Ia are
 assumed to be a random sampling of the underlying SN population. The SNfactory
 sample is particularly useful for studying SN property drift, as it enables us
 to have a large SN~Ia sample at $z<0.1$.  
@@ -328,6 +335,8 @@ split in redshift bins of regular sample size. We see that SNe~Ia at higher
 redshift have on average larger stretch ($0.34 \pm 0.10$ at $z\sim0.65$) than
 those at lower redshift ($-0.17\pm 0.10$ at $z\sim0.05$), suggesting that the
 underlying stretch distribution is drifting.
+\agk{how can this be asserted when you just showed that none of the surveys
+are complete at $z \sim 0.65$!?} \mr{MR: Alex, There is HST too, see top of Fig. 3. | in the latest bin 68 SNLS, 26 HST}
 
 \begin{figure}
     \centering
@@ -410,7 +419,9 @@ The stretch probability distribution function (pdf) of a given SN will be the
 linear combination of the stretch distributions of these two population weighted
 by its probability $y^i$ to be young (see Section~\ref{sec:basemodelapplied}).
 But generally, the fraction of young SNe~Ia as a function of redshift is given
-by $\delta$(z) (see Eq.~\ref{eq:delta}) and therefore, our redshift drift model
+by $\delta$(z) \agk{Convention is that letters that are variables
+are italicized.  $z$, $H_0$.}
+(see Eq.~\ref{eq:delta}) and therefore, our redshift drift model
 of the underlying distribution of SNe~Ia as a function of redshift $X_1(z)$ is
 given by:
 \begin{multline}\label{eq:stretchz}
@@ -418,6 +429,7 @@ given by:
     (1-\delta(z)) \times \left[ a\times\mathcal{N}(\mu_1,\sigma_1{}^2) +
     (1-a)\times\mathcal{N}(\mu_2,\sigma_2{}^2) \right].
 \end{multline}
+
 
 \subsection{Base model applied to data}\label{sec:basemodelapplied}
 
@@ -480,6 +492,34 @@ illustrated in Fig.~\ref{fig:stretchlssfr}.
         \hline
     \end{tabular}
 \end{table*}
+\agk{You don't define $p^i_y$.  The language is
+is sloppy.  What is relevant is the opposite, the probability
+that a galaxy with low mass gets the measured LsSFR.
+These are in general different.
+The solution you use is only correct for a model in which the
+rates for low and high-LsSFR galaxies is the same.
+The probability in general should include a prior
+on $l$.
+\begin{align}
+p(x^i_{o1},l_o^i | \mu_1,\mu_2,\sigma_1,\sigma_2,a) & = \int dl^i p(x^i_{o1},l_o^i | l^i, \mu_1,\mu_2,\sigma_1,\sigma_2,a) 
+p(l^i| \mu_1,\mu_2,\sigma_1,\sigma_2,a ) \nonumber \\
+ & = \int dl^i p(x^i_{o1} | l^i, \mu_1,\mu_2,\sigma_1,\sigma_2,a) 
+ p(l_o^i | li) 
+p(l^i| \mu_1,\mu_2,\sigma_1,\sigma_2,a ) \nonumber \\
+& = \int_{-\infty}^{-10.82} dl^i [a\mathcal{N}(\mu_1,\sigma_1{}^2) +
+    (1-a)\mathcal{N}(\mu_2,\sigma_2{}^2] 
+ p(l_o^i | l^i) 
+p(l^i| \mu_1,\mu_2,\sigma_1,\sigma_2,a ) \nonumber \\
+&+\int_{-10.82}^{\infty} dl^i\mathcal{N}(\mu_1,\sigma_1{}^2)
+ p(l_o^i | l^i) 
+p(l^i| \mu_1,\mu_2,\sigma_1,\sigma_2,a ) \nonumber
+\end{align}
+Note that you use rates without LsSFR measurements,
+so you are doing something inconsistent here.
+There should be a $\delta{z}$ term here.
+However, since the rates are the same at $z=0.05$,
+maybe this doesn't matter so much.
+}
 
 \subsubsection{Without LsSFR measurements}\label{sec:modelnopy}
 
@@ -499,7 +539,12 @@ young SNe~Ia at the SN redshift $z^i$~-- otherwise.
 
 Results of fitting this model to all the 569 (resp. 422) SNe from the fiducial
 (resp. conservative) sample are given Table~\ref{tab:modelresults}, and the
-predicted redshift evolution of mean stretch (mean of Eq.~\ref{eq:stretchz})
+predicted redshift evolution of mean stretch (mean of Eq.~\ref{eq:stretchz}
+\agk{This is not the mean of Eq.~4.  It is the expected
+value of $x_1$ given the distribution of Eq.~4.
+Are the uncertainties in the parameters (and their
+covariances) taken into account in this expected
+value and the shaded blue band?  If not, they be.})
 illustrated as a blue band in Fig.~\ref{fig:modelall}. We see in this figure
 that the measured mean SN~Ia stretch per redshift bins of equal sample size
 closely follows our redshift drift modeling. This is indeed what is expected if
@@ -521,7 +566,7 @@ Section~\ref{sec:results} for a more quantitative discussion.
         shown as blue, dashed-blue and gray, when fitted on the fiducial sample,
         the conservative one or the SNfactory dataset only, respectively; all
         are compatible. The light-blue band illustrates the amplitude of the
-    error of the best fit model when considering the fiducial dataset.}
+    error of the best fit model when considering the fiducial dataset. \agk{Confirming this band includes parameter covariance.}}
     \label{fig:modelall}
 \end{figure*}
 
@@ -561,7 +606,7 @@ having a sample-based approach covers some potential redshift evolution
 information \citep{scolnic2016, scolnic2018a}. See further discussion
 concerning BBC in Section~\ref{sec:discussion}. 
 
-Finally, for the sake of completeness, we also consider simple the ``Gaussian''
+Finally, for the sake of completeness, we also consider simple \agk{?} the ``Gaussian''
 and ``Asymmetric'' Gaussian non-drifting models. 
 
 \section{Results}\label{sec:results}
@@ -673,11 +718,19 @@ Eq.~\ref{eq:delta}.
 
 Surprisingly, the sample-based Gaussian asymmetric modeling used by current
 implementations of the BBC technique \citep{scolnic2016, kessler2017}, is one of
-the worst modelisations of our analysis (see Section~\ref{sec:results}). While
+the worst
+\agk{the word ``worst'' is inappropriate for the most highly AIC excluded
+model}
+modelisations of our analysis (see Section~\ref{sec:results}). While
 its $-2\ln(L)$ is the smallest of all redshift-independent models (but still
 $-11.5$ worse than the reference Base model), it is strongly penalized for
 requiring 15~free parameters ($\mu_0, \sigma_{\pm}$~for each of the 5~samples of
-the analysis). Hence, its $\Delta\mathrm{AIC}<-20$, which could be interpreted
+the analysis).
+\agk{I think it does worse not because of the more parameters but that it has 5 complexity penalties
+whereas the base model only has 1.  AIC doesn't account for the fact that each sample is fit independently.  It seems a fairer
+metric would be the BIC, where you adjust $n$ for each sample.  This would recover $\sim 16$ in the
+IC for this model.}
+Hence, its $\Delta\mathrm{AIC}<-20$, which could be interpreted
 as a probability $p=2\times 10^{-7}$ of being an as good representation of the
 data as the Base model. We report in Table~\ref{tab:bbc} the samples' $\mu_0$
 and $\sigma_{\pm}$ adjusted on the nominally selection-free samples using our
@@ -725,9 +778,9 @@ with~0 in this young population ($<2\%$). More generally, this raises the
 question of inaccurate tracing of age by a given environmental tracer (here the
 LsSFR). A dedicated analysis will be presented in Briday et al.\ in prep.
 
-Finally, \sout{considering the SNfactory dataset like any other (i.e.,} ignoring
-the LsSFR measurements \nn{-- available only for the SNfactory dataset}, see
-Section~\ref{sec:modeling} -- \sout{),} reduces the significance of the results
+Finally, ignoring
+the LsSFR measurements --~available only for the SNfactory dataset, see
+Section~\ref{sec:modeling}~-- reduces the significance of the results
 presented in this section, as expected. Yet, non-drifting models remain strongly
 disfavored, and for instance, the best fitted sample-based Gaussian asymmetric
 modeling still is $\Delta\mathrm{AIC}<-10$ less representative of the data than
@@ -813,6 +866,14 @@ using $\alpha=0.156$ \citep{scolnic2018a}. We stress here that this does not
 correspond to the actual impact on cosmological distances derived from SNe~Ia as
 this simple stretch average comparison does not account for the amplitude of the
 Malmquist bias correction to be applied as a function of redshift and surveys.
+\agk{
+The AG modeling contains Malmquist bias.  To be fair you
+should plot Base with the survey-specific Malmquist bias.
+There is something strange going on at $z<0.2$,
+can you add SNfactory to this plot?  I think you
+fill find that the systematic difference
+is driven by differences in the $x_1$ distribution
+of SNf.}
 
 \begin{figure}
     \centering
