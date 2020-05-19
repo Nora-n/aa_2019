@@ -1,11 +1,9 @@
-\documentclass[]{aa}
+\documentclass[referee]{aa}
 
 \usepackage{txfonts}
 \usepackage{amsmath, mathtools}
 \usepackage[colorlinks,breaklinks]{hyperref}
 \hypersetup{linkcolor=blue,citecolor=blue,filecolor=black,urlcolor=blue}
-
-\usepackage[dvipsnames]{xcolor}
 
 \newcommand{\orcid}[1]{
 \href{https://orcid.org/#1}{
@@ -47,7 +45,7 @@ Distribution}
     12489 Berlin
 }
 
-\date{Received 2 November 1992 / Accepted 7 January 1993}
+\date{Submitted to A\&A the 19th of May 2020}
 
 \abstract{The true nature of type Ia supernovae (SNe~Ia) remains largely
     unknown, and as survey statistics increase, the question of astrophysical
@@ -504,7 +502,7 @@ discussion.
     \caption{Evolution of the mean SN \textsc{\texttt{SALT2.4}} stretch ($x_1$)
         as a function of redshift. Markers show the mean stretch measured in
         redshift bins of equal sample size, indicated in light gray at the
-        bottom of each redshift bins. Full and light markers are used when
+        bottom of each redshift bin. Full and light markers are used when
         considering the fiducial or the conservative samples, respectively. The
         orange horizontal line represents the mean stretch of the fiducial
         sample, illustrating the expectation if the SN stretch distribution is
@@ -513,10 +511,7 @@ discussion.
         the conservative one or the SNfactory dataset only, respectively; all
         are compatible. The light-blue band illustrates the amplitude of the
         error (incl. covariance) of the best fit model when considering the
-        fiducial dataset. 
-        %The redshift distributions of each sample are
-        %shown as light-histograms, see lower left legend.
-        }
+        fiducial dataset.}
     \label{fig:modelall}
 \end{figure*}
 
@@ -606,7 +601,7 @@ in Table~\ref{tab:comp}, and illustrated in Fig.~\ref{fig:mod_comp}.
         & 1101.2 & 1113.2 & $-23.7$ 
         \\
 
-        Per Sample Asym. & per sample & 3$\times$5
+        Per sample Asym. & per sample & 3$\times$5
         & 1468.2 & 1498.2 & $-31.5$
         & 1083.6 & 1113.6 & $-24.1$ 
         \\
@@ -753,7 +748,7 @@ of the underlying stretch distribution will bias the SN magnitude derived from
 such surveys. 
 
 Commonly used Malmquist bias correction techniques, such as the BBC-formalism,
-assume per Sample Asymmetric Gaussian functions for modeling the underlying
+assume per sample asymmetric Gaussian functions for modeling the underlying
 stretch and color distributions. Yet, as shown in Section~\ref{sec:results},
 such a sample-based distribution is excluded as being as good as our drifting
 model. Then, unlike what \citet[][Section~2]{scolnic2016} and
@@ -789,10 +784,10 @@ ill-modeling of the true underlying stretch distribution.
     \caption{Distribution of the PS1 SN~Ia \textsc{\texttt{SALT2.4}} stretch
         ($x_1$) after the fiducial redshift limit cut (grey histogram). This
         distribution is supposed to be a random draw from the underlying stretch
-        distribution. The green line shows the BBC model of this underlying
+        distribution. The green lines show the BBC model of this underlying
         distribution (asymmetric Gaussian). The full line (band) is our best fit
         (its error); the dashed line shows the \cite{scolnic2018a} result. The
-        black line (band) show our best fitted Base-modeling (its error, see
+        black line (band) shows our best fitted Base-modeling (its error, see
         Table \ref{tab:modelresults}) that includes redshift drift. For
         illustration, we show as colored (from blue to red with increasing
         redshifts) the evolution of the underlying stretch distribution as a
@@ -811,8 +806,8 @@ underlying distribution will matter for correcting Malmquist biases.
 
 In the era of modern cosmology, where we aim at probing $w_0$ at a sub-percent
 level and $w_a$ at the ten-percent precision \citep[e.g.,][]{lsstpaper}, we
-stress that correctly modeling of potential SN redshift drift should be further
-studied and care should be made when using samples affected by selection
+stress that correct modeling of potential SN redshift drift should be further
+studied and care should be taken when using samples affected by selection
 effects.
 
 \section{Conclusion}\label{sec:ccl}
@@ -833,10 +828,7 @@ a function of redshift, each age population having its own underlying
 stretch distribution.
 
 In addition to this ``base'' modeling, we have studied various distributions,
-including redshift independent models; we also studied the prediction from the
-``Beams with Bias Correction'', a Malmquist bias correction algorithm used by
-several recent SN~Ia cosmological analyses, implemented as a per-sample
-asymmetric Gaussian stretch distribution.
+including redshift independent models; we also studied the prediction from a per-sample asymmetric Gaussian stretch distribution used, for instance, by the Beams with Bias Correction Malmquist bias correction algorithm \citep{scolnic2016, kessler2017}.
 
 Our conclusions are the following:
 \begin{enumerate}
