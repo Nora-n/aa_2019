@@ -37,15 +37,15 @@ out that biases in $x_1$ become apparent much sooner that biases on $m$.
     \centering
     \begin{subfigure}
         \centering
-        \includegraphics[width=.3\linewidth]{Answer_figures/Fig_biasCor_mb.eps}
+        \includegraphics[width=.20\linewidth]{Answer_figures/Fig_biasCor_mb.eps}
     \end{subfigure}
     \begin{subfigure}
         \centering
-        \includegraphics[width=.3\linewidth]{Answer_figures/Fig_biasCor_x1.eps}
+        \includegraphics[width=.20\linewidth]{Answer_figures/Fig_biasCor_x1.eps}
     \end{subfigure}
     \begin{subfigure}
         \centering
-        \includegraphics[width=.3\linewidth]{Answer_figures/Fig_biasCor_c.eps}
+        \includegraphics[width=.20\linewidth]{Answer_figures/Fig_biasCor_c.eps}
     \end{subfigure}
     \captionsetup{justification=centering}
     \caption{Bias corrections $\mkern
@@ -57,7 +57,7 @@ out that biases in $x_1$ become apparent much sooner that biases on $m$.
     \label{fig:KS17}
 \end{figure}
 
-\begin{wrapfigure}[10]{R}{.4\linewidth}
+\begin{wrapfigure}[13]{R}{.4\linewidth}
     \vspace*{-20pt}
     \centering
     \includegraphics[width=\linewidth]{Answer_figures/hist_surveys2_btw_cividis.pdf}
@@ -76,16 +76,58 @@ cuts, due to limited spectroscopic resources; the PS1 dataset is however quite
 robust for these SNe are far from both the conservative and fiducial cuts; see
 Fig. \ref{fig:hists}. \bigbreak
 
-The results are shown Fig. \ref{fig:distrib}
+The results are shown Fig. \ref{fig:distrib}. We represented the normed
+histograms along with their error bars, and found that they don't differ much.
+To ascertain this idea, we used a Kolmogorov-Smirnov test that gave us a p-value
+of $0.265$ for the color, and $0.137$ for the stretch; while it doesn't tell us
+that both the SDSS and PS1 parts come from the same distribution, as would be
+expected if we were free from selection effects (so that the samples were random
+draws from what Nature could give us), it is not excluded.
 
 \begin{figure}[htbp!]
     \centering
     \includegraphics[width=\linewidth]{Answer_figures/both-cut_SDSS_PS1-010-020.pdf}
     \captionsetup{justification=centering}
-    \caption{$x_1$ and $c$ distributions of the SDSS and PS1 samples for $0.10 <
-    z < 0.20$. A Kolmogorov-Smirnov test doesn't show any indication that the
-samples are not taken from the same distribution.}
+    \caption{$x_1$ and $c$ normed histograms of the SDSS and PS1 samples for
+        $0.10 < z < 0.20$ and their errorbars. On the left, we find in orange
+        lines the Base model distributions for $z = 0.10, 0.15, 0.20$ from top
+        to bottom. The p-values are the results from a Kolmogorov-Smirnov test;
+    they don't show any indication that the samples are not taken from the same
+distribution, for both $c$ and $x_1$.}
 \label{fig:distrib}
+\end{figure}
+
+Moreover, we tried to see if a particular trend of color evolution was visible,
+reproducting the Fig. 3 from the original N+20 paper. We find that the averages
+are compatible with a constant mean color, see Fig. \ref{fig:means}
+
+\begin{figure}[htbp!]
+    \centering
+    \begin{subfigure}
+        \centering
+        \includegraphics[width=.45\linewidth]{Answer_figures/mean_stretchs-nHST.pdf}
+        %\captionsetup{justification=centering}
+        %\caption{Mean stretch of the complete sample}
+        %\label{fig:mean_x}
+    \end{subfigure}
+    \begin{subfigure}
+        \centering
+        \includegraphics[width=.45\linewidth]{Answer_figures/mean_colors-nHST.pdf}
+        %\captionsetup{justification=centering}
+        %\caption{Mean color of the complete sample}
+        %\label{fig:mean_c}
+    \end{subfigure}
+    \centering
+    \captionsetup{justification=centering}
+
+    \caption{Mean stretch and color of the complete sample in the same 6 bins of
+        equal sample size. The open marker show the means for the complete
+        sample from which we removed HST data. For the color, we might think
+        that there is an evolution for the 5 first bins, but the 6th one breaks
+    it, even without HST data, while for the stretch, with our without HST data
+we see the same evolution}
+
+    \label{fig:means}
 \end{figure}
 
 \end{document}
