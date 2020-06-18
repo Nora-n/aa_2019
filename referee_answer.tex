@@ -35,17 +35,17 @@ out that biases in $x_1$ become apparent much sooner that biases on $m$.
 
 \begin{figure}[htbp!]
     \centering
-    \begin{subfigure}
+    \begin{subfigure}[t]{.20\linewidth}
         \centering
-        \includegraphics[width=.20\linewidth]{Answer_figures/Fig_biasCor_mb.eps}
+        \includegraphics[width=\linewidth]{Answer_figures/Fig_biasCor_mb.eps}
     \end{subfigure}
-    \begin{subfigure}
+    \begin{subfigure}[t]{.20\linewidth}
         \centering
-        \includegraphics[width=.20\linewidth]{Answer_figures/Fig_biasCor_x1.eps}
+        \includegraphics[width=\linewidth]{Answer_figures/Fig_biasCor_x1.eps}
     \end{subfigure}
-    \begin{subfigure}
+    \begin{subfigure}[t]{.20\linewidth}
         \centering
-        \includegraphics[width=.20\linewidth]{Answer_figures/Fig_biasCor_c.eps}
+        \includegraphics[width=\linewidth]{Answer_figures/Fig_biasCor_c.eps}
     \end{subfigure}
     \captionsetup{justification=centering}
     \caption{Bias corrections $\mkern
@@ -98,36 +98,62 @@ distribution, for both $c$ and $x_1$.}
 \end{figure}
 
 Moreover, we tried to see if a particular trend of color evolution was visible,
-reproducting the Fig. 3 from the original N+20 paper. We find that the averages
-are compatible with a constant mean color, see Fig. \ref{fig:means}
+reproducting the Fig. 3 from the original N+20 paper plotting the color instead
+of the stretch without any modeling (Fig. \ref{fig:mean_c}), and recalled what
+it looked like for the stretch (Fig. \ref{fig:mean_x}). For additional
+information, we represented:
+\begin{itemize}
+    \item The full, uncut dataset in dark grey;
+    \item The fiducial sample in light grey;
+    \item The SNe above the fiducial cut in green (the SNe that we removed from
+        the full sample to obtain the fiducial ones);
+    \item The conservative sample il transparent light grey;
+    \item And the fiducial sample without HST data.
+\end{itemize}
+The last one serves to show that even without HST data, the trend of the color
+to go up in the last bin is not governed by HST only. We find that the averages
+are compatible with a constant mean color, and that the fiducial and
+conservative samples are quite close in terms of mean values while removing the
+low-color trend that is expected from selection effects. Concerning the stretch,
+the fact that the full, fiducial and conservative samples are close are an
+indicator that the selection effect have maginal impact on mean $x_1$ in
+comparison to the drift.
 
 \begin{figure}[htbp!]
     \centering
-    \begin{subfigure}
+    \begin{subfigure}[t]{0.70\linewidth}
         \centering
-        \includegraphics[width=.45\linewidth]{Answer_figures/mean_stretchs-nHST.pdf}
-        %\captionsetup{justification=centering}
-        %\caption{Mean stretch of the complete sample}
-        %\label{fig:mean_x}
+        \includegraphics[width=\linewidth]{Answer_figures/mean_stretchs-nHST_full-sup.pdf}
+        \captionsetup{justification=centering}
+        \caption{Mean stretch of the complete sample}
+        \label{fig:mean_x}
     \end{subfigure}
-    \begin{subfigure}
+    \begin{subfigure}[t]{0.70\linewidth}
         \centering
-        \includegraphics[width=.45\linewidth]{Answer_figures/mean_colors-nHST.pdf}
-        %\captionsetup{justification=centering}
-        %\caption{Mean color of the complete sample}
-        %\label{fig:mean_c}
+        \includegraphics[width=\linewidth]{Answer_figures/mean_colors-nHST_full-sup.pdf}
+        \captionsetup{justification=centering}
+        \caption{Mean color of the complete sample}
+        \label{fig:mean_c}
     \end{subfigure}
     \centering
     \captionsetup{justification=centering}
 
     \caption{Mean stretch and color of the complete sample in the same 6 bins of
-        equal sample size. The open marker show the means for the complete
-        sample from which we removed HST data. For the color, we might think
-        that there is an evolution for the 5 first bins, but the 6th one breaks
-    it, even without HST data, while for the stretch, with our without HST data
-we see the same evolution}
+        equal sample size (based on the fiducial sample). The dark grey markers
+        represent the full, uncut sample; the light grey ones the fiducial
+        sample; the SNe above the fiducial cut are in green; in transparent
+        light grey is the conservative sample and the open marker shows the
+        means for the complete sample from which we removed HST data. For the
+        color, we might think that there is an evolution for the 5 first bins,
+        but the 6th one breaks it, even without HST data, while for the stretch,
+    with our without HST data we see the same evolution}
 
     \label{fig:means}
 \end{figure}
 
+\section{Of the $x_1$ drift of simulated surveys}
+Finally, we wanted to bringto the attention of the referee the fact that a full
+SNANA analysis will soon be ongoing and should be the subject of a dedicated
+paper, that could then give more in depth insight concerning the simulations
+thoughts that were shared with us.
 \end{document}
