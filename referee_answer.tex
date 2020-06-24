@@ -6,6 +6,20 @@
 \begin{document}
 
 \title{Referee answer}
+First, thank you for your interest in our paper. We are glad you made those
+comments, both the general and precise ones. With this answer, we hope we will
+be able to further complete the discussion about selection effects and their
+extent in our sample. \bigbreak
+
+The main point that we want to bring to the attention of the referee is that a
+full SNANA analysis in collaboration with Daniel \textsc{Scolnic} with the
+proposed results of \textsc{Nicolas} 2020 has started, and should be a whole
+paper in itself. We are eager to work with such a powerful simulation tool to
+have an even better insight concerning those effects and how they affect
+cosmology. \bigbreak
+
+Concerning the precise points brought up to our attention, here are some
+elements of answers:
 
 \section{Of the surveys' spectroscopic follow-up}
 \begin{enumerate}
@@ -28,26 +42,23 @@ effects are the 114 SNe that are in our sample}.
 \end{enumerate}
 
 \section{Of the $x_1$ bias that doesn't appear on $m$}
-The referee insists on the fact that ``Biases in x1 are expected as a function
-of redshift simply from survey modeling/selection effects'', showing the
-following figure from \textsc{Kessler \& Scolnic 2017} to point
-out that biases in $x_1$ become apparent much sooner that biases on $m$.
 
-\begin{figure}[htbp!]
+\begin{wrapfigure}[11]{R}{.5\linewidth}
     \centering
-    \begin{subfigure}[t]{.20\linewidth}
+    \vspace{-20pt}
+    \begin{subfigure}[t]{.30\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Answer_figures/Fig_biasCor_mb.eps}
     \end{subfigure}
-    \begin{subfigure}[t]{.20\linewidth}
+    \begin{subfigure}[t]{.30\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Answer_figures/Fig_biasCor_x1.eps}
     \end{subfigure}
-    \begin{subfigure}[t]{.20\linewidth}
+    \begin{subfigure}[t]{.30\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Answer_figures/Fig_biasCor_c.eps}
     \end{subfigure}
-    \captionsetup{justification=centering}
+    \captionsetup{justification=centering, size=scriptsize}
     \caption{Bias corrections $\mkern
         1.5mu\overline{\mkern-1.5mu\delta\mkern-1.5mu}\mkern 1.5mu_{m_B}$,
         $\alpha \overline{\delta}_{x_1}$, and $\beta\overline{\delta}_{c}$ are
@@ -55,17 +66,13 @@ out that biases in $x_1$ become apparent much sooner that biases on $m$.
         used to show the bias in distance-modulus magnitudes. The parameter
     selection ranges are shown on each panel.}
     \label{fig:KS17}
-\end{figure}
-
-\begin{wrapfigure}[13]{R}{.4\linewidth}
-    \vspace*{-20pt}
-    \centering
-    \includegraphics[width=\linewidth]{Answer_figures/hist_surveys2_btw_cividis.pdf}
-    \captionsetup{justification=centering}
-    \caption{\small Redshift histograms of SNe~Ia from the SDSS and PS1 datasets
-    respectively}
-    \label{fig:hists}
 \end{wrapfigure}
+
+Then, the referee insists on the fact that ``Biases in x1 are expected as a
+function of redshift simply from survey modeling/selection effects'', showing
+the following figure from \textsc{Kessler \& Scolnic 2017} to point out that
+biases in $x_1$ become apparent much sooner that biases on $m$.
+
 Yet, from the same figure, biases in $c$ appear at $z=0$. Here we want to
 convince the referee that if we don't find any sign of color bias in our sample,
 we may consider little to no bias on $x_1$. We thus studied the $x_1$ and $c$
@@ -76,18 +83,32 @@ cuts, due to limited spectroscopic resources; the PS1 dataset is however quite
 robust for these SNe are far from both the conservative and fiducial cuts; see
 Fig. \ref{fig:hists}. \bigbreak
 
+\begin{wrapfigure}[10]{R}{.4\linewidth}
+    \vspace*{-28pt}
+    \centering
+    \includegraphics[width=\linewidth]{Answer_figures/hist_surveys2_btw_cividis.pdf}
+    \captionsetup{justification=centering, size=scriptsize}
+    \caption{Redshift histograms of SNe~Ia from the SDSS and PS1 datasets
+    respectively}
+    \label{fig:hists}
+\end{wrapfigure}
+
 The results are shown Fig. \ref{fig:distrib}. We represented the normed
 histograms along with their error bars, and found that they don't differ much.
 To ascertain this idea, we used a Kolmogorov-Smirnov test that gave us a p-value
 of $0.265$ for the color, and $0.137$ for the stretch; while it doesn't tell us
 that both the SDSS and PS1 parts come from the same distribution, as would be
 expected if we were free from selection effects (so that the samples were random
-draws from what Nature could give us), it is not excluded.
+draws from what Nature could give us), it is not excluded. This particuliar
+figure will appear upon re-submission of the paper for it adresses pertinent
+questions.
+
+\vspace{30pt}
 
 \begin{figure}[htbp!]
     \centering
-    \includegraphics[width=\linewidth]{Answer_figures/both-cut_SDSS_PS1-010-020.pdf}
-    \captionsetup{justification=centering}
+    \includegraphics[width=.9\linewidth]{Answer_figures/both-cut_SDSS_PS1-010-020.pdf}
+    \captionsetup{justification=centering, font=small}
     \caption{$x_1$ and $c$ normed histograms of the SDSS and PS1 samples for
         $0.10 < z < 0.20$ and their errorbars. On the left, we find in orange
         lines the Base model distributions for $z = 0.10, 0.15, 0.20$ from top
@@ -99,8 +120,8 @@ distribution, for both $c$ and $x_1$.}
 
 Moreover, we tried to see if a particular trend of color evolution was visible,
 reproducting the Fig. 3 from the original N+20 paper plotting the color instead
-of the stretch without any modeling (Fig. \ref{fig:mean_c}), and recalled what
-it looked like for the stretch (Fig. \ref{fig:mean_x}). For additional
+of the stretch without any modeling (Fig. \ref{fig:means}, right), and recalled what
+it looked like for the stretch (Fig. \ref{fig:means}, left). For additional
 information, we represented:
 \begin{itemize}
     \item The full, uncut dataset in dark grey;
@@ -121,23 +142,16 @@ comparison to the drift.
 
 \begin{figure}[htbp!]
     \centering
-    \begin{subfigure}[t]{0.70\linewidth}
+    \begin{subfigure}[t]{0.49\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Answer_figures/mean_stretchs-nHST_full-sup.pdf}
-        \captionsetup{justification=centering}
-        \caption{Mean stretch of the complete sample}
-        \label{fig:mean_x}
     \end{subfigure}
-    \begin{subfigure}[t]{0.70\linewidth}
+    \begin{subfigure}[t]{0.49\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Answer_figures/mean_colors-nHST_full-sup.pdf}
-        \captionsetup{justification=centering}
-        \caption{Mean color of the complete sample}
-        \label{fig:mean_c}
     \end{subfigure}
     \centering
-    \captionsetup{justification=centering}
-
+    \captionsetup{justification=centering, size=small}
     \caption{Mean stretch and color of the complete sample in the same 6 bins of
         equal sample size (based on the fiducial sample). The dark grey markers
         represent the full, uncut sample; the light grey ones the fiducial
@@ -147,7 +161,6 @@ comparison to the drift.
         color, we might think that there is an evolution for the 5 first bins,
         but the 6th one breaks it, even without HST data, while for the stretch,
     with our without HST data we see the same evolution}
-
     \label{fig:means}
 \end{figure}
 
@@ -156,4 +169,5 @@ Finally, we wanted to bringto the attention of the referee the fact that a full
 SNANA analysis will soon be ongoing and should be the subject of a dedicated
 paper, that could then give more in depth insight concerning the simulations
 thoughts that were shared with us.
+
 \end{document}
