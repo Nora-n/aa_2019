@@ -176,6 +176,7 @@ evolution. We briefly discuss these results in the context of SN cosmology in
 Section~\ref{sec:discussion} and we conclude in Section~\ref{sec:ccl}.
 
 \section{Complete Sample Construction}\label{sec:sample}
+\subsection{Applying redshift cuts}\label{ssec:cuts}
 
 We base our analysis on the most recent comprehensive SNe~Ia compilation, the
 Pantheon catalog from \cite{scolnic2018a}. A naive approach to test the SN
@@ -328,6 +329,78 @@ underlying stretch distribution is drifting.
         histograms in dark (resp.\ light) colors for the conservative (resp.
         \ fiducial) redshift cuts.}
     \label{fig:sample}
+\end{figure}
+
+\subsection{Verifying completeness}\label{ssec:verify}
+
+In order to ensure that the effects we model are only due to the supposed drift,
+we need to check for possible Malmquist bias left in the sample. Because color
+is most sensitive to selection effects, we studied both the stretch and color of
+the end of SDSS and the start of PS1, for $0.10 < z < 0.20$. In this redshift
+range, because the SDSS SNe between $0.15 < z < 0.20$ are between our
+conservative and fiducial cuts, these SNe are the most prone to have selection
+effects. However, the PS1 dataset is quite robust because these SNe are far from
+both the conservative and fiducial cuts; see Fig. \ref{fig:cuts}.
+
+The results are shown Fig. \ref{fig:distrib}. We represented the normed
+histograms along with their error bars, and found that they don't differ much.
+To ascertain this idea, we used a Kolmogorov-Smirnov test that gave us a p-value
+of $0.265$ for the color, and $0.137$ for the stretch; while it doesn't tell us
+that both the SDSS and PS1 parts come from the same distribution, as would be
+expected if we were free from selection effects (so that the samples were random
+draws from what Nature could give us), it is not excluded. This particuliar
+figure will appear upon re-submission of the paper for it adresses pertinent
+questions.
+
+\begin{figure*}
+    \centering
+    \includegraphics[width=17cm]{Article_figures/both-cut_SDSS_PS1-010-020.pdf}
+    \caption{$x_1$ and $c$ normed histograms of the SDSS and PS1 samples for
+        $0.10 < z < 0.20$ and their errorbars. On the left, we find in orange
+        lines the Base model distributions for $z = 0.10, 0.15, 0.20$ from top
+        to bottom. The p-values are the results from a Kolmogorov-Smirnov test;
+    they don't show any indication that the samples are not taken from the same
+distribution, for both $c$ and $x_1$.}
+    \label{fig:distrib}
+\end{figure*}
+
+Moreover, we tried to see if a particular trend of color evolution was visible,
+reproducting Fig. \ref{fig:sample} plotting the color instead of the stretch
+without any modeling (Fig. \ref{fig:means}, top), and recalled what it looked
+like for the stretch (Fig. \ref{fig:means}, bottom). For additional information,
+we represented:
+
+\begin{itemize}
+    \item The full, uncut dataset in dark grey;
+    \item The fiducial sample in light grey;
+    \item The SNe above the fiducial cut in green (the SNe that we removed from
+        the full sample to obtain the fiducial ones);
+    \item The conservative sample il transparent light grey;
+    \item And the fiducial sample without HST data.
+\end{itemize}
+
+The last one serves to show that even without HST data, the trend of the color
+to go up in the last bin is not governed by HST only. We find that the averages
+are compatible with a constant mean color, and that the fiducial and
+conservative samples are quite close in terms of mean values while removing the
+low-color trend that is expected from selection effects. Concerning the stretch,
+the fact that the full, fiducial and conservative samples are close are an
+indicator that the selection effect have maginal impact on mean $x_1$ in
+comparison to the drift.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{Article_figures/mean_both-nHST_full-sup.pdf}
+    \caption{Mean stretch and color of the complete sample in the same 6 bins of
+        equal sample size (based on the fiducial sample). The dark grey markers
+        represent the full, uncut sample; the light grey ones the fiducial
+        sample; the SNe above the fiducial cut are in green; in transparent
+        light grey is the conservative sample and the open marker shows the
+        means for the complete sample from which we removed HST data. For the
+        color, we might think that there is an evolution for the 5 first bins,
+    but the 6th one breaks it, even without HST data, while for the stretch,
+with our without HST data we see the same evolution}
+    \label{fig:means}
 \end{figure}
 
 \section{Modeling the redshift drift}\label{sec:modeling}
