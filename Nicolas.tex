@@ -12,6 +12,7 @@
 \def\l{\lambda}\def\L{\Lambda}
 
 \newcommand{\nn}[1]{\textcolor[rgb]{0.25, 0.50, 0}{#1}}
+\newcommand{\mr}[1]{\textcolor[rgb]{0.5, 0.20, 0.3}{#1}}
 \newcommand{\prob}[2]{\mathcal{P}\left( #1 \mid #2\right)}
 
 \begin{document}
@@ -336,28 +337,49 @@ underlying stretch distribution is drifting.
     \label{fig:sample}
 \end{figure}
 
-\subsection{\nn{Verifying completeness}}\label{ssec:verify}
+\subsection{\mr{Testing the construction of a volume limited sample}}\label{ssec:verify}
 
-\nn{In order to ensure that the effects we model are only due to the supposed drift,
-we need to check for possible Malmquist bias left in the sample. Because color
-is most sensitive to selection effects, we studied both the stretch and color of
-the end of SDSS and the start of PS1, for $0.10 < z < 0.20$. In this redshift
-range, because the SDSS SNe between $0.15 < z < 0.20$ are between our
-conservative and fiducial cuts, these SNe are the most prone to have selection
-effects. However, the PS1 dataset is quite robust because these SNe are far from
-both the conservative and fiducial cuts; see Fig. \ref{fig:cuts}.}
+\mr{In this analysis, we have built a volume limited sample from a set of
+magnitude limited ones, using a simple redshift limit.  A ongoing follow up
+analysis will make use of the SNANA package \citep{SNANA} to account for
+more subtle selection functions. However, the strength of the current
+approach is that it is independent of potential inaccuracy in the modeling
+of the complex selection functions of the aforementioned dataset. Yet, it is
+necessary to test if the sample we have created could show sign of leftover
+sample selections.}
 
-\nn{The results are shown Fig. \ref{fig:distrib}. We represented the normed
-histograms along with their error bars, and found that they don't differ much.
-To ascertain this idea, we used a Kolmogorov-Smirnov test that gave us a p-value
-of $0.265$ for the color, and $0.137$ for the stretch; while it doesn't tell us
-that both the SDSS and PS1 parts come from the same distribution, as would be
-expected if we were free from selection effects (so that the samples were random
-draws from what Nature could give us), it is not excluded. }
+\mr{To do so, we compare the stretch and color distributions of the SNe~Ia in
+our sample between datasets of overlapping redshifts. If indeed we have built
+a volume limited sample, the distributions of SNe~Ia parameters at a given
+redshift should not depend of their origin surveys. When considering a
+redshift range, this has to be narrow enough such that any drift would be
+negligible. The two samples that overlap the most in redshift are PS1 and
+SDSS in the redshift range $0.10 < z < 0.20$ (see Fig~\ref{fig:sample}).
+This corresponds to the 146 SNe~Ia from SDSS at the highest redshift end and
+thus potentially the most affected by potential selection effect leftover
+(see the corresponding discussion in section~\ref{sec:sample}). In that same
+redshift range, PS1 has 52 SNe~Ia, which are at in the lowest redshift bin
+and thus unlikely to have any selection function issues. We present the
+stretch and color distributions of both samples in the redshift range $0.10 <
+z < 0.20$ in Fig.~\ref{fig:distrib}, where we also provide the p-values of
+Kolmogorov-Smirnov tests. The high p-values both in color and stretch
+distributions ($>10\%$) strengthen the visual impression that there is no
+reason to believe that the SDSS and PS1 SNe~Ia in their overlapping redshift
+range are not drawn from the same underlying distributions. A similar
+analysis is doable for PS1 and SNLS in their redshift range $0.20 < z <
+0.30$ where the same conclusion could be drawn, i.e., that there is no sign
+of discrepancy between in the stretch and color distributions between the
+low- and high-end of the SNLS and PS1 datasets, respectively. Nonetheless,
+the small size of the SNLS dataset at $z < 0.30$ (12 SNe~Ia vs. 90 for PS1)
+limits the interest of the test as only strong deviation would be
+noticeable. Extending the redshift range to $0.20 < z < 0.40$ (though we have no
+PS1 data above 0.3) enables to get 31 SNe~Ia from SNLS in total, the stretch
+and color p-values remains high, at 34\% and 4\% respectively.}
 
-\begin{figure*}
+
+\begin{figure}
     \centering
-    \includegraphics[width=17cm]{Article_figures/both-cut_SDSS_PS1-010-020.pdf}
+    \includegraphics[width=0.95\linewidth]{Article_figures/both-cut_SDSS_PS1-010-020.pdf}
     \caption{\nn{$x_1$ and $c$ normed histograms of the SDSS and PS1 samples for
         $0.10 < z < 0.20$ and their errorbars. On the left, we find in orange
         lines the Base model distributions for $z = 0.10, 0.15, 0.20$ from top
@@ -365,7 +387,37 @@ draws from what Nature could give us), it is not excluded. }
     they don't show any indication that the samples are not taken from the same
 distribution, for both $c$ and $x_1$.}}
     \label{fig:distrib}
-\end{figure*}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.95\linewidth]{Article_figures/both-cut_SNLS_PS1-020-030.pdf}
+    \caption{\mr{Same as Fig.~\ref{fig:distrib} for the PS1 and SNLS data in
+    their overlapping redshift range $0.20 < z < 0.30$.}}
+
+    \label{fig:distrib-ps-snls}
+\end{figure}
+
+\mr{We highlight that the SNe~Ia color is more prone to selection effects than
+stretch as illustrated in Fig.~\ref{fig:maglim}; see also e.g., Fig.~3 of
+\cite{kessler2017}. Hence, since the color shows no sign of leftover selection
+effects, it further supports our claim that our simple redshift-based selection
+criteria is sufficient to test the redshift drift of the SN~Ia stretch
+distribution.}
+
+\nn{In order to ensure that the effects we model are only due to the supposed
+drift, we need to check for possible Malmquist bias left in the sample.
+Because color is most sensitive to selection effects, we studied both the
+stretch and color of the end of SDSS and the start of PS1, for $0.10 < z <
+0.20$. In this redshift range, }
+
+\nn{The results are shown Fig. \ref{fig:distrib}. We represented the normed
+histograms along with their error bars, and found that they don't differ much.
+To ascertain this idea, we used a Kolmogorov-Smirnov test that gave us a p-value
+of $0.265$ for the color, and $0.137$ for the stretch; while it doesn't tell us
+that both the SDSS and PS1 parts come from the same distribution, as would be
+expected if we were free from selection effects (so that the samples were random
+draws from what Nature could give us), it is not excluded.}
 
 \section{Modeling the redshift drift}\label{sec:modeling}
 
@@ -1057,6 +1109,9 @@ et al.\ 2010, \apj, 715, 743
 
 \bibitem[Kessler et al.(2009)]{kessler2009} Kessler, R., Becker, A.~C., Cinabro,
 D., et al.\ 2009, \apjs, 185, 32
+
+\bibitem[Kessler et al.(2009)]{SNANA} Kessler, R., Bernstein, J.~P., Cinabro,
+D., et al.\ 2009, \pasp, 121, 1028
 
 \bibitem[Kessler \& Scolnic(2017)]{kessler2017} Kessler, R., \& Scolnic, D.\
 2017, \apj, 836, 56
