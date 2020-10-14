@@ -12,7 +12,8 @@
 
 \def\l{\lambda}\def\L{\Lambda}
 
-\newcommand{\nn}[1]{\textcolor[rgb]{0.25, 0.50, 0}{#1}}
+%\newcommand{\nn}[1]{\textcolor[rgb]{0.25, 0.50, 0}{#1}}
+\newcommand{\nn}[1]{\textcolor[rgb]{0.4, 0.8, 0}{#1}}
 \newcommand{\mr}[1]{\textcolor[rgb]{0.5, 0.20, 0.3}{#1}}
 \newcommand{\prob}[2]{\mathcal{P}\left( #1 \mid #2\right)}
 
@@ -33,7 +34,7 @@ Distribution}
     \orcid{0000-0002-1031-0796}
     \and J. Nordin\inst{4}
     \and Saul Perlmutter\inst{3}
-    \and M. Smith\inst{4}
+    \and M. Smith\inst{2,5}
     \orcid{0000-0002-3321-1432}
 }
 
@@ -268,15 +269,15 @@ corresponding to a redshift cut at $0.15$. For the rest of the SDSS survey,
 additional spectroscopic resources were available, and \cite{kessler2009} and
 \cite{dilday2008} show a reasonable completeness up to $z_{\lim}=0.2$. Following
 these analyses, we will use $z_{\lim}=0.20$ as the baseline SDSS redshift limit,
-\nn{and the first 0.15 cut to compare the results of our modeling on a more
+\nn{and $z_{\lim}=0.15$ to compare the results of our modeling on a more
 restrictive sample.}
 
 The sample selection is summarized in Table~\ref{tab:sample}, and the redshift
 distribution of these three surveys is shown in Fig.~\ref{fig:cuts}. As
 expected, the selected redshift limits roughly correspond to the peak of these
 histograms. \nn{We test in Section~\ref{ssec:verify} whether we can consider
-this sample to be free of selection effects. The results exposed} in
-Section~\ref{sec:results} further supports that this sample selection indeed
+this sample to be free of selection effects. The consistency of the results for the two samples, discussed} in
+Section~\ref{sec:results}, further supports that this sample selection indeed
 provides a subset of SNe~Ia with insignificant selection effects when
 compared to state-of-the-art Malmquist correction techniques.
 
@@ -330,9 +331,7 @@ deeper than the follow-up and that we therefore kept entirely
 \citep{strolger04}.
 
 We present the stretch distribution and redshift histogram of these five surveys
-up to their respective $z_{\lim}$ in Fig.~\ref{fig:sample}, \nn{where the
-disappearance of the low-stretch population (typically $x_1 < -1$) is what we
-test in this paper}. The evolution of the mean stretch is also shown in
+up to their respective $z_{\lim}$ in Fig.~\ref{fig:sample}. \nn{Proportionally few low-stretch SNe (typically $x_1 < -1$) are observed at $z>0.4$}. The evolution of the mean stretch is also shown in
 Fig.~\ref{fig:modelall}, where the data are split in redshift bins of regular
 sample size. We see that SNe~Ia at higher redshift have on average larger
 stretch ($0.34 \pm 0.10$ at $z\sim0.65$) than those at lower redshift ($-0.17\pm
@@ -354,14 +353,11 @@ drifting.
 \subsection{Testing the construction of a volume-limited sample}\label{ssec:verify}
 
 In this analysis, we have built a volume-limited sample from a set of magnitude
-limited ones, using a simple redshift limit. \nn{Even though it has the strength
-to be independent of potential inaccuracy in the modeling of the complex
-selection functions of the aforementioned dataset, it is suboptimal.
-That fact lead to the use of conservative cuts as first indicators that there is
-a drift that can't be explained by selection effects alone and a}n ongoing
-follow up analysis will make use of the SNANA package \citep{SNANA} to account
+limited ones, using a simple redshift limit. \nn{The advantage of this approach is that our results are robust to any potential inaccuracy in the modeling of the complex
+selection functions for the individual datasets. However, while we will find consistent results when considering a sample derived from conservative cuts (Section~\ref{sec:results}), there remains the possibility that our sample is not fully volume-limited and that unaccounted for selection effects remain. To fully account for this possibility, a} follow up analysis will make use of the SNANA package \citep{SNANA} to account
 for more subtle selection functions; \nn{however}, it is still necessary to test
 if the sample we have created could show sign of leftover sample selection.
+%While our conservative comparision sample is That fact lead to the use of conservative cuts as first indicators that there isa drift that can't be explained by selection effects alone and a}n ongoing
 
 To do so, we compare the stretch and color distributions of the SNe~Ia in our
 sample between datasets of overlapping redshifts. If indeed we have built a
@@ -380,8 +376,8 @@ distribution of both, together with p-values of Kolmogorov-Smirnov tests that
 0.20$ arise from the same underlying distribution. Those p-values are high
 ($>10\%$), and if one cannot conclude from this test that these SNe~Ia are from
 the same underlying distribution, one has no ground to claim they are not. This
-is in agreement with the visual impression from Fig.~\ref{fig:distrib}. A
-similar analysis \nn{was done} for PS1 and SNLS in the redshift range $0.20 < z
+is in agreement with the visual impression from Fig.~\ref{fig:distrib}. \nn{We perform a}
+similar analysis for PS1 and SNLS in the redshift range $0.20 < z
 < 0.31$ where the same conclusion \nn{can} be drawn, i.e., there is no sign of
 discrepancy in the stretch and color distributions between the low- and high-end
 of the SNLS and PS1 datasets, respectively. Nonetheless, the small size of the
@@ -972,9 +968,8 @@ necessary. We note that samples at the low- and high-redshift ends of the Hubble
 diagram would be particularly helpful for this drifting analysis; fortunately
 this will soon be provided by the Zwicky Transient Facility
 \citep[low-$z$,][]{bellm2019, graham2019}, and Subaru and SeeChange SNe~Ia
-programs (high-$z$), respectively. \nn{Moreover, a more detailed analysis using
-the SNANA framework is currently in progress in order to account for more subtle
-selection functions and refine the dataset.}
+programs (high-$z$), respectively. \nn{To fully break the degeneracy between selection effects and population evolution, an analysis using
+the SNANA framework is underway. This analysis will allow for subtle selection effects to be considered, and by removing the need for a redshift cut, increase the redshift leverage and statistical significance of our results.}
 
 \begin{acknowledgements}
     This project has received funding from the European Research Council (ERC)
