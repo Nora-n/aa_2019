@@ -69,7 +69,7 @@ Distribution}
     distribution for each age population made of Gaussian mixtures. We test our
     prediction against published samples cut to have marginal magnitude
     selection effects, so that any observed change is indeed of astrophysical
-    and not observational origin. \nn{In this preliminary study,} there are
+    and not observational origin. \nn{In this \mr{first} study,} there are
     indications that the underlying SN~Ia stretch distribution is evolving as a
     function of redshift, and that the young/old drifting model is a better
     description of the data than any time-constant model, including the
@@ -201,7 +201,7 @@ survey properties, and conversely.
 Assuming sufficient (and unbiased) spectroscopic follow-up for acquiring typing
 and host redshift, the selection effects of magnitude-limited surveys should be
 negligible below a given redshift at which even the faintest SNe~Ia can be
-observed. In contrast, targeted surveys have highly complex selection functions
+observed. \mr{In practice such spectroscopic following has not always been the norm as discussed below.} In contrast, targeted surveys have highly complex selection functions
 and will be discarded from our analysis. Fortunately, modern SN cosmology
 samples such as the Pantheon one are now dominated by magnitude-limited surveys.
 
@@ -242,55 +242,37 @@ m_{\lim} - M_{\lim}$.
 \end{figure}
 
 \nn{We will thus consider a set of cuts that will define a first fiducial
-    sample, taking the farthest limits possible; but as this solution might be
-    suboptimal to create a complete sample, we also consider another set of cuts
-    to define a conservative sample, smaller and therefore less statistically
-    constraining, but inherently less prone to selection effects. If the
-    redshift drift is still significant in the conservative sample, it would be
-    even more significant in a carefully-tailored selection-free sample: the
-goal of this preliminary paper is to make a first implementation of this
-modeling before refining it on a better sample.}
+    sample, taking the farthest limits possible\mr{. But} as this solution might be \mr{over simplistic} to create a complete sample \mr{, e.g., for it ignores follow-up efficiency}, we also consider another set of cuts
+    to define a conservative sample. \mr{This latter is} smaller and therefore \mr{has} less statistically constraining, but inherently less prone to selection effects. If the redshift drift is still significant in the conservative sample, it would be
+    even more significant in a carefully-tailored selection-free sample\mr{. T}he goal of this \mr{study} is to \mr{build} \mr{the} first implementation of \mr{a SN properties drift}
+    modeling before refining it on a \mr{more complex, yet more accurate, follow-up analysis accounting at the same time for precise selection modeling using of the SNANA package \citep{SNANA}.}}
 
 SNLS typically acquired SNe~Ia in the redshift range $0.4<z<0.8$; at these
 redshifts, the rest-frame Bessel $B$ band roughly corresponds to the SNLS $i$
 filter, that has a $5\sigma$ depth of
 24.8~mag\footnote{\href{https://www.cfht.hawaii.edu/Science/CFHTLS/cfhtlsfinalreleaseexecsummary.html}{CFHT
 final release website.}}. This converts to a $z_{\lim}=0.60$, in agreement
-with \cite{neill2006}, \cite{perrett2010} and \cite{bazin2011}. \nn{However,
-because this simple approach might easily not be enough to alleviate all
-selection effects, we also take into account another, more restrictive,
-redshift limit:} Fig.~14 of \citet[][see their Section~5]{perrett2010} suggests a
-lower limit of $z_{\lim}=0.55$; both limits will be considered, as discussed
-below.
+with \cite{neill2006}, \cite{perrett2010} and \cite{bazin2011}. 
+Fig.~14 of \citet[][see their Section~5]{perrett2010} suggests however a
+lower limit of $z_{\lim}=0.55$. \mr{We will therefore use $z=0.60$ and $z=0.55$ as redshift limits for the fiducial and conservative cuts, respectively.}
 
 Similarly, PS1 observed SNe~Ia in the range $0.2<z<0.4$, their $g$-band
 $5\sigma$ depth is 23.1~mag \citep{rest2014}, which yields to $z_{\lim}=0.31$ in
-agreement with, e.g., Fig.~6 of \cite{scolnic2018a}. This figure is also
-suggestive of a more conservative $z_{\lim}=0.27$, \nn{similarly considered in
-the following analysis as a first step to evaluate the robustness of our
-sample construction.}
+agreement with, e.g., Fig.~6 of \cite{scolnic2018a}. \mr{If we were to be conservative, this figure would also
+suggest of a more stringent $z_{\lim}=0.27$ cut ; hence, we will use $0.31$ and $0.27$ for our fiducial and conservative cuts, respectively.}
 
 In a similar redshift range, SDSS has a limiting magnitude of 22.5
 \citep{dilday2008, sako2008}, which would lead to a $z_{\lim}=0.24$. However,
-the SDSS surveys were more sensitive to limited spectroscopic resources;
-\citet[][see their Section~2]{kessler2009} pointed out that during the first year
-of SDSS, SNe~Ia with $r<20.5$~mag were favored for spectroscopic follow-up,
+the SDSS surveys were more sensitive to limited spectroscopic resources as discussed before. \citet[][Section~2]{kessler2009} pointed out that during the first year of SDSS, SNe~Ia with $r<20.5$~mag were favored for spectroscopic follow-up,
 corresponding to a redshift cut at $0.15$. For the rest of the SDSS survey,
 additional spectroscopic resources were available, and \cite{kessler2009} and
 \cite{dilday2008} show a reasonable completeness up to $z_{\lim}=0.2$. Following
-these analyses, we will use $z_{\lim}=0.20$ as the baseline SDSS redshift limit,
-\nn{and $z_{\lim}=0.15$ to compare the results of our modeling on a more
-restrictive sample.}
+these analyses, \mr{we will use $z_{\lim}=0.20$ and $z_{\lim}=0.15$ for out fiducial and conservative cuts, respectively.}
 
 The sample selection is summarized in Table~\ref{tab:sample}, and the redshift
 distribution of these three surveys is shown in Fig.~\ref{fig:cuts}. As
-expected, the selected redshift limits roughly correspond to the peak of these
-histograms. \nn{We test in Section~\ref{ssec:verify} whether we can consider
-this sample to be free of (or at least marginally affected by) selection
-effects. The consistency of the results for the two samples, discussed} in
-Section~\ref{sec:results}, further supports that this sample selection indeed
-provides a subset of SNe~Ia with insignificant selection effects when compared
-to state-of-the-art Malmquist correction techniques.
+expected, the selected redshift limits \mr{are roughly located slightly before the peak of these histograms}. \nn{We test in Section~\ref{ssec:verify} \mr{the validity of our intent to build volume limited surveys from (mostly) magnitude limited ones with the aforementioned redshift limits.}}
+%We also highlight} that the consistency of the results between the fiducial and the conservative samples, discussed} in Section~\ref{sec:results}, further supports that this sample selection indeed provides a subset of SNe~Ia with marginal leftover selection effects when compared to state-of-the-art Malmquist correction techniques.
 
 \begin{table}
     \centering
@@ -328,10 +310,12 @@ In addition, we use the SNe~Ia from the Nearby Supernova Factory
 \citep[SNfactory,][]{aldering2002} published in \cite{rigault2018} and that have
 been discovered from non-targeted searches (114 SNe~Ia, see their sections~3
 and~4.2.2; SNe~Ia time series are published in \citealt{saunders2020}, see also
-\citealt{aldering2020}). The spectroscopic follow-up was done over a redshift
-range of $0.02 < z < 0.09$~\citep[as in][]{rigault2018}, while the search was
-much deeper. These 114 SNfactory SNe~Ia \nn{(80\% of the 141 SNe presented in
-the previously-cited paper)} are thus in the volume-limited part of the
+\citealt{aldering2020}). \mr{For this dataset,} the spectroscopic follow-up was done over a redshift
+range of $0.02 < z < 0.09$, while the search was
+much deeper. These 114 SNfactory SNe~Ia 
+%\nn{(80\% of the 141 SNe presented in
+%the previously-cited paper)}  %%% NO NEED IT ADDS CONFUSION even though the referee were confused
+are thus in the volume-limited part of the
 survey (Aldering et al., in prep.), and are therefore assumed to be a random
 sampling of the underlying SN population. The SNfactory sample is
 particularly useful for studying SN property drift, as it enables us to have
@@ -339,11 +323,10 @@ a large complete SN~Ia sample at $z<0.1$.
 
 Finally, we include the HST sample from Pantheon, that similarly have a search
 deeper than the follow-up and that we therefore kept entirely
-\citep{strolger04}.
+\citep{strolger04}. \mr{At these redshift, the supernovae typing is challenging but the target classification were robust enough to include them within the cosmological analysis \citep{scolnic2018a} ; we do not add further quality cuts.}
 
 We present the stretch distribution and redshift histogram of these five surveys
-up to their respective $z_{\lim}$ in Fig.~\ref{fig:sample}. \nn{Proportionally
-few low-stretch SNe (typically $x_1 < -1$) are observed at $z>0.2$}. The
+up to their respective $z_{\lim}$ in Fig.~\ref{fig:sample}. \mr{We observe that the apparent fraction of low-stretch SNe (typically $x_1 < -1$) seems to decrease as a function of redshift.} The
 evolution of the mean stretch is also shown in Fig.~\ref{fig:modelall}, where
 the data are split in redshift bins of regular sample size. We see that SNe~Ia
 at higher redshift have on average larger stretch ($0.34 \pm 0.10$ at
@@ -359,33 +342,27 @@ suggesting that the underlying stretch distribution is evolving with redshift.
         (resp.\ fiducial) redshift cuts. \textit{Top:} stacked redshift
     histograms in dark (resp.\ light) colors for the conservative (resp.  \
 fiducial) redshift cuts. \yc{YC: you should add a running mean $\pm$ stddev to
-show the evolution at $z \sim 0.2-0.3$.}}
+show the evolution at $z \sim 0.2-0.3$.} \mr{Agreed if it is not too busy.}}
     \label{fig:sample}
 \end{figure}
 
 \subsection{Testing the construction of a volume-limited sample}\label{ssec:verify}
 
-In this analysis, we have built a volume-limited sample from a set of magnitude
-limited ones, using a simple redshift limit. \nn{This drastic approach is robust
-at the price of being statistically sub-optimal, but is enough to
+\mr{In section~\ref{ssec:cuts}}, we have built a volume-limited sample from a set of magnitude
+limited ones, using a simple redshift limit. \nn{This \mr{simplistic} approach is statistically sub-optimal, but is enough to
 demonstrate our key finding: a redshift evolution of stretch compatible with
-the \cite{rigault2018} model.} However, while we will find consistent results
-when considering a sample derived from conservative cuts
-(Section~\ref{sec:results}), there remains the possibility that our sample is
-not fully volume-limited and that unaccounted for selection effects remain. To
-fully account for this possibility, a follow up analysis will make use of the
-SNANA package \citep{SNANA} to account for more subtle selection functions;
-\nn{yet, it appears to still be necessary} to test if the sample we have created
-could show sign of leftover sample selection.
+the \cite{rigault2018} model.} \mr{However, there remains the possibility that \mr{complex selection function related to follow-up efficiencies below our fiducial (or even conservative cuts)} might significant affect our sample, making it not fully volume-limited, which could, in turn, bias our conclusion on the astrophysical drift of the SNe~Ia population.}
 
-To do so, we compare the stretch and color distributions of the SNe~Ia in our
+\mr{To test for the existence of potentially significant leftover selection biases in our sample,} we compare the stretch and color distributions of the SNe~Ia in our
 sample between datasets of overlapping redshifts. If indeed we have built a
 volume-limited sample, the distributions of any SNe~Ia parameter at a given
 redshift should not depend of their survey of origin. When considering a
 redshift range, this has to be narrow enough such that any drift would be
 negligible. \yc{YC: \textit{why do you say that here, since you didn't fine-tune
-the overlaping $z$-range?}} \nn{\textit{Because we still took that into
-account?}} The two samples that overlap the most in redshift are PS1 and SDSS in
+the overlaping $z$-range?}} \nn{\textit{NN: Because we still took that into
+account?}} \mr{\textit{MR:Because if there is a strong drift in the redshift range, and if the redshift distribution of the sample differ, their respective property distribution should differ.}}
+
+The two samples that overlap the most in redshift are PS1 and SDSS in
 the redshift range $0.10 < z < 0.20$ (see Fig~\ref{fig:sample}). This
 corresponds to the 146 SNe~Ia from SDSS at the highest redshift end and thus the
 most affected by potential selection effect leftover (see the corresponding
@@ -393,18 +370,14 @@ discussion in section~\ref{ssec:cuts}). In that same redshift range, PS1 has 52
 SNe~Ia, which are in the lowest redshift bins and thus unlikely to have any
 selection issue. Fig.~\ref{fig:distrib} presents the stretch and color
 distribution of both \nn{these surveys}, together with $p$-values of
-Kolmogorov-Smirnov tests that \yc{\sout{\nn{probe whether}}}\nn{\textit{I don't
-see anything else to put here without repeating ``test''}} the $x_1$ and $c$ of
-the SDSS and PS1 samples at $0.10 < z < 0.20$ arise from the same underlying
-distribution. These $p$-values are high ($>10\%$), and if one cannot conclude
-from this test that these SNe~Ia are from the same underlying distribution, one
-has no ground to claim they are not. \yc{YC: I suggest ``These $p$-values are
+Kolmogorov-Smirnov tests (KS-test). \yc{These $p$-values are
 too high ($>10\%$) to exclude that both samples originate from the same
-underlying population.''} This is in agreement with the visual impression from
-Fig.~\ref{fig:distrib}. We perform a similar analysis for PS1 and SNLS in the
-redshift range $0.20 < z < 0.31$ where the same conclusion can be drawn, i.e.,
-there is no sign of discrepancy in the stretch and color distributions between
-the low- and high-end of the SNLS and PS1 datasets, respectively. Nonetheless,
+underlying population,} in agreement with the visual impression from
+Fig.~\ref{fig:distrib}.
+%The $p$-values are high ($>10\%$), and if one cannot conclude from a KS-test that indeed these SNe~Ia are from the same underlying distribution, there is no ground to claim they are not. 
+
+We perform a similar analysis for PS1 and SNLS in the
+redshift range $0.20 < z < 0.31$ where the same conclusion can be drawn, i.e., there is no sign of discrepancy in the stretch and color distributions between the low- and high-end of the SNLS and PS1 datasets, respectively. Nonetheless,
 the small size of the SNLS dataset at $z < 0.31$ (12 SNe~Ia vs. 90 for PS1)
 limits the interest of the test as only strong deviation would be noticeable.
 Extending the redshift range to $0.20 < z < 0.40$ (though we have no PS1 data
@@ -427,12 +400,10 @@ the same underlying distributions.}
     \label{fig:distrib}
 \end{figure}
 
-We furthermore highlight that the SNe~Ia color is more prone to selection
+We highlight that the SNe~Ia color is more prone to selection
 effects than stretch as illustrated in Fig.~\ref{fig:maglim}; see also e.g.,
 Fig.~3 of \cite{kessler2017}. Hence, since the color distribution shows no
-significant hint of selection effect, it further supports our claim that our
-simple redshift-based selection criteria is sufficient to \nn{build an unbiased
-SNe~Ia sample at all redshifts required to test the redshift evolution of the
+significant hint of leftover selection effect, it further supports our claim that our simple redshift-based selection criteria is sufficient to \nn{build the SNe~Ia sample required to test the redshift evolution of the
 stretch distribution}.
 
 \section{Modeling the redshift drift}\label{sec:modeling}
@@ -919,7 +890,7 @@ effects.
 
 \section{Conclusion}\label{sec:ccl}
 
-We have presented a study of the drift of the underlying SNe~Ia stretch
+We have presented a \mr{first} study of the drift of the underlying SNe~Ia stretch
 distribution as a function of redshift. We built a magnitude-limited SN~Ia
 sample from the Pantheon dataset \citep[][SDSS, PS1 and SNLS]{scolnic2018a}, to
 which we added HST and SNfactory data from \cite{rigault2018} for the high- and
@@ -994,12 +965,9 @@ refine it as necessary. We note that samples at the low- and high-redshift ends
 of the Hubble diagram would be particularly helpful for this drifting analysis;
 fortunately this will soon be provided by the Zwicky Transient Facility
 \citep[low-$z$,][]{bellm2019, graham2019}, and Subaru and SeeChange SNe~Ia
-programs (high-$z$), respectively. \nn{To improve the disentangling of
-observational} selection effects and \nn{intrinsic} population evolution, an
-analysis using the SNANA framework is underway. It will allow for subtle
-selection effects to be \nn{accounted for}, and by removing the need for a
-\nn{naive} redshift cut, increase the redshift leverage and statistical
-significance of our results.
+programs (high-$z$), respectively. 
+
+\mr{The next step of the analysis will be to incorporate our modeling within the SNANA framework \citep{SNANA} both to more accurately account for selection functions and to test the impact of our modeling on the derivation of cosmological parameters ; this study is underway.}
 
 \begin{acknowledgements}
     This project has received funding from the European Research Council (ERC)
