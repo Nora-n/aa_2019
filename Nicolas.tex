@@ -13,7 +13,7 @@
 \def\l{\lambda}\def\L{\Lambda}
 
 %\newcommand{\nn}[1]{\textcolor[rgb]{0.25, 0.50, 0}{#1}}
-\newcommand{\nn}[1]{\textcolor[rgb]{0.4, 0.8, 0}{#1}}
+\newcommand{\nn}[1]{\textcolor[rgb]{1.0, 0.6, 0.0}{#1}}
 \newcommand{\mr}[1]{\textcolor[rgb]{0.5, 0.20, 0.3}{#1}}
 \newcommand{\yc}[1]{\textcolor[RGB]{217, 22, 102}{#1}}
 \newcommand{\prob}[2]{\mathcal{P}\left( #1 \mid #2\right)}
@@ -23,8 +23,8 @@
 Distribution}
 
 \author{
-    N. Nicolas \thanks{n.nicolas@ipnl.in2p3.fr, equal contribution} \inst{1} 
-    \and M. Rigault \thanks{m.rigault@ipnl.in2p3.fr, equal contribution} \inst{2}
+    N. Nicolas \thanks{n.nicolas@ip2i.in2p3.fr, equal contribution} \inst{1} 
+    \and M. Rigault \thanks{m.rigault@ip2i.in2p3.fr, equal contribution} \inst{2}
     \orcid{0000-0002-8121-2560}
     \and\\ Y. Copin \inst{1}
     \orcid{0000-0002-5317-7518}
@@ -202,10 +202,10 @@ Assuming sufficient (and unbiased) spectroscopic follow-up for acquiring typing
 and host redshift, the selection effects of magnitude-limited surveys should be
 negligible below a given redshift at which even the faintest SNe~Ia can be
 observed. \textbf{In practice such spectroscopic following has not always been
-the norm as discussed below.} In contrast, targeted surveys have highly
-complex selection functions and will be discarded from our analysis.
-Fortunately, modern SN cosmology samples such as the Pantheon one are now
-dominated by magnitude-limited surveys.
+the norm as discussed below.} In contrast, targeted surveys have highly complex
+selection functions and will be discarded from our analysis.  Modern SN
+cosmology samples such as the Pantheon one are now dominated by
+magnitude-limited surveys \nn{which have easier to model selection functions}.
 
 We present in Fig.~\ref{fig:maglim} the lightcurve stretch and color of SNe~Ia
 from the following surveys: PanStarrs \citep[PS1][]{rest2014}, the Sloan Digital
@@ -254,7 +254,7 @@ even more significant in a carefully-tailored selection-free sample. The
 goal of this study is to build the first implementation of a SN Ia
 properties drift modeling before refining it on a more complex, yet more
 accurate, follow-up analysis accounting at the same time for precise selection
-modeling using of the SNANA package \citep{SNANA}.}
+modeling using, e.g., the SNANA package \citep{SNANA}.}
 
 SNLS typically acquired SNe~Ia in the redshift range $0.4<z<0.8$; at these
 redshifts, the rest-frame Bessel $B$ band roughly corresponds to the SNLS $i$
@@ -267,41 +267,42 @@ $z_{\lim}=0.55$. \textbf{We will therefore use $z=0.60$ and $z=0.55$ as redshift
 limits for the fiducial and conservative cuts, respectively.}
 
 Similarly, PS1 observed SNe~Ia in the range $0.2<z<0.4$, their $g$-band
-$5\sigma$ depth is 23.1~mag \citep{rest2014}, which yields to $z_{\lim}=0.31$ in
+$5\sigma$ depth is 23.1~mag \citep{rest2014}, which yields $z_{\lim}=0.31$, in
 agreement with, e.g., Fig.~6 of \cite{scolnic2018a}. \textbf{If we were to be
-conservative, this figure would also suggest of a more stringent
+    conservative, this figure would also suggest of a more stringent
 $z_{\lim}=0.27$ cut; hence, we will use $0.31$ and $0.27$ for our fiducial and
 conservative cuts, respectively.}
 
 In a similar redshift range, SDSS has a limiting magnitude of 22.5
-\citep{dilday2008, sako2008}, which would lead to a $z_{\lim}=0.24$. However,
-the SDSS surveys were more sensitive to limited spectroscopic resources
-\textbf{as discussed before}. \citet[][Section~2]{kessler2009} pointed out that
-during the first year of SDSS, SNe~Ia with $r<20.5$~mag were favored for
-spectroscopic follow-up, corresponding to a redshift cut at $0.15$. For the rest
-of the SDSS survey, additional spectroscopic resources were available, and
-\cite{kessler2009} and \cite{dilday2008} show a reasonable completeness up to
-$z_{\lim}=0.2$. Following these analyses, \textbf{we will use $z_{\lim}=0.20$
-and $z_{\lim}=0.15$ for out fiducial and conservative cuts, respectively.}
+\citep{dilday2008, sako2008}, which would lead to $z_{\lim}=0.24$. However, the
+SDSS surveys \nn{had to contend with limited spectroscopic resources. As
+discussed in} \citet[][Section~2]{kessler2009}, during the first year of SDSS,
+SNe~Ia with $r<20.5$~mag were favored for spectroscopic follow-up, corresponding
+to a redshift cut at $0.15$. For the rest of the SDSS survey, additional
+spectroscopic resources were available, and \cite{kessler2009} and
+\cite{dilday2008} show a reasonable completeness up to $z_{\lim}=0.2$. Following
+these analyses, \textbf{we will use $z_{\lim}=0.20$ and $z_{\lim}=0.15$ for our
+fiducial and conservative cuts, respectively.}
 
 The sample selection is summarized in Table~\ref{tab:sample}, and the redshift
 distribution of these three surveys is shown in Fig.~\ref{fig:cuts}. As
 expected, the selected redshift limits \textbf{are roughly located slightly
-before the peak of these histograms}. \textbf{We test in
-Section~\ref{ssec:verify} the validity of our intent to build volume-limited
-surveys from (mostly) magnitude-limited ones with the aforementioned redshift
-limits.}
+    before the peak of these histograms}. \nn{In Section 2.2 we validate that
+    these redshift limits are effective for constructing nearly volume-limited
+subsamples from samples that were initially more-closely magnitude limited in
+their search or spectroscopic follow-up.}
 
 \begin{table}
     \centering
     \caption{Composition of the SNe~Ia dataset used in this analysis.
-    Conservative cuts are indicated in parentheses.}
+    Conservative cuts are indicated in parentheses. \nn{The SNf limit is set by
+\cite{rigault2018}, see text.}}
     \label{tab:sample}
     \begin{tabular}{l c c}
         \hline\hline
         Survey & $z_{\lim}$ & $N_{\mathrm{SN}}$ \\
         \hline
-        SNf & -- & 114 \\
+        SNf & 0.08 & 114 \\
         SDSS & 0.20 (0.15) & 167 (82)\\
         PS1 & 0.31 (0.27) & 160 (122)\\
         SNLS & 0.60 (0.55) & 102 (78)\\
@@ -315,12 +316,12 @@ limits.}
 \begin{figure}
     \centering
     \includegraphics[width=0.95\linewidth]{Article_figures/hist_surveys_cuts_55-cividis.pdf}
-    \caption{\textit{From top to bottom}: Redshift histograms of SNe~Ia from
-        the SDSS, PS1 and SNLS dataset respectively (data from Pantheon,
-        \citealt{scolnic2018a}). The colored parts represent the distribution
-        of SNe~Ia kept in our analysis for they are supposedly free from
-        selection bias (see Section~\ref{sec:sample}). The darker (resp. lighter)
-        color responds to the conservative (resp. fiducial) selection cut.}
+    \caption{\textit{From top to bottom}: Redshift histograms of SNe~Ia from the
+        SDSS, PS1 and SNLS dataset respectively (data from Pantheon,
+        \citealt{scolnic2018a}). The colored parts represent the distribution of
+        SNe~Ia kept in our analysis for they are supposedly free from selection
+    bias (see Section~\ref{sec:sample}). The darker (resp. lighter) color
+responds to the conservative (resp. fiducial) selection cut.}
     \label{fig:cuts}
 \end{figure}
 
@@ -328,10 +329,12 @@ In addition, we use the SNe~Ia from the Nearby Supernova Factory
 \citep[SNfactory,][]{aldering2002} published in \cite{rigault2018} and that have
 been discovered from non-targeted searches (114 SNe~Ia, see their sections~3
 and~4.2.2; SNe~Ia time series are published in \citealt{saunders2020}, see also
-\citealt{aldering2020}). \textbf{For this dataset,} the spectroscopic follow-up
-was done over a redshift range of $0.02 < z < 0.09$, while the search was much
-deeper. These 114 SNfactory SNe~Ia are thus in the volume-limited part of the
-survey (Aldering et al., in prep.), and are therefore assumed to be a random
+\citealt{aldering2020}). \nn{For this dataset, spectroscopic screening was done
+for candidates with $r \lesssim 19.5$. Then, redshift cuts were applied when
+selecting which SN Ia to follow, giving a redshift range of 0.02 < z < 0.09 ;
+further reduced to $<0.08$ in \cite{rigault2018} for extracting local host
+properties.} These 114 SNfactory SNe~Ia are thus in the volume-limited part of
+the survey (Aldering et al., in prep.), and are therefore assumed to be a random
 sampling of the underlying SN population. The SNfactory sample is particularly
 useful for studying SN property drift, as it enables us to have a large complete
 SN~Ia sample at $z<0.1$. 
@@ -360,7 +363,7 @@ distribution is \textbf{evolving with redshift}.
         function of redshift for each survey considered in this analysis (see
         legend). Solid (resp.\ open) markers correspond to the conservative
         (resp.\ fiducial) redshift cuts. \textit{Top:} stacked redshift
-    histograms in dark (resp.\ light) colors for the conservative (resp.  \
+    histograms in dark (resp.\ light) colors for the conservative (resp. \
 fiducial) redshift cuts.}
     \label{fig:sample}
 \end{figure}
@@ -377,44 +380,37 @@ complex selection function related to follow-up efficiencies below our fiducial
 fully volume-limited, which could, in turn, bias our conclusion on the
 astrophysical drift of the SNe~Ia population.}
 
-\textbf{To test for the existence of potentially significant leftover selection biases in our sample, we compare the stretch and color distributions of the SNe~Ia in our
-sample between datasets of overlapping redshifts. If indeed we have built a
-volume-limited sample, the distributions of any SNe~Ia parameter at a given
-redshift should not depend of their survey of origin. When considering a
-redshift range, this has to be narrow enough such that any drift would be
-negligible.}
+\textbf{To test for the existence of potentially significant leftover selection
+biases in our sample, we compare the stretch and color distributions of the
+SNe~Ia in our sample between datasets of overlapping redshifts. If indeed we
+have built a volume-limited sample, the distributions of any SNe~Ia
+parameter at a given redshift should not depend on their survey of origin. When
+considering a redshift range, this has to be narrow enough such that any drift
+would be negligible.}
 
-%\yc{YC: \textit{why do you say that here, since you didn't fine-tune
-%the overlaping $z$-range?}} \nn{\textit{NN: Because we still took that into
-%account?}} \mr{\textit{MR:Because if there is a strong drift in the redshift
-%range, and if the redshift distribution of the sample differ, their respective
-%property distribution should differ.}}
+\textbf{The two samples that overlap the most in redshift are PS1 and SDSS in
+the redshift range $0.10 < z < 0.20$ (see Fig~\ref{fig:sample}). This
+corresponds to the 146 SNe~Ia from SDSS at the highest redshift end and thus
+the most \nn{likely to be} affected by selection effects \nn{not eliminated
+by our redshift cut} (see the corresponding discussion in
+section~\ref{ssec:cuts}). In that same redshift range, PS1 has 52 SNe~Ia,
+which are in the lowest redshift bins and thus unlikely to have any
+selection issue.  \nn{To identify potential inconsistency between PS1 and
+SDSS, Fig.~\ref{fig:distrib} presents} the stretch and color
+distribution of both these surveys, together with $p$-values of
+Kolmogorov-Smirnov (KS) tests. \nn{These $p$-values are too high
+($>10\%$) and do not indicate that these subsamples are inconsistent}, in
+agreement with the visual impression from Fig.~\ref{fig:distrib}.}
 
-\textbf{The two samples that overlap the most in redshift are PS1 and SDSS in the
-redshift range $0.10 < z < 0.20$ (see Fig~\ref{fig:sample}). This corresponds to
-the 146 SNe~Ia from SDSS at the highest redshift end and thus the most affected
-by potential selection effect leftover (see the corresponding discussion in
-section~\ref{ssec:cuts}). In that same redshift range, PS1 has 52 SNe~Ia, which
-are in the lowest redshift bins and thus unlikely to have any selection issue.
-Fig.~\ref{fig:distrib} presents the stretch and color distribution of both these
-surveys, together with $p$-values of Kolmogorov-Smirnov tests (KS-test). These
-$p$-values are too high ($>10\%$) to exclude that both samples originate from
-the same underlying population, in agreement with the visual impression from
-Fig.~\ref{fig:distrib}.}
-
-%The $p$-values are high ($>10\%$), and if one cannot conclude from a KS-test
-%that indeed these SNe~Ia are from the same underlying distribution, there is no
-%ground to claim they are not. 
-
-\textbf{We perform a similar analysis for PS1 and SNLS in the redshift range $0.20 < z <
-0.31$ where the same conclusion can be drawn, i.e., there is no sign of
-discrepancy in the stretch and color distributions between the low- and high-end
-of the SNLS and PS1 datasets, respectively. Nonetheless, the small size of the
-SNLS dataset at $z < 0.31$ (12 SNe~Ia vs. 90 for PS1) limits the interest of the
-test as only strong deviation would be noticeable.  Extending the redshift range
-to $0.20 < z < 0.40$ (though we have no PS1 data above 0.3) enables to get 31
-SNe~Ia from SNLS in total, yet the stretch and color KS-test $p$-values remains
-inconclusive, at 34\% and 4\% respectively.}
+\textbf{We perform a similar analysis for PS1 and SNLS in the redshift range
+$0.20 < z < 0.31$ where the same conclusion can be drawn, i.e., there is no
+sign of discrepancy in the stretch and color distributions between the low-
+and high-end of the SNLS and PS1 datasets, respectively. Nonetheless, the
+small size of the SNLS dataset at $z < 0.31$ (12 SNe~Ia vs. 90 for PS1)
+limits the \nn{sensitivity} of the test, as only strong deviation would be
+noticeable. Extending the redshift range to $0.20 < z < 0.40$ (though we
+have no PS1 data above 0.3) enables to get 31 SNe~Ia from SNLS in total, yet
+\nn{the stretch p-values remains high at 34\% showing no sign of inconsistency}}
 
 \begin{figure}
     \centering
@@ -425,8 +421,8 @@ inconclusive, at 34\% and 4\% respectively.}
             down}: PS1 and SNLS within the redshift range $0.20 < z < 0.31$.
             Error bars show the Poisson noise. Our stretch ``Base'' model is
             illustrated in orange at the mean redshift of the redshift ranges,
-            $0.15$ and $0.25$, respectively.  Kolmogorov-Smirnov test $p$-values
-            are indicated on the top (resp.  bottom) of each panel showing no
+            $0.15$ and $0.25$, respectively. Kolmogorov-Smirnov test $p$-values
+            are indicated on the top (resp. bottom) of each panel showing no
             sign that the SDSS and PS1 (resp. PS1 and SNLS) $x_1$ and $c$
             distributions are not drawn from the same underlying
     distributions.}}
@@ -462,9 +458,9 @@ expectations \citep{mannucci2006, rodney2014}, \cite{rigault2018} concluded that
     \label{eq:delta}
     \delta(z) = \left( K^{-1} \times (1+z)^{-2.8} +1 \right)^{-1}
 \end{equation}
-with $K=0.87$. This model is comparable to the evolution predicted by
-\cite{childress2014} based on SN rates in galaxies depending on their quenching
-time as a function of their stellar mass.
+with $K=0.87$. This model is comparable to the evolution \nn{subsequently}
+predicted by \cite{childress2014} based on SN rates in galaxies depending on
+their quenching time as a function of their stellar mass.
 
 \subsection{``Base'' underlying stretch distribution}
 \label{sec:basemodel}
@@ -517,6 +513,8 @@ given by:
     (1-\delta(z))&\times \left[ a\times\mathcal{N}(\mu_1,\sigma_1{}^2) +
     (1-a)\times\mathcal{N}(\mu_2,\sigma_2{}^2) \right]
 \end{align}
+
+\nn{This is our Base model.}
 
 \subsection{Base model applied to data}\label{sec:basemodelapplied}
 
@@ -778,16 +776,16 @@ $-2\ln(L)$ is the smallest of all redshift-independent models (but still $-11.5$
 worse than the reference Base model), it is strongly penalized for requiring
 15~free parameters ($\mu_0, \sigma_{\pm}$~for each of the 5~samples of the
 analysis). Hence, its $\Delta\mathrm{AIC}<-20$, which could be interpreted as a
-probability $p=2\times 10^{-7}$ of being an as good representation of the data
+probability $p=2\times 10^{-7}$ of being as good a representation of the data
 as the Base model.
 
-Remark that, when comparing models adjusted on individual subsamples rather than
-globally, the Bayesian Information Criterion ($\mathrm{BIC} = -2\ln(L) +
+\nn{Note} that, when comparing models adjusted on individual subsamples rather
+than globally, the Bayesian Information Criterion ($\mathrm{BIC} = -2\ln(L) +
 k\ln(n)$, with $n$ the number of data points) might be better suited than AIC,
 since it explicitly accounts for the fact that each subsample is fitted
 separately: the sample-based model BIC is rightfully the sum of the BIC for each
-sample. Doing so, we find $\Delta\mathrm{BIC}=-48$, again refuting the
-sample-based asymmetric Gaussian model as being as pertinent as the Base model.
+sample. We find $\Delta\mathrm{BIC}=-48$, again refuting the sample-based
+asymmetric Gaussian model as being as pertinent as the Base model.
 
 We report in Table~\ref{tab:bbc} \textbf{our determination of} the samples'
 $\mu_0$ and $\sigma_{\pm}$ \textbf{when implementing an asymmetric Gaussian
@@ -798,8 +796,8 @@ derived these model parameters using the full BBC formalism, using numerous
 simulations to model the selection effects (see details e.g., Section~3 of
 \citealt{kessler2017}). The agreement between our fit of the asymmetric
 Gaussians on the supposedly selection-free part of the samples and the results
-derived using the BBC formalism supports our approach to get a sample with
-negligible selection effects. If we were to use \cite{scolnic2016} and
+derived using the BBC formalism supports our approach to \nn{construct} a sample
+with negligible selection effects. If we were to use \cite{scolnic2016} and
 \cite{scolnic2018a} best fit values of the $\mu_0, \sigma_{\pm}$ asymmetric
 parameters for SNLS, SDSS and PS1, respectively, the $\Delta$AIC between our
 Base drifting model and the BBC modeling would go even deeper from $-32$ to
@@ -827,14 +825,14 @@ Section~\ref{sec:discussion}.
 We also performed tests allowing the high-stretch mode of the old population to
 differ from the young population mode, hence adding two degrees of freedom. The
 corresponding fit is not significantly better, with a $\Delta$AIC of $-0.4$.
-This strengthens the fact that the young and old populations indeed appear to
-share the same underlying high-stretch mode. Furthermore, one might wonder
-whether a low-stretch mode might also exist in the young-population, see
-Fig.~\ref{fig:stretchlssfr}. We tested that by allowing this population to also
-be bi-modal, finding the amplitude of this low-stretch mode to be compatible
-with~0 in this young population ($<2\%$). More generally, this raises the
-question of inaccurate tracing of age by a given environmental tracer (here the
-LsSFR). A dedicated analysis will be presented in Briday et al.\ in prep.
+This \nn{reinforces our assumption} that the young and old populations indeed
+appear to share the same underlying high-stretch mode. Furthermore, one might
+wonder whether a low-stretch mode might also exist in the young-population, see
+Fig.~\ref{fig:stretchlssfr}. We \nn{test for this} by allowing this population
+to also be bi-modal, finding the amplitude of \nn{such a} low-stretch mode to be
+compatible with~0 in this young population ($<2\%$). More generally, this raises
+the question of\nn{how well a given environmental tracer (here LsSFR) traces the
+age}.  A dedicated analysis will be presented in Briday et al.\ in prep.
 
 Finally, ignoring the LsSFR measurements --~available only for the SNfactory
 dataset, see Section~\ref{sec:modeling}~-- reduces the significance of the
@@ -850,15 +848,15 @@ been explicitly used in cosmological analyses, though Bayesian hierarchy
 formalism such as UNITY \citep{rubin2015}, BAHAMAS \citep{shariff2016} or Steve
 \citep{hinton2019} can easily allow it; see e.g., section 1.3 and 2.5 of
 \cite{rubin2015}. Not doing so is a second order issue for SN cosmology, as it
-only affects the way one accounts for Malmquist bias. Indeed, as long as
-Phillips' relation \citep{phillips1993} standardization parameter $\alpha$ is
-not redshift dependent (a study behind the scope of this paper, but see e.g.
+only affects the way one accounts for Malmquist bias. Indeed, as long as the
+Phillips relation \citep{phillips1993} standardization parameter $\alpha$ is not
+redshift dependent (a study \nn{beyond} the scope of this paper, but see e.g.
 \citealt{scolnic2018a}), the stretch-corrected SNe~Ia magnitudes used for
 cosmology are blind to the underlying stretch distribution for complete samples.
-However, surveys usually do have significant Malmquist bias at least for the
-upper half of their SN redshift distribution. As a consequence, an ill-modeling
-of the underlying stretch distribution will bias the SN magnitude derived from
-such surveys. 
+However, surveys usually do have significant Malmquist bias for the upper half
+of their SN redshift distribution. As a consequence, an ill-modeling of the
+underlying stretch distribution will bias the SN magnitudes derived from such
+surveys. 
 
 Commonly used Malmquist bias correction techniques, such as the BBC-formalism,
 assume per sample asymmetric Gaussian functions for modeling the underlying
@@ -868,10 +866,10 @@ model. Then, unlike what \citet[][Section~2]{scolnic2016} and
 \citet[][Section~5.4]{scolnic2018a} suggested, i.e. that traditional surveys
 span limited redshift ranges and that therefore the per-sample approach accounts
 for implicit redshift drifts, a direct modeling of the redshift drift is more
-appropriate than a sample-based approach. We stress here that, as measurements
+appropriate than a sample-based approach. We \nn{add} here that, as measurements
 of modern surveys try to cover increasingly larger redshift ranges in order to
-reduce calibration systematic uncertainties, this sample-based approach is
-becoming less valid, notably for PS1, DES and, soon, LSST.
+reduce calibration systematic uncertainties, this sample-based approach
+\nn{becomes} less valid, notably for PS1, DES and, soon, LSST.
 
 We illustrate in Fig.~\ref{fig:bbc_pdf_ps1} the prediction difference in the
 underlying stretch distribution between the per-sample asymmetric modeling and
@@ -881,15 +879,15 @@ old and young SNe~Ia in the sample: the higher the fraction of old SNe~Ia (at
 lower redshift), the higher the amplitude of the old-specific low-stretch mode.
 This redshift dependency is shown as blue to red underlying distributions in
 Fig.~\ref{fig:bbc_pdf_ps1} for redshift ranges covered by PS1. The observed
-$x_1$ histogram follows our modeling defined as the sum of individual underlying
-SN-redshift distributions. As expected, the two modeling approaches differ
-mostly in the negative part of the SN stretch distribution. The asymmetric
-Gaussian distribution goes through the middle of the bimodal distribution,
-over-estimating the number of SNe~Ia at $x_1\sim-0.7$ and under-estimating it at
-$x_1\sim-1.7$ in comparison to our Base drifting model for typical PS1 SN
-redshifts. This means that the SN bias-corrected standardized magnitude
-estimated at a redshift affected by selection effect would be biased by an
-ill-modeling of the true underlying stretch distribution.
+$x_1$ histogram follows \nn{the model we defined using} the sum of individual
+underlying SN-redshift distributions. As expected, the two modeling approaches
+differ mostly in the negative part of the SN stretch distribution. The
+asymmetric Gaussian distribution goes through the middle of the bimodal
+distribution, over-estimating the number of SNe~Ia at $x_1\sim-0.7$ and
+under-estimating it at $x_1\sim-1.7$ in comparison to our Base drifting model
+for typical PS1 SN redshifts. This means that the SN bias-corrected standardized
+magnitude estimated at a redshift affected by selection effects would be biased
+by an ill-modeling of the true underlying stretch distribution.
 
 \begin{figure}
     \centering
@@ -908,36 +906,36 @@ ill-modeling of the true underlying stretch distribution.
     \label{fig:bbc_pdf_ps1}
 \end{figure}
 
-The amplitude of this magnitude bias for cosmology is beyond the scope of this
-paper given the complexity of the BBC analysis. It would require a full study
-using our Base model (Eq.~\ref{eq:stretchz}) in place of the sample-based
-asymmetric modeling as part of the BBC simulations. However, we already
-highlight that even if a non-drifting sample-based model could provide
+\nn{Assessing t}he amplitude of this magnitude bias for cosmology is beyond the
+scope of this paper given the complexity of the BBC analysis. It would require a
+full study using our Base model (Eq.~\ref{eq:stretchz}) in place of the
+sample-based asymmetric modeling as part of the BBC simulations. However, we
+already highlight that even if a non-drifting sample-based model could provide
 comparable result in the volume-limited part of the various samples, these
-models would differ when extrapolating at higher redshifts, precisely where the
+models would differ when extrapolating to higher redshifts, precisely where the
 underlying distribution will matter for correcting Malmquist biases.
 
-In the era of modern cosmology, where we aim at probing $w_0$ at a sub-percent
-level and $w_a$ at the ten-percent precision \citep[e.g.,][]{lsstpaper}, we
-stress that correct modeling of potential SN redshift drift should be further
-studied and care should be taken when using samples affected by selection
-effects.
+In the era of modern cosmology, where we aim \nn{to measure} $w_0$ at a
+sub-percent level and $w_a$ \nn{with} ten-percent precision
+\citep[e.g.,][]{lsstpaper}, we stress that correct modeling of potential SN
+redshift drift should be further studied and care should be taken when using
+samples affected by selection effects.
 
 \section{Conclusion}\label{sec:ccl}
 
-We have presented a \textbf{first} study of the drift of the underlying SNe~Ia
+We have presented \nn{an initial} study of the drift of the underlying SNe~Ia
 stretch distribution as a function of redshift. We built a magnitude-limited
 SN~Ia sample from the Pantheon dataset \citep[][SDSS, PS1 and
 SNLS]{scolnic2018a}, to which we added HST and SNfactory data from
 \cite{rigault2018} for the high- and low-redshift bins. We only considered the
 SNe that have been discovered in the redshift range of each survey where
 selection effects are negligible, so that the observed SNe~Ia stretches are
-random sampling of the true underlying distribution. This resulted in a 569
+a random sampling of the true underlying distribution. This resulted in a 569
 SN~Ia fiducial sample (422 SNe when more conservative cuts were considered).
 
 Following predictions made in \cite{rigault2018}, we introduced a redshift drift
 model which depends on the expected fraction of ``young'' and ``old'' SNe~Ia as
-a function of redshift, each age population having its own underlying
+a function of redshift, \nn{with} each age population having its own underlying
 stretch distribution.
 
 In addition to this ``base'' modeling, we have studied various distributions,
@@ -949,13 +947,13 @@ Beams with Bias Correction Malmquist bias correction algorithm
 Our conclusions are the following:
 \begin{enumerate}
     \item The underlying SN~Ia stretch distribution is significantly redshift
-        dependent, as previously suggested by e.g.~\cite{howell2007} \textbf{in
+        dependent, as previously suggested by e.g.~\cite{howell2007}, \textbf{in
         a way that selection effects alone cannot explain}. This result is
-        largely independent of details on each age-population modeling.
+        largely independent of details on each age-population model.
     
-    \item Redshift-independent models are indeed excluded as suitable
-        descriptions of the data relative to our Base model. This model assumes
-        that: (1) the younger population has a unimodal Gaussian stretch
+    \item Redshift-independent models are \nn{quantitatively} excluded as
+        suitable descriptions of the data relative to our Base model. This model
+        assumes that: (1) the younger population has a unimodal Gaussian stretch
         distribution, while the older population stretch distribution is
         bimodal, one mode being the same as the young one; (2) the evolution of
         the relative fraction of younger and older SNe~Ia follows the prediction
@@ -965,15 +963,15 @@ Our conclusions are the following:
         aubourg2008}. 
         
     \item Models using survey-based asymmetric Gaussian distributions, as done,
-        e.g., in the current implementation of the BBC, are excluded to be good
-        descriptions of the data relative to our drifting model. Hence, the
+        e.g., in the current implementation of BBC, are excluded \nn{as a} good
+        description of the data relative to our drifting model. Hence, the
         sample-based approach does not accurately account for redshift drift and
-        even less so as survey span increasingly larger redshift ranges. We
-        stipulate that, even if extra degrees of freedom might be acceptable
-        given the large number of SNe~Ia in cosmological studies, extrapolating
-        the SN property distributions from the volume-limited part of a survey
-        to its Malmquist-biased magnitude-limited one would still be inaccurate
-        because of the redshift evolution.
+        even less so as survey span increasingly larger redshift ranges.  \nn{As
+        a result, if} extra degrees of freedom might be acceptable given the
+        large number of SNe~Ia in cosmological studies, extrapolating the SN
+        property distributions from the volume-limited part of a survey to its
+        Malmquist-biased magnitude-limited one would still be inaccurate because
+        of the redshift evolution.
 
     \item Given the current dataset, we suggest the use of the following stretch
         population model as a function of redshift:
