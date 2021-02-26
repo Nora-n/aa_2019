@@ -1,4 +1,4 @@
-\documentclass[]{aa}
+\documentclass[referee]{aa}
 
 \usepackage{txfonts}
 \usepackage{ulem}
@@ -67,18 +67,18 @@ Distribution}
     redshift drift. The SN stretch has been shown to strongly correlate with the
     SN environment, notably with stellar age tracers. We model the underlying
     stretch distribution as a function of redshift, using the evolution of the
-    fraction of young and old SNe~Ia as predicted \textbf{in a previous study},
-    and assuming constant underlying stretch distribution for each age
+    fraction of young and old SNe~Ia as predicted \textbf{using the SNfactory
+    dataset}, and assuming constant underlying stretch distribution for each age
     population consisting of Gaussian mixtures. We test our prediction against
     published samples cut to have marginal magnitude selection effects, so that
-    any observed change is indeed of astrophysical and not observational in
-    origin. In this first study, there are indications that the underlying
-    SN~Ia stretch distribution is evolving as a function of redshift, and that
-    the young/old drifting model is a better description of the data than any
-    time-constant model, including the sample-based asymmetric distributions
-    often used to correct Malmquist bias at a significance of over 5 $\sigma$.
-    The favored underlying stretch model is \textbf{a bimodal one}, composed of
-    a high-stretch mode shared by both young and old environments, and a
+    any observed change is indeed astrophysical and not observational in origin.
+    In this first study, there are indications that the underlying SN~Ia stretch
+    distribution is evolving as a function of redshift, and that the young/old
+    drifting model is a better description of the data than any time-constant
+    model, including the sample-based asymmetric distributions often used to
+    correct Malmquist bias at a significance of over 5 $\sigma$.  The favored
+    underlying stretch model is \textbf{a bimodal one}, composed of a
+    high-stretch mode shared by both young and old environments, and a
     low-stretch mode exclusive to old environments. The precise impact of the
     redshift evolution of the SN Ia population intrinsic properties on cosmology
     remains to be studied. Yet, the astrophysical drift of the SN stretch
@@ -121,32 +121,30 @@ young stellar populations, while the latter does not. This selection
 effect would impact the derivation of $H_0$ if SNe~Ia from young and older
 environments differ in average standardized magnitudes. 
 
-The relation between SNe~Ia and their host galaxy properties has been
-studied extensively. The first key finding was that the standardized SNe~Ia
-magnitudes significantly depend on the host galaxy stellar mass, with
-SNe~Ia from high-mass host galaxies being brighter on average
-\cite[e.g.][]{kelly2010, sullivan2010, childress2013, betoule2014, rigault2020,
-kim19}. This mass-step correction is currently used in cosmological analyses
-\citep[e.g.][]{betoule2014, scolnic2018a}, including for deriving $H_0$
-\citep{riess2016, riess2019}. Yet, the underlying connection between the SNe and
-their host galaxies remains , particularlyunclear when using
-global properties such as the host stellar . This in turnmass raises
-the question of the accuracy of such corrections since host galaxy
-global properties evolve with redshift. More recently, studies have used the
-local SN host galaxy environment to probe more direct connections
-between the SNe and their host galaxy environments \citep{rigault2013},
-showing that local age tracers such as the Local specific Star Formation Rate
-(LsSFR) or the local color are more strongly correlated with the standardized SN
-magnitude \citep{roman2018, kim18,rigault2020}. Further reinforcing this
-connection is the identification of SN~Ia spectral features that are correlated
-with LsSFR \citep{nordin2018}. These results suggest age as the driving
-parameter underlying the mass-step. If true, this would have a significant
-impact for cosmology, since the environmental correction to apply to SN
-standardization could strongly vary with redshift. \citep{rigault2013,
-childress2014, scolnic2018a}. Yet, the importance of local SN environmental
-studies remains highly debated \cite[e.g.][]{jones2015, jones2019} and
-especially the impact of such an astrophysical bias has on the derivation of
-$H_0$ \citep{jones2015, riess2016, riess2018, rose2019}. 
+The relation between SNe~Ia and their host galaxy properties has been studied
+extensively. The first key finding was that the standardized SNe~Ia magnitudes
+significantly depend on the host galaxy stellar mass, with SNe~Ia from high-mass
+host galaxies being brighter on average \cite[e.g.][]{kelly2010, sullivan2010,
+childress2013, betoule2014, kim19}. This mass-step correction is currently used
+in cosmological analyses \citep[e.g.][]{betoule2014, scolnic2018a}, including
+for deriving $H_0$ \citep{riess2016, riess2019}. Yet, the underlying connection
+between the SNe and their host galaxies remains unclear, particularly when using
+global properties such as the host stellar mass. This in turn raises the
+question of the accuracy of such corrections since host galaxy global properties
+evolve with redshift. More recently, studies have used the local SN host galaxy
+environment to probe more direct connections between the SNe and their host
+galaxy environments \citep{rigault2013}, showing that local age tracers such as
+the Local specific Star Formation Rate (LsSFR) or the local color are more
+strongly correlated with the standardized SN magnitude \citep{roman2018, kim18,
+rigault2020}. Further reinforcing this connection is the identification of SN~Ia
+spectral features that are correlated with LsSFR \citep{nordin2018}. These
+results suggest age as the driving parameter underlying the mass-step. If true,
+this would have a significant impact for cosmology, since the environmental
+correction to apply to SN standardization could strongly vary with redshift
+\citep{rigault2013, childress2014, scolnic2018a}. Yet, the importance of local
+SN environmental studies remains highly debated \cite[e.g.][]{jones2015,
+jones2019} and especially the impact of such an astrophysical bias has on the
+derivation of $H_0$ \citep{jones2015, riess2016, riess2018, rose2019}. 
 
 The concept of the SN~Ia age dichotomy arose with the study of the SN~Ia rate.
 \cite{mannucci2005, scannapieco2005, sullivan2006, aubourg2008} have shown that
@@ -156,27 +154,26 @@ following the host stellar mass (the so called ``prompt and delayed'' or ``A+B''
 model). \cite{rigault2020} used the LsSFR to classify which are the younger
 (those with a high LsSFR) and which are the older (those with low LsSFR).
 Furthermore, since the first SNe~Ia host analyses, the SN stretch has been known
-to be strongly correlated with the SN host galaxy properties
-\citep{hamuy1996, hamuy2000}. This correlation that has been extensively
-confirmed since \citep[e.g.][]{neill2009, sullivan2010, lampeitl2010, kelly2010,
-gupta2011, dandrea2011, childress2013, rigault2013, pan2014, kim19}. Following
-the ``A+B'' model and the connection between SN stretch and host galaxy
-properties, \cite{howell2007} first discussed the potential redshift drift of
-the SN stretch distribution. In this paper we revisit this question
+to be strongly correlated with the SN host galaxy properties \citep{hamuy1996,
+hamuy2000}. This correlation that has been extensively confirmed since
+\citep[e.g.][]{neill2009, lampeitl2010, gupta2011, dandrea2011, pan2014}.
+Following the ``A+B'' model and the connection between SN stretch and host
+galaxy properties, \cite{howell2007} first discussed the potential redshift
+drift of the SN stretch distribution. In this paper we revisit this question
 using the most recent SNe~Ia datasets.
 
-In this paper, we take a step aside from the cosmological analyses to
-probe the validity of our modeling of the SN population, which we claim to be
-constituted of two age-populations \citep{rigault2013,rigault2015,rigault2020}:
-one old and one younger, the former having on average lower lightcurve stretches
-and being brighter after standardization. We use the correlation between the SN
-age, as probed by the LsSFR, and the SN stretch to model the expected evolution
-of the underlying SN stretch distribution as a function of redshift. This
-modeling relies on three assumptions: (1) there are two distinct populations of
-SNe~Ia; (2) the relative fraction of each of these populations as a function of
-redshift follows the model presented in \cite{rigault2020} and (3) the
-underlying distribution of stretch for each age sample is constant. This paper
-aims at testing this specific model with datasets from the literature. 
+In this paper, we take a step aside from the cosmological analyses to probe the
+validity of our modeling of the SN population, which we claim to be constituted
+of two age-populations \citep{rigault2013, rigault2015, rigault2020}: one old
+and one younger, the former having on average lower lightcurve stretches and
+being brighter after standardization. We use the correlation between the SN age,
+as probed by the LsSFR, and the SN stretch to model the expected evolution of
+the underlying SN stretch distribution as a function of redshift. This modeling
+relies on three assumptions: (1) there are two distinct populations of SNe~Ia;
+(2) the relative fraction of each of these populations as a function of redshift
+follows the model presented in \cite{rigault2020} and (3) the underlying
+distribution of stretch for each age sample is constant. This paper aims at
+testing this specific model with datasets from the literature. 
 
 We present in Section~\ref{sec:sample} the sample we are using for this
 analysis, derived from the Pantheon catalog \citep{scolnic2018a}. We discuss the
@@ -192,11 +189,10 @@ Section~\ref{sec:discussion} and we conclude in Section~\ref{sec:ccl}.
 \section{Complete Sample Construction}\label{sec:sample}
 
 The ideal SN~Ia sample for studying this question would be a very deep,
-    large-area, volume-limited sample. This would capture the true underlying
-    stretch distribution function, and we would then study how it evolves with
-    redshift. No such sample exists, so first we must construct subsamples that
-are as near to volume-limited as possible from existing high-redshift SN~Ia
-samples.
+large-area, volume-limited sample. This would capture the true underlying
+stretch distribution function, and we would then study how it evolves with
+redshift. No such sample exists, so first we must construct subsamples that are
+as near to volume-limited as possible from existing high-redshift SN~Ia samples.
 
 \subsection{Applying redshift cuts}\label{ssec:cuts}
 
@@ -255,7 +251,7 @@ $\mu(z_{\lim}) = m_{\lim} - M_{\lim}$.
         the Pantheon catalog. The individual SNe are shown as blue dots. The
         ellipse $(x_1=\pm3, c=\pm0.3)$ is displayed, colored by the
         corresponding standardized absolute magnitude using the $\alpha$ and
-        $\beta$ coefficients from \cite{scolnic2018a}. The grey diagonal lines
+        $\beta$ coefficients from \cite{scolnic2018a}. The gray diagonal lines
         represent the $(x_1, c)$ evolution for $m = m_{\lim}$, for $z$ between
         $0.50$ and $z=1.70$ using SNLS's $m_{\lim}$ of $24.8$~mag.}
     \label{fig:maglim}
@@ -341,7 +337,7 @@ by \cite{rigault2020}, see text.}
         \citealt{scolnic2018a}). The colored parts represent the distribution of
         SNe~Ia kept in our analysis for they are supposedly free from
     observational selection bias (see Section~\ref{sec:sample}). The
-darker (resp. lighter) color responds to the conservative (resp. fiducial)
+darker (resp.\ lighter) color responds to the conservative (resp.\ fiducial)
 selection cut.}
     \label{fig:cuts}
 \end{figure}
@@ -444,7 +440,7 @@ of inconsistency.
             Error bars show the Poisson noise. Our stretch ``Base'' model is
             illustrated in orange at the mean redshift of the redshift ranges,
             $0.15$ and $0.25$, respectively. Kolmogorov-Smirnov test $p$-values
-            are indicated on the top (resp. bottom) of each panel showing no
+            are indicated on the top (resp.\ bottom) of each panel showing no
             sign that the SDSS and PS1 (resp. PS1 and SNLS) $x_1$ and $c$
             distributions are not drawn from the same underlying
     distributions}
@@ -470,7 +466,7 @@ In short, it was assumed that the number of ``young'' SNe~Ia follows the star
 formation rate (SFR) in the Universe, while the number of ``old'' SNe~Ia follows
 the number of Gyr-old stars in the Universe, i.e. the stellar mass (M$^*$).
 Hence, if we denote $\delta(z)$ (resp. $\psi(z) = 1-\delta(z)$) the fraction of
-young (resp. old) SNe~Ia in the Universe as a function of redshift, then the
+young (resp.\ old) SNe~Ia in the Universe as a function of redshift, then the
 ratio $\delta/\psi$ is expected to follow the evolution of the specific star
 formation rate (SFR/M$^*$), which goes as $(1+z)^{2.8}$ until $z\sim2$
 \citep[e.g.,][]{tasca2015}. Since $\delta(0.05) \sim \psi(0.05)$
@@ -529,8 +525,8 @@ linear combination of the stretch distributions of these two population weighted
 by its probability $y^i$ to be young (see Section~\ref{sec:basemodelapplied}).
 But generally, the fraction of young SNe~Ia as a function of redshift is given
 by $\delta(z)$ (see Eq.~\ref{eq:delta}) and therefore, our redshift drift model
-of the underlying stretch distribution of SNe~Ia as a function of redshift $X_1(z)$ is
-given by:
+of the underlying stretch distribution of SNe~Ia as a function of redshift
+$X_1(z)$ is given by:
 \begin{align}\label{eq:stretchz}
     X_1(z) = \delta(z)&\times \mathcal{N}(\mu_1,\sigma_1{}^2) + \nonumber \\
     (1-\delta(z))&\times \left[ a\times\mathcal{N}(\mu_1,\sigma_1{}^2) +
@@ -618,7 +614,7 @@ using $p_y^i$ --- the probability for the SN $i$ to be young --- when available
 young SNe~Ia at the SN redshift $z^i$ --- otherwise.
 
 Results of fitting this model to all the 569 (resp. 422) SNe from the fiducial
-(resp. conservative) sample are given Table~\ref{tab:modelresults}, and the
+(resp.\ conservative) sample are given Table~\ref{tab:modelresults}, and the
 predicted redshift evolution of mean stretch (expected $x_1$ given the
 distribution of Eq.~\ref{eq:stretchz}) illustrated as a blue band in
 Fig.~\ref{fig:modelall} accounting for parameters errors and their covariances.
@@ -643,7 +639,7 @@ discussion.
         fits of our Base drifting model are shown as blue, dashed-blue and
         gray, when fitted on the fiducial sample, the conservative one or
         the SNfactory dataset only, respectively; all are compatible. The
-        light-blue band illustrates the amplitude of the error (incl.
+        light-blue band illustrates the amplitude of the error (incl.\
         covariance) of the best fit model when considering the fiducial
     dataset.}
     \label{fig:modelall}
@@ -657,7 +653,7 @@ distribution following \cite{rigault2020}, i.e.\ as a single Gaussian for the
 population, one being the same as for the young population, plus another one for
 the fast-declining SNe~Ia that seem to only exist in old local environments.
 This is our so-called ``Base'' model. However, to test different modeling
-choices, we have implemented a suite of alternative parametrizations that we
+choices, we have implemented a suite of alternative parameterizations that we
 also adjust to the data following the procedure described in
 Section~\ref{sec:modelnopy}. 
 
@@ -928,7 +924,7 @@ underlying stretch distribution.
     \centering
     \includegraphics[width=\linewidth]{Article_figures/bbc_comp_PS1_hist-nr.pdf}
     \caption{Distribution of the PS1 SN~Ia \textsc{\texttt{SALT2.4}} stretch
-        ($x_1$) after the fiducial redshift limit cut (grey histogram). This
+        ($x_1$) after the fiducial redshift limit cut (gray histogram). This
         distribution is supposed to be a random draw from the underlying stretch
         distribution. The green lines show the BBC model of this underlying
         distribution (asymmetric Gaussian). The full line (band) is our best fit
